@@ -1,0 +1,15 @@
+{
+  "exclude": ["node_modules","./dist"],
+  "compilerOptions": {
+    "allowJs": true,
+    "jsx": "react",
+    "target": "ES5",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "module": "ESNext",                                /* Specify what module code is generated. */
+    "esModuleInterop": true,   
+    "moduleResolution": "Node",
+    "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
+    "strict": true,                                      /* Enable all strict type-checking options. */                   /* Skip type checking .d.ts files that are included with TypeScript. */
+    "skipLibCheck": true ,
+    "rootDir": "src"                               /* Skip type checking all .d.ts files. */
+  }
+}
