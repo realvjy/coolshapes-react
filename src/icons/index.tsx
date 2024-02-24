@@ -1,6 +1,6 @@
 // stars
-import Star1 from "./stars/s_1";
-import Star2 from "./stars/s_2";
+import {Star2} from "./stars/s_2";
+import { Star1 } from "./stars/s_1";
 
 
 

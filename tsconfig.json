@@ -10,6 +10,7 @@
     "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
     "strict": true,                                      /* Enable all strict type-checking options. */                   /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true ,
-    "rootDir": "src"                               /* Skip type checking all .d.ts files. */
+    "rootDir": "src",                               /* Skip type checking all .d.ts files. */
+    "allowSyntheticDefaultImports": true
   }
 }

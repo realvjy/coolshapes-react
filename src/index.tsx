@@ -1,6 +1,8 @@
 import React, { FC, SVGProps, useEffect, useState } from "react";
 
 import shapes, { getRandomShape } from "./icons";
+export * from './icons/stars/s_1'
+export * from './icons/stars/s_2'
 
 
 function Coolshape (options: ShapeOptions) {
@@ -21,7 +23,7 @@ function Coolshape (options: ShapeOptions) {
   }
 
   const Shape = shapes[shapeType][shapeIndex];
-  return <Shape {...options} />;
+  return <Shape iconName={`${shapeType}-${shapeIndex}`} {...options} />;
 }
 
 

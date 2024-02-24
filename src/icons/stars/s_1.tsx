@@ -1,17 +1,14 @@
-import React from "react";
-import defaultProps from "../defaultProps";
+import React, { ForwardRefExoticComponent, forwardRef } from "react";
+import ShapeBase, { ShapeType } from "../../lib/iconBase";
 
-export default function Star({size, noise, ...props}: any) {
+
+const Star1: ShapeType = forwardRef((props, ref)=>{
+    const ShapeId = 'star-1'
     return (
-        <svg
-            {...defaultProps}
-            {...props}
-            width={size}
-            height={size}
-        >
-            <g clipPath="url(#clip0_620_2128)">
+        <ShapeBase  ref={ref} {...props}>
+            <g clipPath={`url(#cs_clip_1_${ShapeId})`}>
                 <mask
-                    id="mask0_620_2128"
+                    id={`cs_mask_1_${ShapeId}`}
                     style={{ maskType: "alpha" }}
                     width="200"
                     height="200"
@@ -26,7 +23,7 @@ export default function Star({size, noise, ...props}: any) {
                         clipRule="evenodd"
                     ></path>
                 </mask>
-                <g mask="url(#mask0_620_2128)">
+                <g mask={`url(#cs_mask_1_${ShapeId})`}>
                     <path fill="#fff" d="M200 0H0v200h200V0z"></path>
                     <path
                         fill="#FFF9C5"
@@ -51,16 +48,6 @@ export default function Star({size, noise, ...props}: any) {
                     </g>
                 </g>
             </g>
-            <g style={{ mixBlendMode: "overlay" }} mask="url(#mask0_620_2128)">
-                {noise && (
-                    <path
-                        fill="gray"
-                        stroke="transparent"
-                        d="M200 0H0v200h200V0z"
-                        filter="url(#feTurbS01)"
-                    />
-                )}
-            </g>
             <defs>
                 <filter
                     id="filter0_f_620_2128"
@@ -82,37 +69,12 @@ export default function Star({size, noise, ...props}: any) {
                         stdDeviation="30"
                     ></feGaussianBlur>
                 </filter>
-                <filter
-                    id="feTurbS01"
-                    width="100%"
-                    height="100%"
-                    x="0%"
-                    y="0%"
-                    filterUnits="objectBoundingBox"
-                >
-                    <feTurbulence
-                        baseFrequency="0.6"
-                        numOctaves="5"
-                        result="out1"
-                        seed="4"
-                    ></feTurbulence>
-                    <feComposite
-                        in="out1"
-                        in2="SourceGraphic"
-                        operator="in"
-                        result="out2"
-                    ></feComposite>
-                    <feBlend
-                        in="SourceGraphic"
-                        in2="out2"
-                        mode="overlay"
-                        result="out3"
-                    ></feBlend>
-                </filter>
-                <clipPath id="clip0_620_2128">
+                <clipPath id={`cs_clip_1_${ShapeId}`}>
                     <path fill="#fff" d="M0 0H200V200H0z"></path>
                 </clipPath>
             </defs>
-        </svg>
-    );
-}
+    </ShapeBase>)
+});
+
+export {Star1};
+
