@@ -1,4 +1,5 @@
-import React, { FC, ReactNode, useEffect, useState } from "react";
+import React, { FC, SVGProps, useEffect, useState } from "react";
+
 import shapes, { getRandomShape } from "./icons";
 
 
@@ -12,7 +13,7 @@ function Coolshape (options: ShapeOptions) {
       setShapeType(randomShape.type);
       setShapeIndex(randomShape.index);
     };
-    
+
   }, []);
 
   if (!shapeType || !shapeIndex) {
@@ -24,12 +25,14 @@ function Coolshape (options: ShapeOptions) {
 }
 
 
-type ShapeOptions= {
-  type: keyof typeof shapes,
-  index: number,
-  random: boolean,
-  size: number,
-  noise: boolean
+interface ShapeOptions {
+  type: keyof typeof shapes;
+  index: number;
+  random: boolean;
+  size: number;
+  noise: boolean;
 };
 
+
 export default Coolshape;
+
