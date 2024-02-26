@@ -1,46 +1,54 @@
 import resolve from "@rollup/plugin-node-resolve";
-import babel from "@rollup/plugin-babel";
 import terser from "@rollup/plugin-terser";
 import typescript from "@rollup/plugin-typescript";
 import commonjs from "@rollup/plugin-commonjs";
 import { dts } from "rollup-plugin-dts";
+import pkg from './package.json' assert {type: 'json'}
+const inputFile = "src/index.tsx";
 
-const filename = "coolshape.js"
 // rollup.config.mjs
 export default [
   {
-    input: "src/index.tsx",
+    input: inputFile,
     output: [
       {
-        file: "dist/cjs/coolshapes.js",
+        file: pkg.main,
         format: "cjs",
         sourcemap: true,
       },
       {
-        file: "dist/esm/coolshapes.js",
+        file: pkg.module,
         format: "esm",
         sourcemap: true,
       },
       {
         name: "coolshapes",
-        file: "dist/umd/coolshapes.js",
+        file: pkg["main:umd"],
         format: "umd",
         sourcemap: true,
+        globals:{
+          "react":"React",
+          "react-dom":"ReactDOM"
+        }
       },
     ],
     external: ["react", "react-dom"],
-
-    plugins: [resolve(), commonjs(),	typescript({ tsconfig: "./tsconfig.json" }),
-    , terser()],
+    plugins: [
+      resolve(),
+      commonjs(),
+      typescript({ tsconfig: "./tsconfig.json" }),
+      terser(),
+    ],
   },
+  
   {
-    input: "src/index.tsx",
+    input: inputFile,
     output: [
       {
         file: `dist/index.d.ts`,
-        format: 'es',
+        format: "es",
       },
     ],
     plugins: [dts()],
-  }
+  },
 ];

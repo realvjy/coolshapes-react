@@ -2,4 +2,4 @@ tsconfig.json
 src/
 .babelrc
 node_modules
-rollup.config.json
+rollup.config.mjs

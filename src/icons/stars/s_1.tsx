@@ -1,11 +1,12 @@
-import React, { ForwardRefExoticComponent, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import ShapeBase, { ShapeType } from "../../lib/iconBase";
 
 
 const Star1: ShapeType = forwardRef((props, ref)=>{
     const ShapeId = 'star-1'
+    
     return (
-        <ShapeBase  ref={ref} {...props}>
+        <ShapeBase iconName={ShapeId} ref={ref} {...props}>
             <g clipPath={`url(#cs_clip_1_${ShapeId})`}>
                 <mask
                     id={`cs_mask_1_${ShapeId}`}
@@ -76,5 +77,6 @@ const Star1: ShapeType = forwardRef((props, ref)=>{
     </ShapeBase>)
 });
 
+Star1.displayName = 'Star1';
 export {Star1};
 

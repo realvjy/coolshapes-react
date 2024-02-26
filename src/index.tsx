@@ -1,40 +1,35 @@
-import React, { FC, SVGProps, useEffect, useState } from "react";
-
-import shapes, { getRandomShape } from "./icons";
+import React, { ForwardRefExoticComponent, forwardRef, useEffect, useState } from "react";
+import shapes, { getRandomShape, iconTypes } from "./icons";
+import { ShapeProps } from "./lib/iconBase";
 export * from './icons/stars/s_1'
 export * from './icons/stars/s_2'
 
-
-function Coolshape (options: ShapeOptions) {
-  const [shapeType, setShapeType] = useState<keyof typeof shapes | null>(options.type);
-  const [shapeIndex, setShapeIndex] = useState<number | null>(options.index);
-
-  useEffect(() => {
-    if (options.random || !(shapeType && shapeIndex)) {
-      const randomShape = getRandomShape(options.type);
-      setShapeType(randomShape.type);
-      setShapeIndex(randomShape.index);
-    };
-
-  }, []);
-
-  if (!shapeType || !shapeIndex) {
-    return null;
-  }
-
-  const Shape = shapes[shapeType][shapeIndex];
-  return <Shape iconName={`${shapeType}-${shapeIndex}`} {...options} />;
-}
-
-
-interface ShapeOptions {
-  type: keyof typeof shapes;
-  index: number;
-  random: boolean;
-  size: number;
-  noise: boolean;
+export interface ShapeOptions extends ShapeProps  {
+  type?: typeof iconTypes[number];
+  shape: keyof typeof shapes;
+  random?: boolean;
+  size?: number;
+  noise?: boolean;
 };
 
+const Coolshape: ForwardRefExoticComponent<ShapeOptions>  = forwardRef ((options, ref) => {
+  const {type,shape, random, ...rest} = options;
+  const [shapeName, setShapeName] = useState<keyof typeof shapes>(shape);
+  useEffect(()=>{
+    if (random || !shapeName){
+      const iconName = getRandomShape(type);
+      setShapeName(iconName)
+    }
+  },[])
 
-export default Coolshape;
+  if (!shapeName){
+    return null
+  }
+  const Shape = shapes[shapeName];
+  return <Shape ref={ref} {...rest} />
+});
 
+
+Coolshape.displayName = 'Coolshape';
+
+export { Coolshape};
