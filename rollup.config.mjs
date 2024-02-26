@@ -3,7 +3,7 @@ import terser from "@rollup/plugin-terser";
 import typescript from "@rollup/plugin-typescript";
 import commonjs from "@rollup/plugin-commonjs";
 import { dts } from "rollup-plugin-dts";
-import pkg from './package.json' assert {type: 'json'}
+import pkg from "./package.json" assert { type: "json" };
 const inputFile = "src/index.tsx";
 
 // rollup.config.mjs
@@ -26,10 +26,10 @@ export default [
         file: pkg["main:umd"],
         format: "umd",
         sourcemap: true,
-        globals:{
-          "react":"React",
-          "react-dom":"ReactDOM"
-        }
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
       },
     ],
     external: ["react", "react-dom"],
@@ -40,7 +40,7 @@ export default [
       terser(),
     ],
   },
-  
+
   {
     input: inputFile,
     output: [
