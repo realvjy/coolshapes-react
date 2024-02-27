@@ -34,9 +34,6 @@
       "email": "0xgreenapple@gmail.com"
     }
   ],
-  "exports":{
-    "./icons":"./src/icons"
-  },
   "license": "ISC",
   "homepage": "https://www.coolshap.es/",
   "repository": {

@@ -10,7 +10,7 @@ export * from "./icons/stars/s_1";
 export * from "./icons/stars/s_2";
 
 
-export interface ShapeOptions extends ShapeProps {
+interface ShapeOptions extends ShapeProps {
   type?: (typeof shapeTypes)[number];
   shape: keyof typeof shapes;
   random?: boolean;
