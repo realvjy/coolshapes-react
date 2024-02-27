@@ -8,7 +8,7 @@ const shapes = {
   "star-2": Star2,
 };
 // used to autocomplete types
-export const iconTypes = ["star"];
+export const shapeTypes = ["star"];
 
 // return random shape from the icons list
 export const getRandomShape = (type?: string) => {

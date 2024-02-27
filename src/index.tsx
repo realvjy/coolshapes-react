@@ -4,13 +4,14 @@ import React, {
   useEffect,
   useState,
 } from "react";
-import shapes, { getRandomShape, iconTypes } from "./icons";
+import shapes, { getRandomShape, shapeTypes } from "./icons";
 import { ShapeProps } from "./lib/iconBase";
 export * from "./icons/stars/s_1";
 export * from "./icons/stars/s_2";
 
+
 export interface ShapeOptions extends ShapeProps {
-  type?: (typeof iconTypes)[number];
+  type?: (typeof shapeTypes)[number];
   shape: keyof typeof shapes;
   random?: boolean;
   size?: number;
@@ -38,4 +39,4 @@ const Coolshape: ForwardRefExoticComponent<ShapeOptions> = forwardRef(
 
 Coolshape.displayName = "Coolshape";
 
-export { Coolshape };
+export { Coolshape, shapes, shapeTypes };
