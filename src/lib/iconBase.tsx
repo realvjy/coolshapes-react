@@ -44,7 +44,7 @@ const ShapeBase = forwardRef<SVGSVGElement, BaseProps>((props, ref) => {
       width={size || defaultWidth}
       height={size || defaultHeight}
       {...rest}
-      className={`${defaultClassName} ${iconName}${className || ""}`}>
+      className={`${defaultClassName} ${iconName} ${className || ""}`}>
       {children}
       {<NoiseMask showNoise={noise} id={iconName} />}
     </svg>
