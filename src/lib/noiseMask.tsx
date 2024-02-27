@@ -15,13 +15,13 @@ const NoiseMask = ({
             fill="gray"
             stroke="transparent"
             d="M200 0H0v200h200V0z"
-            filter="url(#feTurbS01)"
+            filter={`url(#feTurbS01-${id})`}
           />
         )}
       </g>
       <defs>
         <filter
-          id="feTurbS01"
+          id={`feTurbS01-${id}`}
           width="100%"
           height="100%"
           x="0%"
