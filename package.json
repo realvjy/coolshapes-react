@@ -1,9 +1,11 @@
 {
-  "name": "coolshapes",
-  "version": "1.0.0",
+  "name": "react-coolshapes",
+  "version": "0.0.1",
   "description": "A react component library for coolshapes",
   "keywords": [
-    "coolshapes"
+    "coolshapes",
+    "shapes",
+    "abstract"
   ],
   "main": "dist/cjs/coolshapes.js",
   "main:umd": "dist/umd/coolshapes.js",
@@ -34,7 +36,7 @@
       "email": "0xgreenapple@gmail.com"
     }
   ],
-  "license": "ISC",
+  "license": "MIT",
   "homepage": "https://www.coolshap.es/",
   "repository": {
     "type": "git",
@@ -42,7 +44,7 @@
   },
   "bugs": {
     "url": "https://github.com/realvjy/coolshap.es/issues",
-    "email": "yourbug@gmail.com"
+    "email": "realvjy@gmail.com"
   },
   "engines": {
     "node": ">=10"
