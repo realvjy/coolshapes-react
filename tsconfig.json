@@ -1,15 +1,19 @@
 {
-  "exclude": ["node_modules","./dist"],
+  "include": ["./src/**/*", "dist"],
   "compilerOptions": {
     "allowJs": true,
     "jsx": "react",
-    "target": "ES5",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-    "module": "ESNext",                                /* Specify what module code is generated. */
-    "esModuleInterop": true,   
+    "target": "ES2015" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
+    "module": "ESNext",
+    "lib": ["ES2016", "esnext", "DOM"],
+    "esModuleInterop": true,
     "moduleResolution": "Node",
-    "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
-    "strict": true,                                      /* Enable all strict type-checking options. */                   /* Skip type checking .d.ts files that are included with TypeScript. */
-    "skipLibCheck": true ,
-    "rootDir": "src"                               /* Skip type checking all .d.ts files. */
-  }
+    "forceConsistentCasingInFileNames": true,
+    "strict": true /* Skip type checking .d.ts files that are included with TypeScript. */,
+    "skipLibCheck": true,
+    "rootDir": "./src" /* Skip type checking all .d.ts files. */,
+    "allowSyntheticDefaultImports": true,
+    "outDir": "dist"
+  },
+  "exclude": ["node_modules", "dist", "./src/test.tsx"]
 }
