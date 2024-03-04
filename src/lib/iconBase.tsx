@@ -9,7 +9,7 @@ import NoiseMask from "./noiseMask";
 interface BaseProps extends ComponentPropsWithRef<"svg"> {
   size?: number;
   noise?: boolean;
-  iconName: string;
+  shapeName: string;
 }
 
 export interface ShapeProps extends ComponentPropsWithRef<"svg"> {
@@ -20,7 +20,7 @@ export interface ShapeProps extends ComponentPropsWithRef<"svg"> {
 export type ShapeType = ForwardRefExoticComponent<ShapeProps>;
 
 // default props
-export const defaultProps = {
+const defaultProps = {
   xmlns: "http://www.w3.org/2000/svg",
   fill: "none",
   className: "coolshapes",
@@ -30,7 +30,7 @@ export const defaultProps = {
 };
 
 const ShapeBase = forwardRef<SVGSVGElement, BaseProps>((props, ref) => {
-  const { size, noise = true, iconName, className, children, ...rest } = props;
+  const { size, noise = true, shapeName: iconName, className, children, ...rest } = props;
   const {
     className: defaultClassName,
     width: defaultWidth,

@@ -1,6 +1,10 @@
-export { default as Coolshape } from "./lib";
-export { default as shapes, shapeTypes } from "./icons";
-export * from "./icons/circles/c_1";
-export * from "./icons/circles/c_2";
-export * from "./icons/stars/s_1";
-export * from "./icons/stars/s_2";
+export * from "./lib/shapes";
+export { default as shapes, shapeTypes } from "./shapes";
+export * from "./shapes/circles/c_1";
+export * from "./shapes/circles/c_2";
+export * from "./shapes/stars/s_1";
+export * from "./shapes/stars/s_2";
+export * from "./shapes/ellipse/e_1";
+
+
+

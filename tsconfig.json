@@ -1,19 +1,20 @@
 {
-  "include": ["./src/**/*", "dist"],
+  "include": ["./src/**/*"],
+
   "compilerOptions": {
     "allowJs": true,
     "jsx": "react",
-    "target": "ES2015" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
+    "target": "ES2015",
     "module": "ESNext",
     "lib": ["ES2016", "esnext", "DOM"],
     "esModuleInterop": true,
     "moduleResolution": "Node",
     "forceConsistentCasingInFileNames": true,
-    "strict": true /* Skip type checking .d.ts files that are included with TypeScript. */,
+    "strict": true,
     "skipLibCheck": true,
-    "rootDir": "./src" /* Skip type checking all .d.ts files. */,
+    "rootDir": "./src",
     "allowSyntheticDefaultImports": true,
-    "outDir": "dist"
+    "outDir": "dist",    
   },
-  "exclude": ["node_modules", "dist", "./src/test.tsx"]
+  "exclude": ["node_modules", "dist"]
 }

@@ -1,11 +1,11 @@
 import React, { forwardRef } from "react";
-import { ShapeBase, ShapeType } from "../../lib/";
+import { ShapeBase, ShapeType } from "../../lib";
 
-const Circle2: ShapeType = forwardRef((props, ref) => {
-  const ShapeId = "circle-2";
+const Star2: ShapeType = forwardRef((props, ref) => {
+  const ShapeId = "star-2";
 
   return (
-    <ShapeBase iconName={ShapeId} ref={ref} {...props}>
+    <ShapeBase shapeName={ShapeId} ref={ref} {...props}>
       <g clipPath={`url(#cs_clip_1_${ShapeId})`}>
         <mask
           id={`cs_mask_1_${ShapeId}`}
@@ -22,9 +22,9 @@ const Circle2: ShapeType = forwardRef((props, ref) => {
         <g mask={`url(#cs_mask_1_${ShapeId})`}>
           <path fill="#fff" d="M200 0H0v200h200V0z"></path>
           <path
-            fill="url(#paint0_linear_620_2151)"
+            fill="url(#paint0_linear_620_2150)"
             d="M200 0H0v200h200V0z"></path>
-          <g filter="url(#filter0_f_620_2151)">
+          <g filter="url(#filter0_f_620_2150)">
             <path fill="#FF58E4" d="M130 0H69v113h61V0z"></path>
             <path
               fill="#0CE548"
@@ -39,7 +39,7 @@ const Circle2: ShapeType = forwardRef((props, ref) => {
       </g>
       <defs>
         <filter
-          id="filter0_f_620_2151"
+          id="filter0_f_620_2150"
           width="278"
           height="310"
           x="-27"
@@ -56,7 +56,7 @@ const Circle2: ShapeType = forwardRef((props, ref) => {
             stdDeviation="27.5"></feGaussianBlur>
         </filter>
         <linearGradient
-          id="paint0_linear_620_2151"
+          id="paint0_linear_620_2150"
           x1="186.5"
           x2="37"
           y1="37"
@@ -74,5 +74,5 @@ const Circle2: ShapeType = forwardRef((props, ref) => {
   );
 });
 
-Circle2.displayName = "Circle2";
-export { Circle2 };
+Star2.displayName = "Star2";
+export { Star2 };

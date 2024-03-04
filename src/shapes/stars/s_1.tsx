@@ -1,11 +1,11 @@
 import React, { forwardRef } from "react";
-import { ShapeBase, ShapeType } from "../../lib/";
+import { ShapeBase, ShapeType } from "../../lib";
 
-const Circle1: ShapeType = forwardRef((props, ref) => {
-  const ShapeId = "circle-1";
+const Star1: ShapeType = forwardRef((props, ref) => {
+  const ShapeId = "star-1";
 
   return (
-    <ShapeBase iconName={ShapeId} ref={ref} {...props}>
+    <ShapeBase shapeName={ShapeId} ref={ref} {...props}>
       <g clipPath={`url(#cs_clip_1_${ShapeId})`}>
         <mask
           id={`cs_mask_1_${ShapeId}`}
@@ -27,7 +27,7 @@ const Circle1: ShapeType = forwardRef((props, ref) => {
             fill="#FFF9C5"
             fillOpacity="0.44"
             d="M200 0H0v200h200V0z"></path>
-          <g filter="url(#filter0_f_620_2129)">
+          <g filter="url(#filter0_f_620_2128)">
             <path
               fill="#00F0FF"
               fillOpacity="0.85"
@@ -45,7 +45,7 @@ const Circle1: ShapeType = forwardRef((props, ref) => {
       </g>
       <defs>
         <filter
-          id="filter0_f_620_2129"
+          id="filter0_f_620_2128"
           width="344"
           height="315"
           x="-45"
@@ -58,7 +58,7 @@ const Circle1: ShapeType = forwardRef((props, ref) => {
             in2="BackgroundImageFix"
             result="shape"></feBlend>
           <feGaussianBlur
-            result="effect1_foregroundBlur_620_2129"
+            result="effect1_foregroundBlur_620_2128"
             stdDeviation="30"></feGaussianBlur>
         </filter>
         <clipPath id={`cs_clip_1_${ShapeId}`}>
@@ -69,5 +69,5 @@ const Circle1: ShapeType = forwardRef((props, ref) => {
   );
 });
 
-Circle1.displayName = "Circle1";
-export { Circle1 };
+Star1.displayName = "Star1";
+export { Star1 };
