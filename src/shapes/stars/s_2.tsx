@@ -5,7 +5,7 @@ const Star2: ShapeType = forwardRef((props, ref) => {
   const ShapeId = "star-2";
 
   return (
-    <ShapeBase shapeName={ShapeId} ref={ref} {...props}>
+    <ShapeBase {...props} shapeName={ShapeId} ref={ref}>
       <g clipPath={`url(#cs_clip_1_${ShapeId})`}>
         <mask
           id={`cs_mask_1_${ShapeId}`}

@@ -1,8 +1,8 @@
 import React, { forwardRef } from "react";
 import { ShapeBase, ShapeType } from "../../lib";
 
-const Ellipse1: ShapeType = forwardRef((props, ref) => {
-  const ShapeId = "ellipse-1";
+const Ellipse2: ShapeType = forwardRef((props, ref) => {
+  const ShapeId = "ellipse-2";
 
   return (
     <ShapeBase {...props} shapeName={ShapeId} ref={ref}>
@@ -18,34 +18,37 @@ const Ellipse1: ShapeType = forwardRef((props, ref) => {
           <path
             fill="#fff"
             fillRule="evenodd"
-            d="M0 100C0 44.772 44.772 0 100 0s100 44.772 100 100-44.772 100-100 100S0 155.228 0 100z"
+            d="M100 72c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28zM0 100C0 44.772 44.772 0 100 0s100 44.772 100 100-44.772 100-100 100S0 155.228 0 100z"
             clipRule="evenodd"></path>
         </mask>
         <g mask={`url(#cs_mask_1_${ShapeId})`}>
           <path fill="#fff" d="M200 0H0v200h200V0z"></path>
           <path
-            fill="url(#paint0_linear_748_4808)"
+            fill="url(#paint0_linear_748_4798)"
+            fillOpacity="0.55"
             d="M200 0H0v200h200V0z"></path>
-          <g filter="url(#filter0_f_748_4808)">
-            <path fill="#FF58E4" d="M130 0H69v113h61V0z"></path>
-            <path
-              fill="#0CE548"
-              fillOpacity="0.35"
-              d="M196 91H82v102h114V91z"></path>
+          <g filter="url(#filter0_f_748_4798)">
             <path
               fill="#FFE500"
               fillOpacity="0.74"
-              d="M113 80H28v120h85V80z"></path>
+              d="M117 77H-22v130h139V77z"></path>
+            <path fill="#EE46D3" d="M174-60H-17V78h191V-60z"></path>
+            <ellipse
+              cx="107.531"
+              cy="168.75"
+              fill="#00F0FF"
+              rx="69.531"
+              ry="47.75"></ellipse>
           </g>
         </g>
       </g>
       <defs>
         <filter
-          id="filter0_f_748_4808"
-          width="278"
-          height="310"
-          x="-27"
-          y="-55"
+          id="filter0_f_748_4798"
+          width="324.062"
+          height="401.5"
+          x="-84.5"
+          y="-122.5"
           colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse">
           <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
@@ -54,18 +57,18 @@ const Ellipse1: ShapeType = forwardRef((props, ref) => {
             in2="BackgroundImageFix"
             result="shape"></feBlend>
           <feGaussianBlur
-            result="effect1_foregroundBlur_748_4808"
-            stdDeviation="27.5"></feGaussianBlur>
+            result="effect1_foregroundBlur_748_4798"
+            stdDeviation="31.25"></feGaussianBlur>
         </filter>
         <linearGradient
-          id="paint0_linear_748_4808"
-          x1="186.5"
-          x2="37"
-          y1="37"
-          y2="186.5"
+          id="paint0_linear_748_4798"
+          x1="200"
+          x2="0"
+          y1="0"
+          y2="200"
           gradientUnits="userSpaceOnUse">
-          <stop stopColor="#0E6FFF" stopOpacity="0.51"></stop>
-          <stop offset="1" stopColor="#00F0FF" stopOpacity="0.59"></stop>
+          <stop stopColor="#FF1F00"></stop>
+          <stop offset="1" stopColor="#FFD600"></stop>
         </linearGradient>
         <clipPath id={`cs_clip_1_${ShapeId}`}>
           <path fill="#fff" d="M0 0H200V200H0z"></path>
@@ -75,5 +78,5 @@ const Ellipse1: ShapeType = forwardRef((props, ref) => {
   );
 });
 
-Ellipse1.displayName = "Ellipse1";
-export { Ellipse1 };
+Ellipse2.displayName = "Ellipse2";
+export { Ellipse2 };
