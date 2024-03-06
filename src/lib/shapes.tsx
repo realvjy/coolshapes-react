@@ -50,8 +50,8 @@ const getComponentWithShape = (
   return Component;
 };
 const Star = getComponentWithShape("star");
-const Circle = getComponentWithShape("circle");
 const Ellipse = getComponentWithShape("ellipse");
+const Flower = getComponentWithShape("flower");
 
 
-export {Coolshape, Star, Circle, Ellipse};
+export {Coolshape, Star, Flower, Ellipse};
