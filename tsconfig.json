@@ -14,7 +14,7 @@
     "skipLibCheck": true,
     "rootDir": "./src",
     "allowSyntheticDefaultImports": true,
-    "outDir": "dist",    
+    "outDir": "dist"
   },
   "exclude": ["node_modules", "dist"]
 }

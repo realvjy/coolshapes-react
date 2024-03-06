@@ -1,4 +1,3 @@
-
 import React, {
   ForwardRefExoticComponent,
   forwardRef,
@@ -53,5 +52,4 @@ const Star = getComponentWithShape("star");
 const Ellipse = getComponentWithShape("ellipse");
 const Flower = getComponentWithShape("flower");
 
-
-export {Coolshape, Star, Flower, Ellipse};
+export { Coolshape, Star, Flower, Ellipse };
