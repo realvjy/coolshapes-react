@@ -1,6 +1,17 @@
 // stars
-import { Star2 } from "./stars/s_2";
 import { Star1 } from "./stars/s_1";
+import { Star2 } from "./stars/s_2";
+import { Star3 } from "./stars/s_3";
+import { Star4 } from "./stars/s_4";
+import { Star5 } from "./stars/s_5";
+import { Star6 } from "./stars/s_6";
+import { Star7 } from "./stars/s_7";
+import { Star8 } from "./stars/s_8";
+import { Star9 } from "./stars/s_9";
+import { Star10 } from "./stars/s_10";
+import { Star11 } from "./stars/s_11";
+import { Star12 } from "./stars/s_12";
+import { Star13 } from "./stars/s_13";
 import { Ellipse1 } from "./ellipse/e_1";
 import { Ellipse2 } from "./ellipse/e_2";
 import { Ellipse3 } from "./ellipse/e_3";
@@ -28,10 +39,24 @@ import { Flower13 } from "./flowers/f_13";
 import { Flower14 } from "./flowers/f_14";
 import { Flower15 } from "./flowers/f_15";
 import { Flower16 } from "./flowers/f_16";
+import { ShapeType } from "../lib";
 
-// shapes to map the shape names for autocomplete and used to display random shapes
 const shapes = {
-  star: [Star1, Star2],
+  star: [
+    Star1,
+    Star2,
+    Star3,
+    Star4,
+    Star5,
+    Star6,
+    Star7,
+    Star8,
+    Star9,
+    Star10,
+    Star11,
+    Star12,
+    Star13,
+  ],
   flower: [
     Flower1,
     Flower2,
@@ -67,8 +92,15 @@ const shapes = {
 // used to autocomplete types
 export type shapeTypes = keyof typeof shapes;
 
+export type componentId = {shapeType:shapeTypes, index: number};
 // return random shape from the shapes list
-export const getRandomShape = (type?: keyof typeof shapes) => {
+export const getRandomShape = ({
+  type,
+  onlyId,
+}: {
+  type?: keyof typeof shapes;
+  onlyId?: boolean;
+} = {}): ShapeType | componentId => {
   const shapeKeys = Object.keys(shapes);
   const shapeType: keyof typeof shapes =
     type ||
@@ -77,7 +109,12 @@ export const getRandomShape = (type?: keyof typeof shapes) => {
     ] as keyof typeof shapes);
 
   const randomIndex = Math.floor(Math.random() * shapes[shapeType].length);
-
+  if (onlyId) {
+    return {
+      shapeType,
+      index: randomIndex,
+    };
+  }
   return shapes[shapeType][randomIndex];
 };
 

@@ -1,8 +1,8 @@
 import React, { forwardRef } from "react";
 import { ShapeBase, ShapeType } from "../../lib";
 
-const Star2: ShapeType = forwardRef((props, ref) => {
-  const shapeId = "star-2";
+const Star3: ShapeType = forwardRef((props, ref) => {
+  const shapeId = "star-3";
   const clipId = `cs_clip_1_${shapeId}`;
   const maskId = `cs_mask_1_${shapeId}`;
 
@@ -13,33 +13,44 @@ const Star2: ShapeType = forwardRef((props, ref) => {
           id={maskId}
           style={{ maskType: "alpha" }}
           width="200"
-          height="190"
+          height="200"
           x="0"
-          y="5"
+          y="0"
           maskUnits="userSpaceOnUse">
           <path
             fill="#fff"
-            d="M100 5l27.194 67.642L200 77.573l-56 46.737L161.803 195 100 156.242 38.197 195 56 124.31 0 77.573l72.806-4.93L100 5z"></path>
+            d="M58.579 0L100 31.485 141.421 0l7.027 51.552L200 58.58 168.515 100 200 141.421l-51.552 7.027L141.421 200 100 168.515 58.579 200l-7.027-51.552L0 141.421 31.485 100 0 58.579l51.552-7.027L58.58 0z"></path>
         </mask>
         <g mask={`url(#${maskId})`}>
           <path fill="#fff" d="M200 0H0v200h200V0z"></path>
           <path
-            fill="url(#paint0_linear_748_4335)"
-            fillOpacity="0.55"
+            fill="#FFF500"
+            fillOpacity="0.44"
             d="M200 0H0v200h200V0z"></path>
-          <g filter="url(#filter0_f_748_4335)">
-            <path fill="#06F" d="M224 5H96v113h128V5z"></path>
-            <path fill="#FF00D6" d="M99 72H0v97h99V72z"></path>
+          <g filter="url(#filter0_f_748_4229)">
+            <ellipse
+              cx="106"
+              cy="22.5"
+              fill="#FF00D6"
+              rx="88"
+              ry="49.5"></ellipse>
+            <ellipse
+              cx="64.5"
+              cy="155"
+              fill="#07FFE1"
+              rx="64.5"
+              ry="45"></ellipse>
+            <path fill="#06F" d="M218 126H100v120h118V126z"></path>
           </g>
         </g>
       </g>
       <defs>
         <filter
-          id="filter0_f_748_4335"
-          width="364"
-          height="304"
-          x="-70"
-          y="-65"
+          id="filter0_f_748_4229"
+          width="378"
+          height="433"
+          x="-80"
+          y="-107"
           colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse">
           <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
@@ -48,19 +59,9 @@ const Star2: ShapeType = forwardRef((props, ref) => {
             in2="BackgroundImageFix"
             result="shape"></feBlend>
           <feGaussianBlur
-            result="effect1_foregroundBlur_748_4335"
-            stdDeviation="35"></feGaussianBlur>
+            result="effect1_foregroundBlur_748_4229"
+            stdDeviation="40"></feGaussianBlur>
         </filter>
-        <linearGradient
-          id="paint0_linear_748_4335"
-          x1="162"
-          x2="49.5"
-          y1="38"
-          y2="150.5"
-          gradientUnits="userSpaceOnUse">
-          <stop stopColor="#FF1F00"></stop>
-          <stop offset="1" stopColor="#FF58E4"></stop>
-        </linearGradient>
         <clipPath id={clipId}>
           <path fill="#fff" d="M0 0H200V200H0z"></path>
         </clipPath>
@@ -69,5 +70,5 @@ const Star2: ShapeType = forwardRef((props, ref) => {
   );
 });
 
-Star2.displayName = "Star2";
-export { Star2 };
+Star3.displayName = "Star3";
+export { Star3 };

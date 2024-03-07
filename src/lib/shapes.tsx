@@ -23,9 +23,9 @@ const Coolshape: ForwardRefExoticComponent<ShapeOptions> = forwardRef(
     useEffect(() => {
       let shape;
       if (random || !type || !index) {
-        shape = getRandomShape(type);
+        shape = getRandomShape({type}) as ShapeType;
       } else {
-        shape = shapes[type][index];
+        shape = shapes[type][index - 1];
       }
       setShape(shape);
     }, []);
@@ -48,6 +48,7 @@ const getComponentWithShape = (
   Component.displayName = shapeType;
   return Component;
 };
+
 const Star = getComponentWithShape("star");
 const Ellipse = getComponentWithShape("ellipse");
 const Flower = getComponentWithShape("flower");
