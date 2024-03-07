@@ -35,7 +35,7 @@
       "email": "0xgreenapple@gmail.com"
     }
   ],
-  "license": "ISC",
+  "license": "MIT",
   "homepage": "https://www.coolshap.es/",
   "repository": {
     "type": "git",

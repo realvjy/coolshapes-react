@@ -1,7 +1,5 @@
 import React from "react";
 
-
-
 const NoiseMask = ({
   showNoise = true,
   id,

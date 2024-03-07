@@ -5,7 +5,9 @@ import React, { ForwardRefExoticComponent } from "react";
 import shapes, { componentId, getRandomShape, shapeTypes } from "../shapes";
 import { ShapeType } from "../lib";
 import { Coolshape, Star } from "../lib/shapes";
+
 const noiseIdentifierQuery = `path[d="M200 0H0v200h200V0z"][fill="gray"][stroke="transparent"]`;
+
 describe("using every icons from the defined list", async () => {
   const shapeTypes = Object.keys(shapes) as Array<shapeTypes>;
   shapeTypes.forEach((type) => {

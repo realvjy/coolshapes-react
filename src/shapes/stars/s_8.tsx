@@ -16,20 +16,17 @@ const Star8: ShapeType = forwardRef((props, ref) => {
           height="200"
           x="0"
           y="0"
-          maskUnits="userSpaceOnUse"
-        >
+          maskUnits="userSpaceOnUse">
           <path
             fill="#fff"
-            d="M100 0c12.424 62.382 37.256 87.456 100 100-62.759 12.544-87.591 37.618-100 100-12.424-62.382-37.256-87.471-100-100C62.758 87.456 87.591 62.382 100 0z"
-          ></path>
+            d="M100 0c12.424 62.382 37.256 87.456 100 100-62.759 12.544-87.591 37.618-100 100-12.424-62.382-37.256-87.471-100-100C62.758 87.456 87.591 62.382 100 0z"></path>
         </mask>
         <g mask={`url(#${maskId})`}>
           <path fill="#fff" d="M200 0H0v200h200V0z"></path>
           <path
             fill="url(#paint0_linear_${shapeId})"
             fillOpacity="0.55"
-            d="M200 0H0v200h200V0z"
-          ></path>
+            d="M200 0H0v200h200V0z"></path>
           <g filter={`url(#filter0_f_748_${shapeId})`}>
             <path fill="#06F" d="M213 69H93v141h120V69z"></path>
           </g>
@@ -43,18 +40,15 @@ const Star8: ShapeType = forwardRef((props, ref) => {
           x="30.5"
           y="6.5"
           colorInterpolationFilters="sRGB"
-          filterUnits="userSpaceOnUse"
-        >
+          filterUnits="userSpaceOnUse">
           <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
           <feBlend
             in="SourceGraphic"
             in2="BackgroundImageFix"
-            result="shape"
-          ></feBlend>
+            result="shape"></feBlend>
           <feGaussianBlur
             result={`effect1_foregroundBlur_748_${shapeId}`}
-            stdDeviation="31.25"
-          ></feGaussianBlur>
+            stdDeviation="31.25"></feGaussianBlur>
         </filter>
         <linearGradient
           id={`paint0_linear_${shapeId}`}
@@ -62,8 +56,7 @@ const Star8: ShapeType = forwardRef((props, ref) => {
           x2="49.5"
           y1="38"
           y2="150.5"
-          gradientUnits="userSpaceOnUse"
-        >
+          gradientUnits="userSpaceOnUse">
           <stop stopColor="#FF1F00"></stop>
           <stop offset="1" stopColor="#FF58E4"></stop>
         </linearGradient>

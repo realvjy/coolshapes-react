@@ -1,7 +1,6 @@
 import React, { forwardRef } from "react";
 import { ShapeBase, ShapeType } from "../../lib";
 
-
 const Ellipse10: ShapeType = forwardRef((props, ref) => {
   const ShapeId = "ellipse-10";
 

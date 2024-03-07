@@ -92,7 +92,7 @@ const shapes = {
 // used to autocomplete types
 export type shapeTypes = keyof typeof shapes;
 
-export type componentId = {shapeType:shapeTypes, index: number};
+export type componentId = { shapeType: shapeTypes; index: number };
 // return random shape from the shapes list
 export const getRandomShape = ({
   type,

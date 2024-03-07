@@ -23,7 +23,7 @@ const Coolshape: ForwardRefExoticComponent<ShapeOptions> = forwardRef(
     useEffect(() => {
       let shape;
       if (random || !type || !index) {
-        shape = getRandomShape({type}) as ShapeType;
+        shape = getRandomShape({ type }) as ShapeType;
       } else {
         shape = shapes[type][index - 1];
       }

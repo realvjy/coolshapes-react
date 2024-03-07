@@ -23,8 +23,12 @@ const Star5: ShapeType = forwardRef((props, ref) => {
         </mask>
         <g mask={`url(#${maskId})`}>
           <path fill="#fff" d="M200 0H0v200h200V0z"></path>
-          <path fill="url(#paint0_radial_748_4249)" d="M200 0H0v200h200V0z"></path>
-          <path fill="url(#paint1_radial_748_4249)" d="M200 0H0v200h200V0z"></path>
+          <path
+            fill="url(#paint0_radial_748_4249)"
+            d="M200 0H0v200h200V0z"></path>
+          <path
+            fill="url(#paint1_radial_748_4249)"
+            d="M200 0H0v200h200V0z"></path>
         </g>
       </g>
       <defs>
