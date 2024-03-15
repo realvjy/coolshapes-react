@@ -12,17 +12,17 @@ import { Star10 } from "./stars/s_10";
 import { Star11 } from "./stars/s_11";
 import { Star12 } from "./stars/s_12";
 import { Star13 } from "./stars/s_13";
-import { Ellipse1 } from "./ellipse/e_1";
-import { Ellipse2 } from "./ellipse/e_2";
-import { Ellipse3 } from "./ellipse/e_3";
-import { Ellipse4 } from "./ellipse/e_4";
-import { Ellipse5 } from "./ellipse/e_5";
-import { Ellipse6 } from "./ellipse/e_6";
-import { Ellipse7 } from "./ellipse/e_7";
-import { Ellipse8 } from "./ellipse/e_8";
-import { Ellipse9 } from "./ellipse/e_9";
-import { Ellipse10 } from "./ellipse/e_10";
-import { Ellipse11 } from "./ellipse/e_11";
+import { Ellipse1 } from "./ellipses/e_1";
+import { Ellipse2 } from "./ellipses/e_2";
+import { Ellipse3 } from "./ellipses/e_3";
+import { Ellipse4 } from "./ellipses/e_4";
+import { Ellipse5 } from "./ellipses/e_5";
+import { Ellipse6 } from "./ellipses/e_6";
+import { Ellipse7 } from "./ellipses/e_7";
+import { Ellipse8 } from "./ellipses/e_8";
+import { Ellipse9 } from "./ellipses/e_9";
+import { Ellipse10 } from "./ellipses/e_10";
+import { Ellipse11 } from "./ellipses/e_11";
 import { Flower1 } from "./flowers/f_1";
 import { Flower2 } from "./flowers/f_2";
 import { Flower3 } from "./flowers/f_3";
@@ -39,6 +39,26 @@ import { Flower13 } from "./flowers/f_13";
 import { Flower14 } from "./flowers/f_14";
 import { Flower15 } from "./flowers/f_15";
 import { Flower16 } from "./flowers/f_16";
+import { Wheel1 } from "./wheels/w_1";
+import { Wheel2 } from "./wheels/w_2";
+import { Wheel3 } from "./wheels/w_3";
+import { Wheel4 } from "./wheels/w_4";
+import { Wheel5 } from "./wheels/w_5";
+import { Wheel6 } from "./wheels/w_6";
+import { Moon1 } from "./moons/m_1";
+import { Moon2 } from "./moons/m_2";
+import { Moon3 } from "./moons/m_3";
+import { Misc1 } from "./miscs/m_1";
+import { Misc2 } from "./miscs/m_2";
+import { Misc3 } from "./miscs/m_3";
+import { Misc4 } from "./miscs/m_4";
+import { Misc5 } from "./miscs/m_5";
+import { Misc6 } from "./miscs/m_6";
+import { Misc7 } from "./miscs/m_7";
+import { Misc8 } from "./miscs/m_8";
+import { Misc9 } from "./miscs/m_9";
+import { Misc10 } from "./miscs/m_10";
+
 import { ShapeType } from "../lib";
 
 const shapes = {
@@ -88,7 +108,11 @@ const shapes = {
     Ellipse10,
     Ellipse11,
   ],
+  wheel: [Wheel1, Wheel2, Wheel3, Wheel4, Wheel5, Wheel6],
+  moon: [Moon1, Moon2, Moon3],
+  misc: [Misc1, Misc2, Misc3, Misc4, Misc5, Misc6, Misc7, Misc8, Misc9, Misc10],
 };
+
 // used to autocomplete types
 export type shapeTypes = keyof typeof shapes;
 

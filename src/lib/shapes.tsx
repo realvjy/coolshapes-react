@@ -19,15 +19,13 @@ interface BaseShapeOptions extends ShapeProps {
 const Coolshape: ForwardRefExoticComponent<ShapeOptions> = forwardRef(
   (options, ref) => {
     const { type, index, random, ...rest } = options;
-    const [Shape, setShape] = useState<ShapeType | null>(null);
+    const initialShape = index && type ? shapes[type][index - 1] : null
+    const [Shape, setShape] = useState<ShapeType | null>(initialShape);
     useEffect(() => {
-      let shape;
       if (random || !type || !index) {
-        shape = getRandomShape({ type }) as ShapeType;
-      } else {
-        shape = shapes[type][index - 1];
+        const shape = getRandomShape({ type }) as ShapeType;
+        setShape(shape);
       }
-      setShape(shape);
     }, []);
     if (!Shape) {
       return null;
@@ -52,5 +50,8 @@ const getComponentWithShape = (
 const Star = getComponentWithShape("star");
 const Ellipse = getComponentWithShape("ellipse");
 const Flower = getComponentWithShape("flower");
+const Misc = getComponentWithShape("misc");
+const Moon = getComponentWithShape("moon");
 
-export { Coolshape, Star, Flower, Ellipse };
+
+export { Coolshape, Star, Flower, Ellipse, Misc, Moon };
