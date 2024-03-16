@@ -1,8 +1,8 @@
 import React, { forwardRef } from "react";
 import { ShapeBase, ShapeType } from "../../lib";
 
-const Misc7: ShapeType = forwardRef((props, ref) => {
-  const shapeId = "misc-7";
+const Triangle5: ShapeType = forwardRef((props, ref) => {
+  const shapeId = "triangle-5";
   const clipId = `cs_clip_1_${shapeId}`;
   const maskId = `cs_mask_1_${shapeId}`;
 
@@ -13,40 +13,40 @@ const Misc7: ShapeType = forwardRef((props, ref) => {
           id={maskId}
           style={{ maskType: "alpha" }}
           width="200"
-          height="200"
+          height="184"
           x="0"
-          y="0"
+          y="8"
           maskUnits="userSpaceOnUse">
           <path
             fill="#fff"
-            d="M0 0h40v40H0V0zM40 40h40v40H40V40zM0 80h40v40H0V80zM40 120h40v40H40v-40zM120 40h40v40h-40V40zM80 80h40v40H80V80zM0 160h40v40H0v-40zM160 80h40v40h-40V80zM80 0h40v40H80V0zM120 120h40v40h-40v-40zM80 160h40v40H80v-40zM160 0h40v40h-40V0zM160 160h40v40h-40v-40z"></path>
+            d="M54.42 55.018c15.258-26.783 22.887-40.175 32.976-44.454a32.263 32.263 0 0125.208 0c10.089 4.28 17.718 17.67 32.975 44.454l32.998 57.923c15.101 26.507 22.651 40.766 21.26 51.627-1.111 8.678-4.645 15.537-11.582 20.82C179.571 192 163.38 192 132.998 192H67.002c-30.382 0-46.573 0-55.256-6.612-6.938-5.283-10.472-12.142-11.583-20.82-1.39-10.861 6.16-25.12 21.26-51.627L54.42 55.018z"></path>
         </mask>
         <g mask={`url(#${maskId})`}>
           <path fill="#fff" d="M200 0H0v200h200V0z"></path>
           <path
-            fill="url(#paint0_linear_748_5013)"
+            fill="url(#paint0_linear_748_4943)"
             fillOpacity="0.55"
             d="M200 0H0v200h200V0z"></path>
-          <g filter="url(#filter0_f_748_5013)">
-            <path fill="#FF58E4" d="M190 109H0v116h190V109z"></path>
-            <path fill="#00C5DF" d="M106-37H-33v150h139V-37z"></path>
+          <g filter="url(#filter0_f_748_4943)">
+            <path fill="#18A0FB" d="M135.366 3H-13v108h148.366V3z"></path>
+            <path fill="#FF58E4" d="M196.58 109H-.55v116h197.13V109z"></path>
             <ellipse
-              cx="151.215"
-              cy="65.167"
+              cx="85.159"
+              cy="57.673"
               fill="#FFD749"
-              rx="94.157"
-              ry="64.662"
-              transform="rotate(-33.875 151.215 65.167)"></ellipse>
+              rx="85.159"
+              ry="57.673"
+              transform="matrix(.83957 -.54325 .57155 .82057 54.44 63.525)"></ellipse>
           </g>
         </g>
       </g>
       <defs>
         <filter
-          id="filter0_f_748_5013"
-          width="390.318"
-          height="382"
-          x="-93"
-          y="-97"
+          id="filter0_f_748_4943"
+          width="370.649"
+          height="346.593"
+          x="-73"
+          y="-61.593"
           colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse">
           <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
@@ -55,11 +55,11 @@ const Misc7: ShapeType = forwardRef((props, ref) => {
             in2="BackgroundImageFix"
             result="shape"></feBlend>
           <feGaussianBlur
-            result="effect1_foregroundBlur_748_5013"
+            result="effect1_foregroundBlur_748_4943"
             stdDeviation="30"></feGaussianBlur>
         </filter>
         <linearGradient
-          id="paint0_linear_748_5013"
+          id="paint0_linear_748_4943"
           x1="200"
           x2="0"
           y1="0"
@@ -76,5 +76,5 @@ const Misc7: ShapeType = forwardRef((props, ref) => {
   );
 });
 
-Misc7.displayName = "Misc7";
-export { Misc7 };
+Triangle5.displayName = "Triangle5";
+export { Triangle5 };

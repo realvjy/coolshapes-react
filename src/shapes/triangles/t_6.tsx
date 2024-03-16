@@ -1,8 +1,8 @@
 import React, { forwardRef } from "react";
 import { ShapeBase, ShapeType } from "../../lib";
 
-const Wheel1: ShapeType = forwardRef((props, ref) => {
-  const shapeId = "wheel-1";
+const Triangle6: ShapeType = forwardRef((props, ref) => {
+  const shapeId = "triangle-6";
   const clipId = `cs_clip_1_${shapeId}`;
   const maskId = `cs_mask_1_${shapeId}`;
 
@@ -19,30 +19,29 @@ const Wheel1: ShapeType = forwardRef((props, ref) => {
           maskUnits="userSpaceOnUse">
           <path
             fill="#fff"
-            d="M117 0H83l12.468 89.06L41.31 17.269 17.268 41.31 89.06 95.468 0 83v34l89.06-12.468-71.791 54.158 24.041 24.042 54.158-71.792L83 200h34l-12.468-89.06 54.158 71.792 24.041-24.042-71.791-54.158L200 117V83l-89.06 12.468 71.792-54.158-24.042-24.042-54.158 71.792L117 0z"></path>
+            d="M200 0v200L0 0h200zM100 100v100L0 100h100z"></path>
         </mask>
         <g mask={`url(#${maskId})`}>
-          <path fill="#fff" d="M200.001 0h-200v200h200V0z"></path>
-          <path fill="#0E6FFF" d="M200.001 0h-200v200h200V0z"></path>
-          <g filter="url(#filter0_f_748_4854)">
-            <path fill="#8F5BFF" d="M231 114H9v116h222V114z"></path>
+          <path fill="#fff" d="M200 0H0v200h200V0z"></path>
+          <path fill="#0E6FFF" d="M200 0H0v200h200V0z"></path>
+          <g filter="url(#filter0_f_748_4934)">
+            <path fill="#8F5BFF" d="M243.892 107.197h-222v116h222v-116z"></path>
             <ellipse
-              cx="53.016"
-              cy="0.222"
+              cx="68.935"
+              cy="-27.395"
               fill="#00F0FF"
               rx="111.935"
-              ry="76.871"
-              transform="rotate(-15 53.016 .222)"></ellipse>
+              ry="63.605"></ellipse>
           </g>
         </g>
       </g>
       <defs>
         <filter
-          id="filter0_f_748_4854"
-          width="407.938"
-          height="429.502"
-          x="-116.938"
-          y="-139.502"
+          id="filter0_f_748_4934"
+          width="406.892"
+          height="434.197"
+          x="-103"
+          y="-151"
           colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse">
           <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
@@ -51,7 +50,7 @@ const Wheel1: ShapeType = forwardRef((props, ref) => {
             in2="BackgroundImageFix"
             result="shape"></feBlend>
           <feGaussianBlur
-            result="effect1_foregroundBlur_748_4854"
+            result="effect1_foregroundBlur_748_4934"
             stdDeviation="30"></feGaussianBlur>
         </filter>
         <clipPath id={clipId}>
@@ -62,5 +61,5 @@ const Wheel1: ShapeType = forwardRef((props, ref) => {
   );
 });
 
-Wheel1.displayName = "Wheel1";
-export { Wheel1 };
+Triangle6.displayName = "Triangle6";
+export { Triangle6 };

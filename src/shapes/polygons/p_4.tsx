@@ -1,8 +1,8 @@
 import React, { forwardRef } from "react";
 import { ShapeBase, ShapeType } from "../../lib";
 
-const Misc7: ShapeType = forwardRef((props, ref) => {
-  const shapeId = "misc-7";
+const Polygon4: ShapeType = forwardRef((props, ref) => {
+  const shapeId = "polygon-4";
   const clipId = `cs_clip_1_${shapeId}`;
   const maskId = `cs_mask_1_${shapeId}`;
 
@@ -19,34 +19,32 @@ const Misc7: ShapeType = forwardRef((props, ref) => {
           maskUnits="userSpaceOnUse">
           <path
             fill="#fff"
-            d="M0 0h40v40H0V0zM40 40h40v40H40V40zM0 80h40v40H0V80zM40 120h40v40H40v-40zM120 40h40v40h-40V40zM80 80h40v40H80V80zM0 160h40v40H0v-40zM160 80h40v40h-40V80zM80 0h40v40H80V0zM120 120h40v40h-40v-40zM80 160h40v40H80v-40zM160 0h40v40h-40V0zM160 160h40v40h-40v-40z"></path>
+            d="M141.304 0l58.613 58.495.083 82.809-58.495 58.613-82.809.083L.083 141.505 0 58.696 58.495.083 141.304 0z"></path>
         </mask>
         <g mask={`url(#${maskId})`}>
           <path fill="#fff" d="M200 0H0v200h200V0z"></path>
+          <path fill="#07FFE1" d="M200 0H0v200h200V0z"></path>
           <path
-            fill="url(#paint0_linear_748_5013)"
-            fillOpacity="0.55"
+            fill="url(#paint0_linear_748_4379)"
             d="M200 0H0v200h200V0z"></path>
-          <g filter="url(#filter0_f_748_5013)">
-            <path fill="#FF58E4" d="M190 109H0v116h190V109z"></path>
-            <path fill="#00C5DF" d="M106-37H-33v150h139V-37z"></path>
+          <g filter="url(#filter0_f_748_4379)">
             <ellipse
-              cx="151.215"
-              cy="65.167"
+              cx="162.682"
+              cy="0.587"
               fill="#FFD749"
-              rx="94.157"
-              ry="64.662"
-              transform="rotate(-33.875 151.215 65.167)"></ellipse>
+              rx="83"
+              ry="57"
+              transform="rotate(-33.875 162.682 .587)"></ellipse>
           </g>
         </g>
       </g>
       <defs>
         <filter
-          id="filter0_f_748_5013"
-          width="390.318"
-          height="382"
-          x="-93"
-          y="-97"
+          id="filter0_f_748_4379"
+          width="291.802"
+          height="272.361"
+          x="16.781"
+          y="-135.593"
           colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse">
           <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
@@ -55,18 +53,18 @@ const Misc7: ShapeType = forwardRef((props, ref) => {
             in2="BackgroundImageFix"
             result="shape"></feBlend>
           <feGaussianBlur
-            result="effect1_foregroundBlur_748_5013"
-            stdDeviation="30"></feGaussianBlur>
+            result="effect1_foregroundBlur_748_4379"
+            stdDeviation="35"></feGaussianBlur>
         </filter>
         <linearGradient
-          id="paint0_linear_748_5013"
-          x1="200"
-          x2="0"
-          y1="0"
-          y2="200"
+          id="paint0_linear_748_4379"
+          x1="38"
+          x2="119"
+          y1="14.5"
+          y2="181.5"
           gradientUnits="userSpaceOnUse">
-          <stop stopColor="#FF1F00"></stop>
-          <stop offset="1" stopColor="#FFD600"></stop>
+          <stop stopColor="#FFE500"></stop>
+          <stop offset="1" stopColor="#07FFE1"></stop>
         </linearGradient>
         <clipPath id={clipId}>
           <path fill="#fff" d="M0 0H200V200H0z"></path>
@@ -76,5 +74,5 @@ const Misc7: ShapeType = forwardRef((props, ref) => {
   );
 });
 
-Misc7.displayName = "Misc7";
-export { Misc7 };
+Polygon4.displayName = "Polygon4";
+export { Polygon4 };

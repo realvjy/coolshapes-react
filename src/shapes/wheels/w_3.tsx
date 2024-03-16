@@ -21,7 +21,7 @@ const Wheel3: ShapeType = forwardRef((props, ref) => {
             fill="#fff"
             d="M110 0H90l6.39 91.284-60.03-69.066L22.218 36.36l69.066 60.03L0 90v20l91.284-6.39-69.066 60.03 14.142 14.142 60.03-69.066L90 200h20l-6.39-91.284 60.03 69.066 14.142-14.142-69.066-60.03L200 110V90l-91.284 6.39 69.066-60.03-14.142-14.142-60.03 69.066L110 0z"></path>
         </mask>
-        <g mask={`url(#${maskId})`}>
+        <g mask={`url(#${maskId}`}>
           <path fill="#fff" d="M200 0H0v200h200V0z"></path>
           <path
             fill="url(#paint0_linear_748_4839)"
@@ -42,7 +42,7 @@ const Wheel3: ShapeType = forwardRef((props, ref) => {
       </g>
       <defs>
         <filter
-          id={`filter0_f_748_${shapeId}`}
+          id="filter0_f_748_4839"
           width="361.583"
           height="346.593"
           x="-72"
@@ -55,11 +55,11 @@ const Wheel3: ShapeType = forwardRef((props, ref) => {
             in2="BackgroundImageFix"
             result="shape"></feBlend>
           <feGaussianBlur
-            result="effect1_foregroundBlur_748_${shapeId}"
+            result="effect1_foregroundBlur_748_4839"
             stdDeviation="30"></feGaussianBlur>
         </filter>
         <linearGradient
-          id={`paint0_linear_748_${shapeId}`}
+          id="paint0_linear_748_4839"
           x1="200"
           x2="0"
           y1="0"

@@ -1,16 +1,18 @@
 import React, { forwardRef } from "react";
 import { ShapeBase, ShapeType } from "../../lib";
 
-const Moon3: ShapeType = forwardRef((props, ref) => {
-  const shapeId = "moon-3";
+const Moon14: ShapeType = forwardRef((props, ref) => {
+  const shapeId = "moon-14"; // Updated shapeId
   const clipId = `cs_clip_1_${shapeId}`;
   const maskId = `cs_mask_1_${shapeId}`;
 
   return (
     <ShapeBase {...props} shapeName={shapeId} ref={ref}>
-      <g clipPath={`url(#${clipId}`}>
+      <g clipPath={`url(#${clipId})`}>
+        {" "}
+        {/* Updated to use clipId */}
         <mask
-          id={maskId}
+          id={maskId} // Updated to use maskId
           style={{ maskType: "alpha" }}
           width="200"
           height="200"
@@ -19,27 +21,29 @@ const Moon3: ShapeType = forwardRef((props, ref) => {
           maskUnits="userSpaceOnUse">
           <path
             fill="#fff"
-            d="M200 9V0H0v9c0 39.994 23.478 74.504 57.403 90.5C23.478 115.496 0 150.006 0 190v10h200v-10c0-39.994-23.478-74.504-57.403-90.5C176.522 83.504 200 48.994 200 9z"></path>
+            d="M34.315 0A117.157 117.157 0 10200 165.685L34.315 0z"></path>
         </mask>
         <g mask={`url(#${maskId})`}>
-          <path fill="#fff" d="M199.75.5h-200v200h200V.5z"></path>
+          {" "}
+          {/* Updated to use maskId */}
+          <path fill="#000" d="M200 0H0v200h200V0z"></path>
           <path
-            fill="#F2371F"
-            fillOpacity="0.181"
-            d="M199.75.5h-200v200h200V.5z"></path>
-          <g filter="url(#filter0_f_748_4536)">
-            <path fill="#FFE500" d="M120 41H15v119h105V41z"></path>
-            <path fill="#FF28DD" d="M223.25-15H100v140.875h123.25V-15z"></path>
+            fill="#EE46D3"
+            fillOpacity="0.79"
+            d="M200 0H0v200h200V0z"></path>
+          <g filter="url(#filter0_f_748_4428)">
+            <path fill="#FFC700" d="M137 60H26v140h111V60z"></path>
+            <path fill="#1BC47D" d="M236 106H78v136h158V106z"></path>
           </g>
         </g>
       </g>
       <defs>
         <filter
-          id="filter0_f_748_4536"
-          width="333.25"
-          height="300"
-          x="-47.5"
-          y="-77.5"
+          id="filter0_f_748_4428" // This ID remains unchanged as requested
+          width="335"
+          height="307"
+          x="-36.5"
+          y="-2.5"
           colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse">
           <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
@@ -48,10 +52,12 @@ const Moon3: ShapeType = forwardRef((props, ref) => {
             in2="BackgroundImageFix"
             result="shape"></feBlend>
           <feGaussianBlur
-            result="effect1_foregroundBlur_748_4536"
+            result="effect1_foregroundBlur_748_4428"
             stdDeviation="31.25"></feGaussianBlur>
         </filter>
         <clipPath id={clipId}>
+          {" "}
+          {/* Updated to use clipId */}
           <path fill="#fff" d="M0 0H200V200H0z"></path>
         </clipPath>
       </defs>
@@ -59,5 +65,5 @@ const Moon3: ShapeType = forwardRef((props, ref) => {
   );
 });
 
-Moon3.displayName = "Moon3";
-export { Moon3 };
+Moon14.displayName = "Moon14";
+export { Moon14 };

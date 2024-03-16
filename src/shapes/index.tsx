@@ -45,9 +45,6 @@ import { Wheel3 } from "./wheels/w_3";
 import { Wheel4 } from "./wheels/w_4";
 import { Wheel5 } from "./wheels/w_5";
 import { Wheel6 } from "./wheels/w_6";
-import { Moon1 } from "./moons/m_1";
-import { Moon2 } from "./moons/m_2";
-import { Moon3 } from "./moons/m_3";
 import { Misc1 } from "./miscs/m_1";
 import { Misc2 } from "./miscs/m_2";
 import { Misc3 } from "./miscs/m_3";
@@ -58,8 +55,49 @@ import { Misc7 } from "./miscs/m_7";
 import { Misc8 } from "./miscs/m_8";
 import { Misc9 } from "./miscs/m_9";
 import { Misc10 } from "./miscs/m_10";
+import { Triangle1 } from "./triangles/t_1";
+import { Triangle2 } from "./triangles/t_2";
+import { Triangle3 } from "./triangles/t_3";
+import { Triangle4 } from "./triangles/t_4";
+import { Triangle5 } from "./triangles/t_5";
+import { Triangle6 } from "./triangles/t_6";
+import { Triangle7 } from "./triangles/t_7";
+import { Triangle8 } from "./triangles/t_8";
+import { Triangle9 } from "./triangles/t_9";
+import { Triangle10 } from "./triangles/t_10";
+import { Triangle11 } from "./triangles/t_11";
+import { Triangle12 } from "./triangles/t_12";
+import { Triangle13 } from "./triangles/t_13";
+import { Triangle14 } from "./triangles/t_14";
+import { Moon1 } from "./moons/m_1";
+import { Moon2 } from "./moons/m_2";
+import { Moon3 } from "./moons/m_3";
+import { Moon4 } from "./moons/m_4";
+import { Moon5 } from "./moons/m_5";
+import { Moon6 } from "./moons/m_6";
+import { Moon7 } from "./moons/m_7";
+import { Moon8 } from "./moons/m_8";
+import { Moon9 } from "./moons/m_9";
+import { Moon10 } from "./moons/m_10";
+import { Moon11 } from "./moons/m_11";
+import { Moon12 } from "./moons/m_12";
+import { Moon13 } from "./moons/m_13";
+import { Moon14 } from "./moons/m_14";
+import { Moon15 } from "./moons/m_15";
 
 import { ShapeType } from "../lib";
+import { Polygon1 } from "./polygons/p_1";
+import { Polygon2 } from "./polygons/p_2";
+import { Polygon3 } from "./polygons/p_3";
+import { Polygon4 } from "./polygons/p_4";
+import { Polygon5 } from "./polygons/p_5";
+import { Rectangle1 } from "./rectangles/r_1";
+import { Rectangle2 } from "./rectangles/r_2";
+import { Rectangle3 } from "./rectangles/r_3";
+import { Rectangle4 } from "./rectangles/r_4";
+import { Rectangle5 } from "./rectangles/r_5";
+import { Rectangle6 } from "./rectangles/r_6";
+import { Rectangle7 } from "./rectangles/r_7";
 
 const shapes = {
   star: [
@@ -109,8 +147,50 @@ const shapes = {
     Ellipse11,
   ],
   wheel: [Wheel1, Wheel2, Wheel3, Wheel4, Wheel5, Wheel6],
-  moon: [Moon1, Moon2, Moon3],
+  moon: [
+    Moon1,
+    Moon2,
+    Moon3,
+    Moon4,
+    Moon5,
+    Moon6,
+    Moon7,
+    Moon8,
+    Moon9,
+    Moon10,
+    Moon11,
+    Moon12,
+    Moon13,
+    Moon14,
+    Moon15,
+  ],
   misc: [Misc1, Misc2, Misc3, Misc4, Misc5, Misc6, Misc7, Misc8, Misc9, Misc10],
+  triangle: [
+    Triangle1,
+    Triangle2,
+    Triangle3,
+    Triangle4,
+    Triangle5,
+    Triangle6,
+    Triangle7,
+    Triangle8,
+    Triangle9,
+    Triangle10,
+    Triangle11,
+    Triangle12,
+    Triangle13,
+    Triangle14,
+  ],
+  polygon: [Polygon1, Polygon2, Polygon3, Polygon4, Polygon5],
+  rectangle: [
+    Rectangle1,
+    Rectangle2,
+    Rectangle3,
+    Rectangle4,
+    Rectangle5,
+    Rectangle6,
+    Rectangle7,
+  ],
 };
 
 // used to autocomplete types
