@@ -98,6 +98,9 @@ import { Rectangle4 } from "./rectangles/r_4";
 import { Rectangle5 } from "./rectangles/r_5";
 import { Rectangle6 } from "./rectangles/r_6";
 import { Rectangle7 } from "./rectangles/r_7";
+import { Polygon6 } from "./polygons/p_6";
+import { Polygon7 } from "./polygons/p_7";
+import { Polygon8 } from "./polygons/p_8";
 
 const shapes = {
   star: [
@@ -181,7 +184,16 @@ const shapes = {
     Triangle13,
     Triangle14,
   ],
-  polygon: [Polygon1, Polygon2, Polygon3, Polygon4, Polygon5],
+  polygon: [
+    Polygon1,
+    Polygon2,
+    Polygon3,
+    Polygon4,
+    Polygon5,
+    Polygon6,
+    Polygon7,
+    Polygon8,
+  ],
   rectangle: [
     Rectangle1,
     Rectangle2,

@@ -56,5 +56,14 @@ const Triangle = getComponentWithShape("triangle");
 const Rectangle = getComponentWithShape("rectangle");
 const Polygon = getComponentWithShape("polygon");
 
-
-export { Coolshape, Star, Flower, Ellipse, Misc, Moon, Triangle, Rectangle, Polygon };
+export {
+  Coolshape,
+  Star,
+  Flower,
+  Ellipse,
+  Misc,
+  Moon,
+  Triangle,
+  Rectangle,
+  Polygon,
+};

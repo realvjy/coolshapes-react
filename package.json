@@ -1,6 +1,6 @@
 {
-  "name": "react-coolshapes",
-  "version": "0.0.4-alpha.0",
+  "name": "coolshapes-react",
+  "version": "0.0.5-alpha.0",
   "description": "A react component library for coolshapes",
   "keywords": [
     "coolshapes"
@@ -39,10 +39,10 @@
   "homepage": "https://www.coolshap.es/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/realvjy/react-coolshapes"
+    "url": "https://github.com/realvjy/coolshapes-react"
   },
   "bugs": {
-    "url": "https://github.com/realvjy/react-coolshapes/issues",
+    "url": "https://github.com/realvjy/coolshapes-react/issues",
     "email": "yourbug@gmail.com"
   },
   "engines": {
@@ -73,8 +73,5 @@
     "tslib": "^2.6.2",
     "typescript": "^5.3.3",
     "vitest": "^1.3.1"
-  },
-  "dependencies": {
-    "lucide-react": "^0.356.0"
   }
 }

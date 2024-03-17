@@ -8,7 +8,7 @@ const Ellipse7: ShapeType = forwardRef((props, ref) => {
     <ShapeBase {...props} shapeName={ShapeId} ref={ref}>
       <g clipPath={`url(#cs_clip_1_${ShapeId})`}>
         <mask
-          id={`cs_mask_1_${ShapeId}`}
+          id={`cs_mask_1_${ShapeId})`}
           style={{ maskType: "alpha" }}
           width="200"
           height="200"
@@ -17,26 +17,28 @@ const Ellipse7: ShapeType = forwardRef((props, ref) => {
           maskUnits="userSpaceOnUse">
           <path
             fill="#fff"
-            d="M139 39c0 21.54-17.461 39-39 39-21.54 0-39-17.46-39-39S78.46 0 100 0c21.539 0 39 17.46 39 39zM139 161c0 21.539-17.461 39-39 39-21.54 0-39-17.461-39-39s17.46-39 39-39c21.539 0 39 17.461 39 39zM161 139c-21.539 0-39-17.461-39-39 0-21.54 17.461-39 39-39s39 17.46 39 39c0 21.539-17.461 39-39 39zM39 139c-21.54 0-39-17.461-39-39 0-21.54 17.46-39 39-39s39 17.46 39 39c0 21.539-17.46 39-39 39z"></path>
+            d="M200 100c0 55.228-44.772 100-100 100 37.555 0 68-30.445 68-68s-30.445-68-68-68-68 30.445-68 68 30.445 68 68 68C44.772 200 0 155.228 0 100S44.772 0 100 0s100 44.772 100 100z"></path>
+          <path
+            fill="#fff"
+            d="M100 200c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48z"></path>
         </mask>
         <g mask={`url(#cs_mask_1_${ShapeId})`}>
           <path fill="#fff" d="M200 0H0v200h200V0z"></path>
-          <path
-            fill="url(#paint0_linear_748_4745)"
-            fillOpacity="0.55"
-            d="M200 0H0v200h200V0z"></path>
-          <g filter="url(#filter0_f_748_4745)">
-            <path fill="#06F" d="M213 69H93v141h120V69z"></path>
+          <path fill="#907CFF" fillOpacity="0.6" d="M200 0H0v200h200V0z"></path>
+          <g filter="url(#filter0_f_748_4753)">
+            <path fill="#18A0FB" d="M212.25-15H100v139.75h112.25V-15z"></path>
+            <path fill="#907CFF" d="M133.875-7H15v128.25h118.875V-7z"></path>
+            <path fill="#EE46D3" d="M223 68H81v146h142V68z"></path>
           </g>
         </g>
       </g>
       <defs>
         <filter
-          id="filter0_f_748_4745"
-          width="245"
-          height="266"
-          x="30.5"
-          y="6.5"
+          id="filter0_f_748_4753"
+          width="368"
+          height="389"
+          x="-65"
+          y="-95"
           colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse">
           <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
@@ -45,20 +47,10 @@ const Ellipse7: ShapeType = forwardRef((props, ref) => {
             in2="BackgroundImageFix"
             result="shape"></feBlend>
           <feGaussianBlur
-            result="effect1_foregroundBlur_748_4745"
-            stdDeviation="31.25"></feGaussianBlur>
+            result="effect1_foregroundBlur_748_4753"
+            stdDeviation="40"></feGaussianBlur>
         </filter>
-        <linearGradient
-          id="paint0_linear_748_4745"
-          x1="162"
-          x2="49.5"
-          y1="38"
-          y2="150.5"
-          gradientUnits="userSpaceOnUse">
-          <stop stopColor="#FF1F00"></stop>
-          <stop offset="1" stopColor="#FF58E4"></stop>
-        </linearGradient>
-        <clipPath id={`cs_clip_1_${ShapeId}`}>
+        <clipPath id={`cs_clip_1_${ShapeId})`}>
           <path fill="#fff" d="M0 0H200V200H0z"></path>
         </clipPath>
       </defs>
