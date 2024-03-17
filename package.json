@@ -3,7 +3,9 @@
   "version": "0.0.5-alpha.0",
   "description": "A react component library for coolshapes",
   "keywords": [
-    "coolshapes"
+    "coolshapes",
+    "shapes",
+    "abstract"
   ],
   "main": "dist/cjs/coolshapes.js",
   "main:umd": "dist/umd/coolshapes.js",
