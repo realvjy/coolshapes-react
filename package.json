@@ -1,6 +1,6 @@
 {
   "name": "coolshapes-react",
-  "version": "0.0.5-alpha.0",
+  "version": "0.0.5-alpha.1",
   "description": "A react component library for coolshapes",
   "keywords": [
     "coolshapes",
@@ -45,7 +45,7 @@
   },
   "bugs": {
     "url": "https://github.com/realvjy/coolshapes-react/issues",
-    "email": "yourbug@gmail.com"
+    "email": "realvjy@gmail.com"
   },
   "engines": {
     "node": ">=10"
