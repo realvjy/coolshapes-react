@@ -6,8 +6,6 @@ import shapes, { componentId, getRandomShape, shapeTypes } from "../shapes";
 import { ShapeType } from "../lib";
 import { Coolshape, Star } from "../lib/shapes";
 
-const noiseIdentifierQuery = `path[d="M200 0H0v200h200V0z"][fill="gray"][stroke="transparent"]`;
-
 describe("using every icons from the defined list", async () => {
   const shapeTypes = Object.keys(shapes) as Array<shapeTypes>;
   shapeTypes.forEach((type) => {
@@ -23,6 +21,9 @@ describe("using every icons from the defined list", async () => {
         const { getByTestId } = render(<Shape {...props} />);
         const shapeElement = getByTestId(iconId);
         expect(shapeElement).toBeDefined();
+        expect(
+          shapeElement.querySelector(`#cs_noise_1_${iconId}`)
+        ).toBeTruthy();
       });
       it(`Component is accepting custom class name and sizes `, () => {
         const { getByTestId } = render(<Shape {...props} />);
@@ -85,19 +86,24 @@ describe("using the component for a shape type", () => {
 });
 
 describe("Using coolshape component with noise prop", () => {
+  const { index, shapeType } = getRandomShape({ onlyId: true }) as componentId;
   const props = {
     className: "custom",
     size: 20,
+    index,
+    type: shapeType,
   };
   it("If noise is set to true, the noise should be visible ", () => {
     const testID = "coolshape";
     const { getByTestId } = render(
       <Coolshape data-testid={testID} {...props} noise={true} />
     );
+
     const ShapeComponent = getByTestId(testID);
     expect(ShapeComponent).toBeDefined();
-    expect(ShapeComponent.classList).toContain("coolshape");
-    expect(ShapeComponent.querySelector(noiseIdentifierQuery)).toBeTruthy();
+    expect(
+      ShapeComponent.querySelector(`#cs_noise_1_${shapeType + "-" + index}`)
+    ).toBeTruthy();
   });
   it("If noise is set to false, the noise should not be visible ", () => {
     const testID = "coolshape";
@@ -107,6 +113,8 @@ describe("Using coolshape component with noise prop", () => {
     const ShapeComponent = getByTestId(testID);
     expect(ShapeComponent).toBeDefined();
     expect(ShapeComponent.classList).toContain("coolshape");
-    expect(ShapeComponent.querySelector(noiseIdentifierQuery)).toBeFalsy();
+    expect(
+      ShapeComponent.querySelector(`#cs_noise_1_${shapeType + "-" + index}`)
+    ).toBeFalsy();
   });
 });

@@ -101,6 +101,11 @@ import { Rectangle7 } from "./rectangles/r_7";
 import { Polygon6 } from "./polygons/p_6";
 import { Polygon7 } from "./polygons/p_7";
 import { Polygon8 } from "./polygons/p_8";
+import { Rectangle8 } from "./rectangles/r_8";
+import { Rectangle9 } from "./rectangles/r_9";
+import { Misc11 } from "./miscs/m_11";
+import { Ellipse12 } from "./ellipses/e_12";
+import { Wheel7 } from "./wheels/w_7";
 
 const shapes = {
   star: [
@@ -148,8 +153,9 @@ const shapes = {
     Ellipse9,
     Ellipse10,
     Ellipse11,
+    Ellipse12,
   ],
-  wheel: [Wheel1, Wheel2, Wheel3, Wheel4, Wheel5, Wheel6],
+  wheel: [Wheel1, Wheel2, Wheel3, Wheel4, Wheel5, Wheel6, Wheel7],
   moon: [
     Moon1,
     Moon2,
@@ -167,7 +173,19 @@ const shapes = {
     Moon14,
     Moon15,
   ],
-  misc: [Misc1, Misc2, Misc3, Misc4, Misc5, Misc6, Misc7, Misc8, Misc9, Misc10],
+  misc: [
+    Misc1,
+    Misc2,
+    Misc3,
+    Misc4,
+    Misc5,
+    Misc6,
+    Misc7,
+    Misc8,
+    Misc9,
+    Misc10,
+    Misc11,
+  ],
   triangle: [
     Triangle1,
     Triangle2,
@@ -202,6 +220,8 @@ const shapes = {
     Rectangle5,
     Rectangle6,
     Rectangle7,
+    Rectangle8,
+    Rectangle9,
   ],
 };
 
