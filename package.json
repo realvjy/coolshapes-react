@@ -47,7 +47,7 @@
     "email": "realvjy@gmail.com"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=14.0.0"
   },
   "peerDependencies": {
     "react": ">=16.8",
