@@ -18,6 +18,7 @@
 - Added 90+ shapes from different categories
 `Coolshape`, `Ellipse`, `Flower`, `Misc`, `Moon`, `Polygon`, `Rectangle`, `Star`, `Triangle`
 
+
 ## 0.0.3
 
 - `react-coolshapes@0.0.3`
