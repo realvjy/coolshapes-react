@@ -106,6 +106,16 @@ import { Rectangle9 } from "./rectangles/r_9";
 import { Misc11 } from "./miscs/m_11";
 import { Ellipse12 } from "./ellipses/e_12";
 import { Wheel7 } from "./wheels/w_7";
+import { Number0 } from "./numbers/n_0";
+import { Number1 } from "./numbers/n_1";
+import { Number2 } from "./numbers/n_2";
+import { Number3 } from "./numbers/n_3";
+import { Number4 } from "./numbers/n_4";
+import { Number5 } from "./numbers/n_5";
+import { Number6 } from "./numbers/n_6";
+import { Number7 } from "./numbers/n_7";
+import { Number8 } from "./numbers/n_8";
+import { Number9 } from "./numbers/n_9";
 
 const shapes = {
   star: [
@@ -223,6 +233,18 @@ const shapes = {
     Rectangle8,
     Rectangle9,
   ],
+  number: [
+    Number0,
+    Number1,
+    Number2,
+    Number3,
+    Number4,
+    Number5,
+    Number6,
+    Number7,
+    Number8,
+    Number9
+  ]
 };
 
 // used to autocomplete types
