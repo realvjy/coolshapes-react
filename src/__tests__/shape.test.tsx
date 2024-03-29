@@ -6,11 +6,11 @@ import shapes, { componentId, getRandomShape, shapeTypes } from "../shapes";
 import { ShapeType } from "../lib";
 import { Coolshape, Star } from "../lib/shapes";
 
-describe("using every icons from the defined list", async () => {
+describe("using every icons from the defined component list", async () => {
   const shapeTypes = Object.keys(shapes) as Array<shapeTypes>;
   shapeTypes.forEach((type) => {
     shapes[type].forEach((Shape, i) => {
-      const iconId = `${type}-${++i}`;
+      const iconId = `${type}-${type === "number" ? i : ++i}`;
 
       const props = {
         className: "shape",
@@ -21,9 +21,11 @@ describe("using every icons from the defined list", async () => {
         const { getByTestId } = render(<Shape {...props} />);
         const shapeElement = getByTestId(iconId);
         expect(shapeElement).toBeDefined();
+        expect(shapeElement.classList).toContain(iconId);
         expect(
           shapeElement.querySelector(`#cs_noise_1_${iconId}`)
         ).toBeTruthy();
+      
       });
       it(`Component is accepting custom class name and sizes `, () => {
         const { getByTestId } = render(<Shape {...props} />);
@@ -59,14 +61,14 @@ describe("using random shape function", () => {
   });
 });
 
-describe("using the component for a shape type", () => {
+describe("using specific shape type components", () => {
   const props = {
     className: "customName",
     size: 20,
     noise: true,
   };
-  it("it should render a valid random component with given information", () => {
-    const testID = "component";
+  it("it should render a valid random component with given props from that shape category", () => {
+    const testID = "shape-component";
     const { getByTestId } = render(<Star data-testid={testID} {...props} />);
     const ShapeComponent = getByTestId(testID);
     expect(ShapeComponent).toBeDefined();
@@ -74,12 +76,16 @@ describe("using the component for a shape type", () => {
     expect(ShapeComponent.getAttribute("width")).toBe(props.size.toString());
   });
   it("it should render a exact given component with index", () => {
-    const testID = "component";
+    const testID = "component-index";
     const { getByTestId } = render(
-      <Star data-testid={testID} {...props} index={1} />
+      <Star data-testid={testID} {...props} index={0} />
     );
     const ShapeComponent = getByTestId(testID);
     expect(ShapeComponent).toBeDefined();
+    ShapeComponent.classList.forEach((classs)=>{
+      console.log(classs)
+    })
+    console.log()
     expect(ShapeComponent.classList).toContain("coolshape");
     expect(ShapeComponent.classList).toContain("star-1");
   });
@@ -93,6 +99,9 @@ describe("Using coolshape component with noise prop", () => {
     index,
     type: shapeType,
   };
+  const shouldAdd = shapeType === 'number'? 0 : 1;
+  const shapeId = `${shapeType}-${shouldAdd + index}`
+  
   it("If noise is set to true, the noise should be visible ", () => {
     const testID = "coolshape";
     const { getByTestId } = render(
@@ -101,8 +110,9 @@ describe("Using coolshape component with noise prop", () => {
 
     const ShapeComponent = getByTestId(testID);
     expect(ShapeComponent).toBeDefined();
+    
     expect(
-      ShapeComponent.querySelector(`#cs_noise_1_${shapeType + "-" + index}`)
+      ShapeComponent.querySelector(`#cs_noise_1_${shapeId}`)
     ).toBeTruthy();
   });
   it("If noise is set to false, the noise should not be visible ", () => {
@@ -114,7 +124,7 @@ describe("Using coolshape component with noise prop", () => {
     expect(ShapeComponent).toBeDefined();
     expect(ShapeComponent.classList).toContain("coolshape");
     expect(
-      ShapeComponent.querySelector(`#cs_noise_1_${shapeType + "-" + index}`)
+      ShapeComponent.querySelector(`#cs_noise_1_${shapeId}`)
     ).toBeFalsy();
   });
 });

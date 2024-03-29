@@ -19,10 +19,14 @@ interface BaseShapeOptions extends ShapeProps {
 const Coolshape: ForwardRefExoticComponent<ShapeOptions> = forwardRef(
   (options, ref) => {
     const { type, index, random, ...rest } = options;
-    const initialShape = index && type ? shapes[type][index - 1] : null;
+    
+    let initialShape = null;
+    if (index !== undefined && type){
+      initialShape = shapes[type][index]
+    }
     const [Shape, setShape] = useState<ShapeType | null>(initialShape);
     useEffect(() => {
-      if (random || !type || !index) {
+      if (random || !type || index === undefined) {
         const shape = getRandomShape({ type }) as ShapeType;
         setShape(shape);
       }
@@ -55,6 +59,8 @@ const Moon = getComponentWithShape("moon");
 const Triangle = getComponentWithShape("triangle");
 const Rectangle = getComponentWithShape("rectangle");
 const Polygon = getComponentWithShape("polygon");
+const Number = getComponentWithShape("number");
+
 
 export {
   Coolshape,
@@ -66,4 +72,5 @@ export {
   Triangle,
   Rectangle,
   Polygon,
+  Number
 };

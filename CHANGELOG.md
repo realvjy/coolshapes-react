@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.0.6-alpha.0
+- Add number type shapes, Total count 115
+- Change the index to start from 0
 ## 0.0.5-alpha.1
 - Add more shapes. Total count 105
 - Fix noise toggle
@@ -14,6 +17,7 @@
 - Changed versioning to alpha `react-coolshapes@0.0.4-alpha.0`
 - Added 90+ shapes from different categories
 `Coolshape`, `Ellipse`, `Flower`, `Misc`, `Moon`, `Polygon`, `Rectangle`, `Star`, `Triangle`
+
 
 ## 0.0.3
 
