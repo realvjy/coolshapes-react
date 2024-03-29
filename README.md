@@ -164,12 +164,12 @@ There are a total of **115** shapes available in Coolshapes under the following 
 | `misc`        | 11        |  
 | `number`      | 10        |  
 
-**Note:** If you're importing directly as component, the name must be in Title case. And the category type it will be lowercase.
+**Note:** When importing the components the name would be capitalized, but when passing as prop, the name would be lower case
 
 
 
 ### Others
-There are `cjs`, `umd` and `es` included in bundled versions of the module,
+There are `cjs`, `umd` and `es` included in bundled version of the module,
 
 #### cjs
 

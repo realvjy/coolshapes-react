@@ -2,9 +2,9 @@
 import { describe, it, expect } from "vitest";
 import { render } from "@testing-library/react";
 import React, { ForwardRefExoticComponent } from "react";
-import shapes, { componentId, getRandomShape, shapeTypes } from "../shapes";
-import { ShapeType } from "../lib";
-import { Coolshape, Star } from "../lib/shapes";
+import shapes, { componentId, getRandomShape, shapeTypes } from "../src/shapes";
+import { ShapeType } from "../src/lib";
+import { Coolshape, Star } from "../src/lib/shapes";
 
 describe("using every icons from the defined component list", async () => {
   const shapeTypes = Object.keys(shapes) as Array<shapeTypes>;
