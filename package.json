@@ -1,13 +1,13 @@
 {
   "name": "coolshapes-react",
-  "version": "0.0.8-alpha.1",
+  "version": "0.0.8-alpha.2",
   "description": "A react component library for coolshapes",
   "keywords": [
     "coolshapes",
     "shapes",
     "abstract"
   ],
-  "main": "dist/umd/coolshapes.js",
+  "main": "dist/cjs/coolshapes.js",
   "main:umd": "dist/umd/coolshapes.js",
   "module": "dist/esm/coolshapes.js",
   "unpkg": "dist/umd/coolshapes.js",
