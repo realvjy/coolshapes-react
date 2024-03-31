@@ -12,18 +12,24 @@ A simple, fun project for the sake of creating some cool-looking abstract shapes
 
 ### Table of Contents
 
-- [Installation](#installation)
-- [How to use](#how-to-use)
-  - [Global Component](#how-to-use)
-  - [Using Shape Category](#component-with-shape-category-example)
-  - [Random functions](#using-random-shape-function)
-  - [Other Methods](#other-method)
-- [Props](#props)
-- [Categories](#categories)
-- [Figma File](#figma-file)
-- [Contributing](#contributing)
-- [License](https://github.com/realvjy/coolshapes-react?tab=MIT-1-ov-file)
-- [Credits](#credits)
+- [Coolshapes](#coolshapes)
+    - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [How to use](#how-to-use)
+      - [Global component example](#global-component-example)
+      - [Component with shape category example](#component-with-shape-category-example)
+      - [Generating random shapes](#generating-random-shapes)
+      - [Using random shape function](#using-random-shape-function)
+      - [Other Methods](#other-methods)
+      - [Renders the shapes from all catagories](#renders-the-shapes-from-all-catagories)
+          - [syntax](#syntax)
+    - [Props](#props)
+    - [Categories](#categories)
+    - [Others](#others)
+      - [cjs](#cjs)
+  - [Figma File](#figma-file)
+  - [Contributing](#contributing)
+  - [Support \& Donation](#support--donation)
 
 ## Installation
 
@@ -182,7 +188,7 @@ There are a total of **115** shapes available in Coolshapes under the following 
 
 ### Others
 
-There are `cjs`, `umd` and `es` included in bundled version of the module,
+There are `umd` and `es` included in bundled version of the module,
 
 #### cjs
 
