@@ -8,7 +8,7 @@ const Ellipse7: ShapeType = forwardRef((props, ref) => {
     <ShapeBase {...props} shapeName={ShapeId} ref={ref}>
       <g clipPath={`url(#cs_clip_1_${ShapeId})`}>
         <mask
-          id={`cs_mask_1_${ShapeId})`}
+          id={`cs_mask_1_${ShapeId}`}
           style={{ maskType: "alpha" }}
           width="200"
           height="200"
@@ -50,7 +50,7 @@ const Ellipse7: ShapeType = forwardRef((props, ref) => {
             result="effect1_foregroundBlur_748_4753"
             stdDeviation="40"></feGaussianBlur>
         </filter>
-        <clipPath id={`cs_clip_1_${ShapeId})`}>
+        <clipPath id={`cs_clip_1_${ShapeId}`}>
           <path fill="#fff" d="M0 0H200V200H0z"></path>
         </clipPath>
       </defs>

@@ -25,7 +25,6 @@ describe("using every icons from the defined component list", async () => {
         expect(
           shapeElement.querySelector(`#cs_noise_1_${iconId}`)
         ).toBeTruthy();
-      
       });
       it(`Component is accepting custom class name and sizes `, () => {
         const { getByTestId } = render(<Shape {...props} />);
@@ -72,7 +71,7 @@ describe("using specific shape type components", () => {
     const { getByTestId } = render(<Star data-testid={testID} {...props} />);
     const ShapeComponent = getByTestId(testID);
     expect(ShapeComponent).toBeDefined();
-    expect(ShapeComponent.classList).toContain("coolshape");
+    expect(ShapeComponent.classList).toContain("coolshapes");
     expect(ShapeComponent.getAttribute("width")).toBe(props.size.toString());
   });
   it("it should render a exact given component with index", () => {
@@ -82,11 +81,11 @@ describe("using specific shape type components", () => {
     );
     const ShapeComponent = getByTestId(testID);
     expect(ShapeComponent).toBeDefined();
-    ShapeComponent.classList.forEach((classs)=>{
-      console.log(classs)
-    })
-    console.log()
-    expect(ShapeComponent.classList).toContain("coolshape");
+    ShapeComponent.classList.forEach((classs) => {
+      console.log(classs);
+    });
+    console.log();
+    expect(ShapeComponent.classList).toContain("coolshapes");
     expect(ShapeComponent.classList).toContain("star-1");
   });
 });
@@ -99,9 +98,9 @@ describe("Using coolshape component with noise prop", () => {
     index,
     type: shapeType,
   };
-  const shouldAdd = shapeType === 'number'? 0 : 1;
-  const shapeId = `${shapeType}-${shouldAdd + index}`
-  
+  const shouldAdd = shapeType === "number" ? 0 : 1;
+  const shapeId = `${shapeType}-${shouldAdd + index}`;
+
   it("If noise is set to true, the noise should be visible ", () => {
     const testID = "coolshape";
     const { getByTestId } = render(
@@ -110,10 +109,8 @@ describe("Using coolshape component with noise prop", () => {
 
     const ShapeComponent = getByTestId(testID);
     expect(ShapeComponent).toBeDefined();
-    
-    expect(
-      ShapeComponent.querySelector(`#cs_noise_1_${shapeId}`)
-    ).toBeTruthy();
+
+    expect(ShapeComponent.querySelector(`#cs_noise_1_${shapeId}`)).toBeTruthy();
   });
   it("If noise is set to false, the noise should not be visible ", () => {
     const testID = "coolshape";
@@ -122,9 +119,7 @@ describe("Using coolshape component with noise prop", () => {
     );
     const ShapeComponent = getByTestId(testID);
     expect(ShapeComponent).toBeDefined();
-    expect(ShapeComponent.classList).toContain("coolshape");
-    expect(
-      ShapeComponent.querySelector(`#cs_noise_1_${shapeId}`)
-    ).toBeFalsy();
+    expect(ShapeComponent.classList).toContain("coolshapes");
+    expect(ShapeComponent.querySelector(`#cs_noise_1_${shapeId}`)).toBeFalsy();
   });
 });

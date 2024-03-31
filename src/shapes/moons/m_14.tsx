@@ -9,10 +9,8 @@ const Moon14: ShapeType = forwardRef((props, ref) => {
   return (
     <ShapeBase {...props} shapeName={shapeId} ref={ref}>
       <g clipPath={`url(#${clipId})`}>
-        {" "}
-        {/* Updated to use clipId */}
         <mask
-          id={maskId} // Updated to use maskId
+          id={maskId}
           style={{ maskType: "alpha" }}
           width="200"
           height="200"
@@ -25,7 +23,6 @@ const Moon14: ShapeType = forwardRef((props, ref) => {
         </mask>
         <g mask={`url(#${maskId})`}>
           {" "}
-          {/* Updated to use maskId */}
           <path fill="#000" d="M200 0H0v200h200V0z"></path>
           <path
             fill="#EE46D3"
