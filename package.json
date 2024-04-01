@@ -1,11 +1,17 @@
 {
   "name": "coolshapes-react",
-  "version": "0.0.6-alpha.0",
+  "version": "0.1.0-beta.0",
   "description": "A react component library for coolshapes",
   "keywords": [
     "coolshapes",
     "shapes",
-    "abstract"
+    "abstract",
+    "svg",
+    "vector",
+    "avatar",
+    "illustration",
+    "graphics",
+    "placeholder"
   ],
   "main": "dist/cjs/coolshapes.js",
   "main:umd": "dist/umd/coolshapes.js",
@@ -27,12 +33,14 @@
   "author": {
     "name": "realvjy",
     "email": "realvjy@gmail.com",
+    "twitter": "https://x.com/realvjy",
     "url": "https://vjy.me"
   },
   "contributors": [
     {
       "name": "0xgreenapple",
       "url": "https://greenapple.one",
+      "twitter": "https://x.com/0xgreenapple",
       "email": "0xgreenapple@gmail.com"
     }
   ],
