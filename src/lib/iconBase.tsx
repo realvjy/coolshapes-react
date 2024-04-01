@@ -1,20 +1,21 @@
 import React, {
-  ComponentPropsWithRef,
   ForwardRefExoticComponent,
+  RefAttributes,
+  SVGProps,
   forwardRef,
 } from "react";
 import NoiseMask from "./noiseMask";
 
 // icon base props
-interface BaseProps extends ComponentPropsWithRef<"svg"> {
+export interface ShapeProps
+  extends RefAttributes<SVGSVGElement>,
+    Partial<SVGProps<SVGSVGElement>> {
   size?: number;
   noise?: boolean;
-  shapeName: string;
 }
 
-export interface ShapeProps extends ComponentPropsWithRef<"svg"> {
-  size?: number;
-  noise?: boolean;
+interface BaseProps extends ShapeProps {
+  shapeName: string;
 }
 
 export type ShapeType = ForwardRefExoticComponent<ShapeProps>;

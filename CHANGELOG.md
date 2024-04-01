@@ -1,8 +1,23 @@
 # Changelog
 
+## 0.1.0-beta.0
+
+- Bug Fix
+- Update Interface of iconBase
+- Ready to release
+
+## 0.0.8-alpha.1
+
+- Bug Fix
+
+## 0.0.7-alpha.0
+
+- Rendering View Bug Fix for some shapes
+
+
 ## 0.0.6-alpha.0
 
-- Add number type shapes, Total count 115
+- Add `number` type shapes, Total count 115
 - Change the index to start from 0
 
 ## 0.0.5-alpha.1
