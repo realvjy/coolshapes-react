@@ -7,9 +7,8 @@ import React, {
 import NoiseMask from "./noiseMask";
 
 // icon base props
-export interface ShapeProps
-  extends RefAttributes<SVGSVGElement>,
-    Partial<SVGProps<SVGSVGElement>> {
+type svgProps = RefAttributes<SVGSVGElement> &  Partial<SVGProps<SVGSVGElement>>;
+export interface ShapeProps extends svgProps{
   size?: number;
   noise?: boolean;
 }
