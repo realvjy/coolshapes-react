@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1-beta.0
+
+- Fix Random Function
+- Fix state issue
+
 ## 0.1.0-beta.0
 
 - Bug Fix

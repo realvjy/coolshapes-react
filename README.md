@@ -75,6 +75,7 @@ const App = () => {
 export default App;
 ```
 
+
 #### Generating random shapes
 
 setting the `random` [prop](#props) to true or leaving the `index` or `type` prop empty would replace the shape with a random shape every time it renders.
@@ -184,10 +185,16 @@ There are a total of **115** shapes available in Coolshapes under the following 
 | `misc` | 11 |  
 | `number` | 10 |
 
-**Note:** When importing the components the name would be capitalized, but when passing as prop, the name would be lower case
+**Note:** When importing the components the name would be capitalized, but when passing as prop, the name would be lower case.
+
 
 ### Others
 
+#### Name & Class
+All components have inbuilt name starting 1. But, index starts from 0.
+*Example: `<Star index={0} />` when rendered it's component name and class name is `Star1`*
+
+#### umd & es
 There are `umd` and `es` included in bundled version of the module,
 
 #### cjs
