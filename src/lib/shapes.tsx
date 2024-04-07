@@ -20,21 +20,20 @@ const Coolshape: ForwardRefExoticComponent<ShapeOptions> = forwardRef(
   (options, ref) => {
     const { type, index, random, ...rest } = options;
 
-    let initialShape = null;
-    if (index !== undefined && type) {
-      initialShape = shapes[type][index];
+    if (index !== undefined && type && !random) {
+      const Shape = shapes[type][index];
+      return <Shape {...rest} ref={ref}/>
     }
-    const [Shape, setShape] = useState<ShapeType | null>(initialShape);
+    
+    const [RandomShape, setRandomShape] = useState<ShapeType | null>(null);
     useEffect(() => {
-      if (random || !type || index === undefined) {
         const shape = getRandomShape({ type }) as ShapeType;
-        setShape(shape);
-      }
+        setRandomShape(shape);
     }, []);
-    if (!Shape) {
-      return null;
+    if (!RandomShape) {
+      return null; 
     }
-    return <Shape {...rest} ref={ref} />;
+    return <RandomShape {...rest} ref={ref} />;
   }
 );
 Coolshape.displayName = "Coolshape";
