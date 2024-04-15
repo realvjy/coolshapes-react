@@ -29,6 +29,7 @@ design and development projects. Free for both commercial and personal use. Lice
             - [Classname and css](#classnames-and-css)
             - [Builds](#builds)
     - [Figma File](#figma-file)
+    - [Credits](#credits)
     - [Contributing](#contributing)
     - [Support \& Donation](#support--donation)
 
@@ -255,11 +256,11 @@ https://unpkg.com/coolshapes-react/dist/umd/coolshapes.js
 
 Figma file coming soon on community
 
+## Credits
+Crafted by realvjy. You are always welcome to share your feedback on twitter or any other social media platform.
+
 ## Contributing
-
-Created by realvjy. You are always welcome to share your feedback on twitter or any other social media platform.
-
-If you want to contribute, just create a [pull request](https://github.com/realvjy/coolshapes-react/pulls).
+If you want to contribute, create a [pull request](https://github.com/realvjy/coolshapes-react/pulls).
 
 ## Support & Donation
 
