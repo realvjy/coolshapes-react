@@ -7,9 +7,7 @@
   <a href="https://www.npmjs.com/package/coolshapes-react"><img src="https://img.shields.io/npm/v/coolshapes-react" alt="npm package"></a>
 </p>
 
-A simple, fun project for the sake of creating some cool-looking abstract shapes with little grainy gradients crafted
-by [@realvjy](https://x.com/realvjy). Coolshapes is a completely open-source set of 100+ abstract shapes crafted for any
-design and development projects. Free for both commercial and personal use. Licensed under MIT.
+A simple, fun project for the sake of creating some cool-looking abstract shapes with little grainy gradients crafted by [@realvjy](https://x.com/realvjy). Coolshapes is a completely open-source set of 100+ abstract shapes crafted for any design and development projects. Free for both commercial and personal use. Licensed under MIT.
 
 ### Table of Contents
 
@@ -257,13 +255,15 @@ https://unpkg.com/coolshapes-react/dist/umd/coolshapes.js
 Figma file coming soon on community
 
 ## Credits
-Crafted by realvjy. You are always welcome to share your feedback on twitter or any other social media platform.
+- Crafted by [realvjy](https://vjy.me?ref=gcs). You are always welcome to share your feedback on twitter or any other social media platform.
+
+- [Noisy Gradients Plugin](https://www.figma.com/community/plugin/1174390287006360600/noisy-gradients) - Some of the gradients generated using **Noisy Gradients** Figma plugin 
 
 ## Contributing
 If you want to contribute, create a [pull request](https://github.com/realvjy/coolshapes-react/pulls).
 
 ## Support & Donation
 
-**Coffee fuels coding ☕️**
+**Coffee fuels design & coding ☕️**
 
 <a href="https://www.buymeacoffee.com/realvjy" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>

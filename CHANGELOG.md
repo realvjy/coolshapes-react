@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.0
+- Added SVG + PNG Zip
+- Releasing v1
+
+## 0.1.2-beta.0
+
+- Bug fix
+- Readme Update
+- Action
+
 ## 0.1.1-beta.0
 
 - Fix Random Function
