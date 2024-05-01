@@ -252,7 +252,7 @@ https://unpkg.com/coolshapes-react/dist/umd/coolshapes.js
 
 ## Figma File
 
-Figma file coming soon on community
+Grab it from [Figma Community](https://www.figma.com/community/file/1367467631420622345/cool-shapes-100-abstract-shapes) 
 
 ## Credits
 - Crafted by [realvjy](https://vjy.me?ref=gcs). You are always welcome to share your feedback on twitter or any other social media platform.
