@@ -1,6 +1,9 @@
 # Changelog
 
 ## 1.0.0
+- Update Cover
+
+## 1.0.0
 - Added SVG + PNG Zip
 - Releasing v1
 

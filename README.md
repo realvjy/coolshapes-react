@@ -1,4 +1,4 @@
-<a  align="center"><img width="100%" src="https://coolshap.es/react-preview.jpg" href="https://coolshap.es"/></a>
+[![Coolshapes](https://coolshap.es/preview.jpg)](https://coolshap.es)
 
 # <p align=center>Coolshapes</p>
 
