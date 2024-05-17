@@ -1,4 +1,4 @@
-<a  align="center"><img width="100%" src="https://coolshap.es/react-preview.jpg" href="https://coolshap.es"/></a>
+[![Coolshapes](https://coolshap.es/preview.jpg)](https://coolshap.es)
 
 # <p align=center>Coolshapes</p>
 
@@ -252,7 +252,7 @@ https://unpkg.com/coolshapes-react/dist/umd/coolshapes.js
 
 ## Figma File
 
-Figma file coming soon on community
+Grab it from [Figma Community](https://www.figma.com/community/file/1367467631420622345/cool-shapes-100-abstract-shapes) 
 
 ## Credits
 - Crafted by [realvjy](https://vjy.me?ref=gcs). You are always welcome to share your feedback on twitter or any other social media platform.
