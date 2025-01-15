@@ -1,10 +1,12 @@
 # Changelog
 
 ## 1.0.1
+
 - Update Cover
 - Readme link
 
 ## 1.0.0
+
 - Added SVG + PNG Zip
 - Releasing v1
 
@@ -32,7 +34,6 @@
 ## 0.0.7-alpha.0
 
 - Rendering View Bug Fix for some shapes
-
 
 ## 0.0.6-alpha.0
 

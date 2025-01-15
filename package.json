@@ -13,19 +13,20 @@
     "graphics",
     "placeholder"
   ],
-  "main": "dist/cjs/coolshapes.js",
+  "main": "dist/cjs/index.js",
   "main:umd": "dist/umd/coolshapes.js",
-  "module": "dist/esm/coolshapes.js",
+  "module": "dist/esm/index.js",
   "unpkg": "dist/umd/coolshapes.js",
-  "typings": "dist/index.d.ts",
-  "type": "module",
+  "typings": "dist/types/index.d.ts",
   "files": [
     "./dist",
     "LICENSE",
     "README.md"
   ],
   "scripts": {
-    "build": "npm run clean && rollup --config",
+    "build": "npm run clean && rollup --config && npm run build:types",
+    "build:types": "tsc --emitDeclarationOnly --declaration --outDir ./dist/types",
+    "build:script": "node scripts/index.js",
     "test": "vitest --config ./vitest.config.mjs run",
     "clean": "rm -rf dist",
     "reformat": "prettier . --write"
@@ -60,13 +61,37 @@
     "react": ">=16.8",
     "react-dom": ">=16.8"
   },
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "browser": "./dist/umd/coolshapes.js",
+      "require": "./dist/cjs/index.js",
+      "node": "./dist/cjs/index.js"
+    },
+    "./shapes": {
+      "import": "./dist/esm/shapes/index.js",
+      "types": "./dist/types/shapes/index.d.ts",
+      "require": "./dist/cjs/shapes/index.js",
+      "node": "./dist/cjs/shapes/index.js"
+    },
+    "./shapes/*": {
+      "import": "./dist/esm/shapes/*.js",
+      "types": "./dist/types/shapes/*.d.ts",
+      "require": "./dist/cjs/shapes/*.js",
+      "node": "./dist/cjs/shapes/*.js"
+    }
+  },
   "devDependencies": {
+    "@babel/cli": "^7.26.4",
+    "@babel/core": "^7.26.0",
+    "@babel/preset-react": "^7.26.3",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
-    "@testing-library/react": "^14.2.1",
-    "@types/react": "^18.2.58",
+    "@testing-library/react": "^16.1.0",
+    "@types/react": "^18.2.0",
     "@typescript-eslint/eslint-plugin": "^7.1.0",
     "@typescript-eslint/parser": "^7.1.0",
     "@vitejs/plugin-react": "^4.2.1",
@@ -76,10 +101,13 @@
     "prettier": "3.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-element-to-jsx-string": "^15.0.0",
     "rollup": "^4.12.0",
     "rollup-plugin-dts": "^6.1.0",
-    "tslib": "^2.6.2",
+    "rollup-plugin-visualizer": "^5.14.0",
     "typescript": "^5.3.3",
-    "vitest": "^1.3.1"
+    "vite-plugin-dynamic-import": "^1.6.0",
+    "vitest": "^1.3.1",
+    "rollup-plugin-typescript2": "^0.36.0"
   }
 }

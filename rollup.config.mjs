@@ -2,24 +2,28 @@ import resolve from "@rollup/plugin-node-resolve";
 import terser from "@rollup/plugin-terser";
 import typescript from "@rollup/plugin-typescript";
 import commonjs from "@rollup/plugin-commonjs";
-import { dts } from "rollup-plugin-dts";
-import pkg from "./package.json" assert { type: "json" };
 const inputFile = "src/index.tsx";
-
+import { visualizer } from "rollup-plugin-visualizer";
+import pkg from "./package.json" assert { type: "json" };
 // rollup.config.mjs
 export default [
   {
     input: inputFile,
     output: [
       {
-        file: pkg.main,
+        dir: "./dist/cjs",
         format: "cjs",
         sourcemap: true,
+        preserveModules: true,
+        preserveModulesRoot: "src",
       },
       {
-        file: pkg.module,
+        // file: pkg.module,
+        dir: "./dist/esm",
         format: "esm",
         sourcemap: true,
+        preserveModules: true,
+        preserveModulesRoot: "src",
       },
       {
         name: "coolshapes",
@@ -38,17 +42,23 @@ export default [
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
       terser(),
+      visualizer({
+        template: "treemap",
+        projectRoot: "dist",
+      }),
     ],
   },
-
-  {
-    input: inputFile,
-    output: [
-      {
-        file: `dist/index.d.ts`,
-        format: "es",
-      },
-    ],
-    plugins: [dts()],
-  },
+  // {
+  //   input: inputFile,
+  //   dir: './dist/types',
+  //   format: 'esm',
+  //   plugins: [typescript({
+  //       tsconfig: "./tsconfig.json", compilerOptions: {
+  //       declarationDir: './dist/types',
+  //       declaration: true,
+  //       declarationMap: true,
+  //       emitDeclarationOnly: true,
+  //     }
+  //   })],
+  // },
 ];

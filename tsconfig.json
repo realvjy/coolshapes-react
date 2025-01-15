@@ -1,8 +1,8 @@
 {
   "include": ["./src/**/*"],
-
   "compilerOptions": {
     "allowJs": true,
+    "noImplicitAny": false,
     "jsx": "react",
     "target": "ES2015",
     "module": "ESNext",
@@ -14,7 +14,7 @@
     "skipLibCheck": true,
     "rootDir": "./src",
     "allowSyntheticDefaultImports": true,
-    "outDir": "dist"
+    "types": ["vite/client"]
   },
   "exclude": ["node_modules", "dist", "tests"]
 }

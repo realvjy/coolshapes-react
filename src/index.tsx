@@ -1,2 +1,5 @@
-export * from "./lib/shapes";
-export { default as shapes, shapeTypes, getRandomShape } from "./shapes";
+// export { getRandomShape } from "./shapes/utils";
+// export { createShapeComponent } from "./lib/utils/shape";
+// export { getComponentWithShapeType } from "./lib/utils/shape";
+export * from "./CoolShape";
+export * from "./shapes";
