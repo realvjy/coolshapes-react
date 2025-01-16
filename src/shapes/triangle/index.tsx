@@ -14,7 +14,6 @@ import * as Triangle13 from "./13";
 import * as Triangle14 from "./14";
 
 import { getComponentWithShapeType } from "../../lib/utils/shape";
-
 export const TriangleData = {
   "triangle-1": Triangle1.data,
   "triangle-2": Triangle2.data,
@@ -31,10 +30,8 @@ export const TriangleData = {
   "triangle-13": Triangle13.data,
   "triangle-14": Triangle14.data,
 };
-
 const Triangle = getComponentWithShapeType(
   "triangle",
   Object.values(TriangleData)
 );
-
 export { Triangle as default, Triangle };

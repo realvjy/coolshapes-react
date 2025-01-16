@@ -1,6 +1,6 @@
 import * as React from "react";
 import { createShapeComponent } from "../../lib/utils/shape";
-import { ComponentDataType } from "../types";
+import { ComponentDataType } from "../../lib/types";
 
 const data: ComponentDataType = {
   shape: "M10 90h90v110h90V0h-90L10 90z",

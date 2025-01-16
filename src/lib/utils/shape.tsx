@@ -1,19 +1,25 @@
-import { ShapeMetadataProps, SvgProps } from "../types";
+import {
+  CategoryComponentProps,
+  ComponentDataType,
+  ShapeMetadataProps,
+  ShapeProps,
+  ShapesType,
+} from "../types";
 import React, { forwardRef, ForwardRefExoticComponent } from "react";
-import { ComponentDataType, ShapesType } from "../../shapes/types";
 import ShapeBase from "../shapeBase";
 import { shapesCount, shapesType } from "../common";
 
 export const createShapeComponent = (
   shapeId: string,
   shapeData: ShapeMetadataProps & { shape: string }
-): ForwardRefExoticComponent<ShapeMetadataProps> => {
-  const Component = forwardRef<
-    SVGSVGElement,
-    SvgProps & ShapeMetadataProps & { shapeId?: string }
-  >((props, ref) => {
-    return <ShapeBase {...shapeData} shapeId={shapeId} {...props} ref={ref} />;
-  });
+): ForwardRefExoticComponent<Partial<ShapeProps>> => {
+  const Component = forwardRef<SVGSVGElement, Partial<ShapeProps>>(
+    (props, ref) => {
+      return (
+        <ShapeBase {...shapeData} shapeId={shapeId} {...props} ref={ref} />
+      );
+    }
+  );
   Component.displayName = shapeId as string;
   return Component;
 };
@@ -22,30 +28,31 @@ export const getComponentWithShapeType = (
   shapeType: ShapesType,
   categoryData: ComponentDataType[]
 ) => {
-  const Component = forwardRef<
-    SVGSVGElement,
-    SvgProps & ShapeMetadataProps & { index: number; shapeId?: string }
-  >(({ index, ...props }, ref) => {
-    const shapeData = categoryData[index];
-    return (
-      <ShapeBase
-        {...shapeData}
-        shapeId={`${shapeType}-${index}`}
-        {...props}
-        ref={ref}
-      />
-    );
-  });
+  const Component = forwardRef<SVGSVGElement, CategoryComponentProps>(
+    ({ index, ...props }, ref) => {
+      const shapeData =
+        categoryData[Number(index) - (shapeType == "number" ? 0 : 1)];
+      return (
+        <ShapeBase
+          {...shapeData}
+          shapeId={`${shapeType}-${index}`}
+          {...props}
+          ref={ref}
+        />
+      );
+    }
+  );
   Component.displayName = shapeType;
   return Component;
 };
 
-export const getRandomShape = ({
-  type,
+export function getRandomShape ({
+  type, onlyId
 }: {
   type?: ShapesType;
   onlyId?: boolean;
-} = {}) => {
+} = {}) {
+
   const shapeKeys = shapesType;
   const shapeType: ShapesType =
     type ||

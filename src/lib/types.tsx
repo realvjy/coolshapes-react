@@ -4,6 +4,7 @@ import {
   RefAttributes,
   SVGProps,
 } from "react";
+import { shapesType } from "./common";
 
 export type gradientShapeType = ReactElement<
   SVGPathElement | SVGCircleElement | SVGRectElement
@@ -58,3 +59,30 @@ export type SvgProps = RefAttributes<SVGSVGElement> &
   Partial<SVGProps<SVGSVGElement>>;
 export type ShapeType = ForwardRefExoticComponent<ShapeProps>;
 export type ShapeProps = SvgProps & MaskProps;
+
+type IndexProps = { index: number | string };
+
+export type ShapesType = (typeof shapesType)[number];
+export type ComponentDataType = {
+  shape: string;
+  blur?: number | string;
+  gradientShapes?: gradientShapeType | gradientShapeType[];
+  gradient: gradientType[];
+  transparent?: boolean;
+  opacity?: number | string;
+  shapeFill?: string;
+};
+export type ShapeTypeProps = {
+  type: ShapesType;
+};
+
+export type CoolshapeComponentProps = Partial<
+  ShapeProps &
+    IndexProps &
+    ShapeTypeProps & {
+      random: boolean;
+      unstyled: boolean;
+    }
+>;
+
+export type CategoryComponentProps = Partial<ShapeProps> & IndexProps;

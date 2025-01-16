@@ -15,7 +15,6 @@ import * as Moon14 from "./14";
 import * as Moon15 from "./15";
 
 import { getComponentWithShapeType } from "../../lib/utils/shape";
-
 export const MoonData = {
   "moon-1": Moon1.data,
   "moon-2": Moon2.data,
@@ -33,7 +32,5 @@ export const MoonData = {
   "moon-14": Moon14.data,
   "moon-15": Moon15.data,
 };
-
 const Moon = getComponentWithShapeType("moon", Object.values(MoonData));
-
 export { Moon as default, Moon };

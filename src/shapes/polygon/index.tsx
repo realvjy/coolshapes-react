@@ -8,7 +8,6 @@ import * as Polygon7 from "./7";
 import * as Polygon8 from "./8";
 
 import { getComponentWithShapeType } from "../../lib/utils/shape";
-
 export const PolygonData = {
   "polygon-1": Polygon1.data,
   "polygon-2": Polygon2.data,
@@ -19,10 +18,8 @@ export const PolygonData = {
   "polygon-7": Polygon7.data,
   "polygon-8": Polygon8.data,
 };
-
 const Polygon = getComponentWithShapeType(
   "polygon",
   Object.values(PolygonData)
 );
-
 export { Polygon as default, Polygon };

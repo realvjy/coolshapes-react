@@ -123,4 +123,3 @@ export * from "./triangle";
 export * from "./polygon";
 export * from "./rectangle";
 export * from "./number";
-export { default as shapesData } from "./data.js";

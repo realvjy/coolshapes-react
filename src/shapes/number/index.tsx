@@ -1,3 +1,4 @@
+import * as Number0 from "./0";
 import * as Number1 from "./1";
 import * as Number2 from "./2";
 import * as Number3 from "./3";
@@ -9,8 +10,8 @@ import * as Number8 from "./8";
 import * as Number9 from "./9";
 
 import { getComponentWithShapeType } from "../../lib/utils/shape";
-
 export const NumberData = {
+  "number-0": Number0.data,
   "number-1": Number1.data,
   "number-2": Number2.data,
   "number-3": Number3.data,
@@ -21,7 +22,5 @@ export const NumberData = {
   "number-8": Number8.data,
   "number-9": Number9.data,
 };
-
 const Number = getComponentWithShapeType("number", Object.values(NumberData));
-
 export { Number as default, Number };

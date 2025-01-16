@@ -29,18 +29,6 @@ export const Noise = ({
         <feBlend in="SourceGraphic" in2="out2" mode="overlay" result="out3" />
       </filter>
     </defs>
-    <g>
-      <path
-        fill="transparent"
-        stroke="transparent"
-        d="M200 0H0v200h200V0z"
-        filter={`url(#cs_${shapeId}_noise)`}
-        mask={`url(#cs_${shapeId})_mask`}
-        style={{
-          mixBlendMode: "overlay",
-        }}
-      />
-    </g>
   </>
 );
 
@@ -73,6 +61,20 @@ export const ShapeMask = (props: MaskProps) => {
           </g>
         ) : (
           <>{props.gradientShapes}</>
+        )}
+        {props.noise && (
+          <g>
+            <path
+              fill="transparent"
+              stroke="transparent"
+              d="M200 0H0v200h200V0z"
+              filter={`url(#cs_${props.shapeId}_noise)`}
+              mask={`url(#cs_${props.shapeId})_mask`}
+              style={{
+                mixBlendMode: "overlay",
+              }}
+            />
+          </g>
         )}
         <defs>
           <mask id={`cs_${props.shapeId}_mask`}>

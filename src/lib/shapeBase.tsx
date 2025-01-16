@@ -10,7 +10,6 @@ export const defaultProps = {
   viewBox: "0 0 200 200",
   width: 200,
   height: 200,
-  noise: 0.3,
 };
 
 const ShapeBase = forwardRef<SVGSVGElement, ShapeProps>((props, ref) => {
@@ -60,6 +59,7 @@ const ShapeBase = forwardRef<SVGSVGElement, ShapeProps>((props, ref) => {
         ))}
       <ShapeMask
         shape={shape}
+        noise={noise}
         blur={blur}
         shapeFill={shapeFill}
         shapeId={shapeId}
@@ -74,7 +74,7 @@ const ShapeBase = forwardRef<SVGSVGElement, ShapeProps>((props, ref) => {
       {noise && (
         <Noise
           shapeId={shapeId}
-          noiseScale={typeof noise === "number" ? noise : undefined}
+          noiseScale={typeof noise === "number" ? 0.3 : undefined}
         />
       )}
     </svg>
