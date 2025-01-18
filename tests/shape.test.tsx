@@ -15,23 +15,55 @@ describe("Using every shape data from the defined shape data list", () => {
       shapeId: shapeKey,
     };
 
-    it(`${shapeKey} icon component renders and has default noise`, () => {
+    it(`${shapeKey} icon component renders and has all parts`, () => {
       const { getByTestId } = render(<ShapeBase {...props} />);
       const shapeElement = getByTestId(shapeKey);
       expect(shapeElement).toBeDefined();
       expect(shapeElement.classList).toContain(shapeKey);
       expect(shapeElement.querySelector(`#cs_${shapeKey}_noise`)).toBeTruthy();
-    });
-    it(`Component ${shapeKey} is accepting custom class name and sizes `, () => {
-      const { getByTestId } = render(<ShapeBase {...props} />);
-      const shapeElement = getByTestId(shapeKey);
-
-      expect(shapeElement.classList.contains(props.className)).toBeTruthy();
-      // expect(shapeElement.getAttribute("width")).toBe(props.size.toString());
-      // expect(shapeElement.getAttribute("height")).toBe(props.size.toString());
+      // element path mask is correct
+      expect(
+        shapeElement.querySelector(
+          `mask#cs_${shapeKey}_mask path[d="${shapeData.shape}"]`
+        )
+      ).toBeTruthy();
+      // element has blur
+      if (shapeData.blur) {
+        const blurFilter = shapeElement.querySelector(
+          `filter#cs_${shapeKey}_blur feGaussianBlur[stdDeviation="${shapeData.blur}"]`
+        );
+        expect(blurFilter).toBeTruthy();
+      }
+      // element accepting shape fill color
+      const fillElement = shapeElement.querySelector(
+        `path[fill="${shapeData.shapeFill}"]`
+      );
+      if (props.shapeFill) {
+        expect(fillElement).toBeTruthy();
+        // element accepting shape opacity
+        if (props.opacity) {
+          expect(fillElement!.getAttribute("fill-opacity")).toBe(
+            String(shapeData.opacity)
+          );
+        }
+      }
+      // element is rendering gradients correctly
+      shapeData.gradient.map((gradient, _i) => {
+        const gradientElement = shapeElement.querySelector(
+          `#cs_${shapeKey}_gradient_${gradient.id || _i}`
+        );
+        expect(gradientElement).toBeTruthy();
+        gradient.stops?.map((stop) => {
+          const stopElement = gradientElement!.querySelector(
+            `stop[stop-color="${stop.color}"][opacity="${stop.opacity || 1}"]`
+          );
+          expect(stopElement).toBeTruthy();
+        });
+      });
     });
   });
 });
+
 //
 // describe("using random shape function", () => {
 //   // it("it should return a random shape component", () => {

@@ -46,13 +46,13 @@ export const getComponentWithShapeType = (
   return Component;
 };
 
-export function getRandomShape ({
-  type, onlyId
+export function getRandomShape({
+  type,
+  onlyId,
 }: {
   type?: ShapesType;
   onlyId?: boolean;
 } = {}) {
-
   const shapeKeys = shapesType;
   const shapeType: ShapesType =
     type ||
@@ -66,4 +66,4 @@ export function getRandomShape ({
     index: randomIndex,
     shapeId: `${shapeType}-${randomIndex}`,
   };
-};
+}
