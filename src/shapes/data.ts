@@ -1,23 +1,23 @@
-import { EllipseData } from "./ellipse";
-import { WheelData } from "./wheel";
-import { TriangleData } from "./triangle";
-import { StarData } from "./star";
-import { PolygonData } from "./polygon";
-import { NumberData } from "./number";
-import { RectangleData } from "./rectangle";
-import { MoonData } from "./moon";
-import { MiscData } from "./misc";
-import { FlowerData } from "./flower";
+import { ellipseShapeData } from "./ellipse";
+import { wheelShapeData } from "./wheel";
+import { triangleShapeData } from "./triangle";
+import { starShapeData } from "./star";
+import { polygonShapeData } from "./polygon";
+import { numberShapeData } from "./number";
+import { rectangleShapeData } from "./rectangle";
+import { moonShapeData } from "./moon";
+import { miscShapeData } from "./misc";
+import { flowerShapeData } from "./flower";
 
 export default {
-  ...EllipseData,
-  ...WheelData,
-  ...TriangleData,
-  ...StarData,
-  ...PolygonData,
-  ...NumberData,
-  ...RectangleData,
-  ...MoonData,
-  ...MiscData,
-  ...FlowerData,
+  ...ellipseShapeData,
+  ...wheelShapeData,
+  ...triangleShapeData,
+  ...starShapeData,
+  ...polygonShapeData,
+  ...numberShapeData,
+  ...rectangleShapeData,
+  ...moonShapeData,
+  ...miscShapeData,
+  ...flowerShapeData,
 };

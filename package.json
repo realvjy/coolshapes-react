@@ -27,7 +27,7 @@
     "build": "npm run clean && rollup --config && npm run build:types",
     "build:types": "tsc --emitDeclarationOnly --declaration --outDir ./dist/types",
     "build:script": "node scripts/index.mjs",
-    "test": "vitest --config ./vitest.config.mjs run",
+    "test": "vitest --config ./vitest.config.mjs run ",
     "clean": "rm -rf dist",
     "reformat": "prettier . --write"
   },
@@ -90,6 +90,7 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
+    "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
     "@types/react": "^18.2.0",
     "@typescript-eslint/eslint-plugin": "^7.1.0",

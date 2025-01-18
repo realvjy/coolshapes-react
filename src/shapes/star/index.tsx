@@ -13,7 +13,7 @@ import * as Star12 from "./12";
 import * as Star13 from "./13";
 
 import { getComponentWithShapeType } from "../../lib/utils/shape";
-export const StarData = {
+export const starShapeData = {
   "star-1": Star1.data,
   "star-2": Star2.data,
   "star-3": Star3.data,
@@ -28,5 +28,5 @@ export const StarData = {
   "star-12": Star12.data,
   "star-13": Star13.data,
 };
-const Star = getComponentWithShapeType("star", Object.values(StarData));
+const Star = getComponentWithShapeType("star", Object.values(starShapeData));
 export { Star as default, Star };

@@ -9,7 +9,7 @@ import * as Rectangle8 from "./8";
 import * as Rectangle9 from "./9";
 
 import { getComponentWithShapeType } from "../../lib/utils/shape";
-export const RectangleData = {
+export const rectangleShapeData = {
   "rectangle-1": Rectangle1.data,
   "rectangle-2": Rectangle2.data,
   "rectangle-3": Rectangle3.data,
@@ -22,6 +22,6 @@ export const RectangleData = {
 };
 const Rectangle = getComponentWithShapeType(
   "rectangle",
-  Object.values(RectangleData)
+  Object.values(rectangleShapeData)
 );
 export { Rectangle as default, Rectangle };

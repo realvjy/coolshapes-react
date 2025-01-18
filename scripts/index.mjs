@@ -65,7 +65,11 @@ await Promise.all(
     const indexPath = path.join(outputDir, `${category}/index.tsx`);
     const isNumberCategory = category.startsWith("number");
     let imports = "";
-    const CategoryName = category.charAt(0).toUpperCase() + category.slice(1);
+    let CategoryName = category.charAt(0).toUpperCase() + category.slice(1);
+    if (CategoryName === "Number") {
+      CategoryName = "NumberShape";
+    }
+
     let shapeDataArrayEntries = "";
     [...Array(maxFiles)].forEach((_, i) => {
       const fileNumber = isNumberCategory ? i : i + 1;
@@ -76,12 +80,12 @@ await Promise.all(
     const content = `
     ${imports}
     import { getComponentWithShapeType } from "../../lib/utils/shape";
-    export const ${CategoryName}Data = {
+    export const ${category}ShapeData = {
     ${shapeDataArrayEntries}
     };
     const ${CategoryName} = getComponentWithShapeType(
       "${category}",
-      Object.values(${CategoryName}Data)
+      Object.values(${category}ShapeData)
     );
     export {
       ${CategoryName} as default,

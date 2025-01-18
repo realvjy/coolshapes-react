@@ -37,9 +37,7 @@ export const ShapeMask = (props: MaskProps) => {
   return (
     <g>
       <g mask={`url(#cs_${props.shapeId}_mask)`}>
-        {(!props.transparent || props.opacity === 1) && (
-          <path fill="white" d="M200 0H0v200h200V0z" />
-        )}
+        {!props.transparent && <path fill="white" d="M200 0H0v200h200V0z" />}
         {props.shapeFill && (
           <path
             fill={props.shapeFill}
@@ -88,7 +86,7 @@ export const ShapeMask = (props: MaskProps) => {
                   key={_i}
                   stopColor={_stop.color}
                   offset={_stop.offset}
-                  opacity={_stop.opacity !== undefined ? _stop.opacity : 1}
+                  stopOpacity={_stop.opacity !== undefined ? _stop.opacity : 1}
                 />
               );
             });
@@ -114,7 +112,7 @@ export const ShapeMask = (props: MaskProps) => {
             } = { x1: gradient.x1, x2: gradient.x2, y1: gradient.y2 };
             const { x1, x2, y1, y2 } = dirCoords;
             if (!(x1 && x2 && y1 && y2)) {
-              const angle = gradient.angle !== undefined || 0;
+              const angle = gradient.angle || 0;
               dirCoords = directionToBoxCoords(Number(angle));
             }
 

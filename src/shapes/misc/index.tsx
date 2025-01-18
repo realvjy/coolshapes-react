@@ -11,7 +11,7 @@ import * as Misc10 from "./10";
 import * as Misc11 from "./11";
 
 import { getComponentWithShapeType } from "../../lib/utils/shape";
-export const MiscData = {
+export const miscShapeData = {
   "misc-1": Misc1.data,
   "misc-2": Misc2.data,
   "misc-3": Misc3.data,
@@ -24,5 +24,5 @@ export const MiscData = {
   "misc-10": Misc10.data,
   "misc-11": Misc11.data,
 };
-const Misc = getComponentWithShapeType("misc", Object.values(MiscData));
+const Misc = getComponentWithShapeType("misc", Object.values(miscShapeData));
 export { Misc as default, Misc };

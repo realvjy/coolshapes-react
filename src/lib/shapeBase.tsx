@@ -8,8 +8,9 @@ export const defaultProps = {
   fill: "none",
   className: "coolshapes",
   viewBox: "0 0 200 200",
-  width: 200,
-  height: 200,
+  width: "200",
+  height: "200",
+  noise: 0.3,
 };
 
 const ShapeBase = forwardRef<SVGSVGElement, ShapeProps>((props, ref) => {
@@ -38,6 +39,7 @@ const ShapeBase = forwardRef<SVGSVGElement, ShapeProps>((props, ref) => {
     className: defaultClassName,
     width: defaultWidth,
     height: defaultHeight,
+    noise: defaultNoise,
     ...restDefaultProps
   } = defaultProps;
 
@@ -74,7 +76,7 @@ const ShapeBase = forwardRef<SVGSVGElement, ShapeProps>((props, ref) => {
       {noise && (
         <Noise
           shapeId={shapeId}
-          noiseScale={typeof noise === "number" ? 0.3 : undefined}
+          noiseScale={typeof noise === "number" ? defaultNoise : undefined}
         />
       )}
     </svg>

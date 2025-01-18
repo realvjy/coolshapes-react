@@ -16,7 +16,7 @@ import * as Flower15 from "./15";
 import * as Flower16 from "./16";
 
 import { getComponentWithShapeType } from "../../lib/utils/shape";
-export const FlowerData = {
+export const flowerShapeData = {
   "flower-1": Flower1.data,
   "flower-2": Flower2.data,
   "flower-3": Flower3.data,
@@ -34,5 +34,8 @@ export const FlowerData = {
   "flower-15": Flower15.data,
   "flower-16": Flower16.data,
 };
-const Flower = getComponentWithShapeType("flower", Object.values(FlowerData));
+const Flower = getComponentWithShapeType(
+  "flower",
+  Object.values(flowerShapeData)
+);
 export { Flower as default, Flower };

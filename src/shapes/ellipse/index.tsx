@@ -12,7 +12,7 @@ import * as Ellipse11 from "./11";
 import * as Ellipse12 from "./12";
 
 import { getComponentWithShapeType } from "../../lib/utils/shape";
-export const EllipseData = {
+export const ellipseShapeData = {
   "ellipse-1": Ellipse1.data,
   "ellipse-2": Ellipse2.data,
   "ellipse-3": Ellipse3.data,
@@ -28,6 +28,6 @@ export const EllipseData = {
 };
 const Ellipse = getComponentWithShapeType(
   "ellipse",
-  Object.values(EllipseData)
+  Object.values(ellipseShapeData)
 );
 export { Ellipse as default, Ellipse };
