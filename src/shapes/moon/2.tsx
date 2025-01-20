@@ -18,8 +18,8 @@ const data: ComponentDataType = {
         transform="rotate(-15 53.016 .222)"></ellipse>
     </>
   ),
-  opacity: 0,
-  shapeFill: "#0E6FFF",
+
+  fill: "#0E6FFF",
   gradient: [],
 };
 const Component = createShapeComponent("moon-2", data);

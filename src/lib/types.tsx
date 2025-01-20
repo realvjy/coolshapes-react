@@ -11,8 +11,9 @@ export type gradientShapeType = ReactElement<
   SVGPathElement | SVGCircleElement | SVGRectElement
 >;
 
+export type ShapePathType = string | gradientShapeType | gradientShapeType[];
 export interface MaskProps extends ShapeMetadataProps {
-  shape: string;
+  shape: ShapePathType;
   shapeId: string;
 }
 
@@ -38,11 +39,13 @@ export type gradientType = {
   gradientTransform?: string;
 };
 
+export type ShapeOutline = {
+  color: string;
+  width?: string;
+  lineJoin?: "inherit" | "round" | "miter" | "bevel";
+};
 export interface ShapeMetadataProps {
-  shape?: string;
-  bg?: string;
-  background?: string;
-  backgroundOpacity?: number | string;
+  shape?: ShapePathType;
   noise?: boolean | number;
   size?: string | number;
   gradient?:
@@ -53,12 +56,9 @@ export interface ShapeMetadataProps {
         gradient?: gradientType[];
         shapes?: gradientShapeType | gradientShapeType[];
       };
-  gradientShapes?: gradientShapeType | gradientShapeType[];
-  shapeFill?: string;
+  gradientShapes?: gradientShapeType | gradientShapeType[] | null;
+  fill?: string;
   opacity?: number | string;
-  outline?: string;
-  outlineWidth?: string;
-  outlineLineJoin?: "inherit" | "round" | "miter" | "bevel";
   blur?: number | string;
   transparent?: boolean;
 }
@@ -72,13 +72,13 @@ type IndexProps = { index: number | string };
 
 export type ShapesType = (typeof shapesType)[number];
 export type ComponentDataType = {
-  shape: string;
+  shape: ShapePathType;
   blur?: number | string;
-  gradientShapes?: gradientShapeType | gradientShapeType[];
+  gradientShapes?: gradientShapeType | gradientShapeType[] | null;
   gradient: gradientType[];
   transparent?: boolean;
   opacity?: number | string;
-  shapeFill?: string;
+  fill?: string;
 };
 export type ShapeTypeProps = {
   type: ShapesType;

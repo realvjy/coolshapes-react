@@ -18,7 +18,7 @@ const data: ComponentDataType = {
     </>
   ),
   opacity: 0.54,
-  shapeFill: "#FFF500",
+  fill: "#FFF500",
   gradient: [],
 };
 const Component = createShapeComponent("number-4", data);

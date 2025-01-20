@@ -1,5 +1,10 @@
 import React from "react";
-import { gradientShapeType, gradientType, MaskProps } from "./types";
+import {
+  gradientShapeType,
+  gradientType,
+  MaskProps,
+  ShapeOutline,
+} from "./types";
 import { directionToBoxCoords } from "./utils";
 
 export const Noise = ({
@@ -34,7 +39,8 @@ export const Noise = ({
 
 export const ShapeMask = (props: MaskProps) => {
   let gradients: gradientType[] = [];
-  const gradientShapes: gradientShapeType[] = [];
+  let gradientShapes: gradientShapeType | gradientShapeType[] =
+    props.gradientShapes || [];
 
   if (props.gradient && typeof props.gradient === "object") {
     if ("type" in props.gradient) {
@@ -42,13 +48,8 @@ export const ShapeMask = (props: MaskProps) => {
         shapes?: gradientShapeType | gradientShapeType[];
       };
       gradients.push(gradient);
-
       if (shapes) {
-        if (Array.isArray(shapes)) {
-          gradientShapes.push(...shapes);
-        } else {
-          gradientShapes.push(shapes);
-        }
+        gradientShapes = shapes;
       }
     } else if (
       "gradient" in props.gradient &&
@@ -59,12 +60,9 @@ export const ShapeMask = (props: MaskProps) => {
       gradients = props.gradient as gradientType[];
     }
     if ("shapes" in props.gradient && props.gradient.shapes) {
-      const shapes = props.gradient.shapes;
-      if (Array.isArray(shapes)) {
-        gradientShapes.push(...shapes);
-      } else {
-        gradientShapes.push(shapes as gradientShapeType);
-      }
+      gradientShapes = props.gradient.shapes as
+        | gradientShapeType
+        | gradientShapeType[];
     }
   }
 
@@ -72,9 +70,9 @@ export const ShapeMask = (props: MaskProps) => {
     <g>
       <g mask={`url(#cs_${props.shapeId}_mask)`}>
         {!props.transparent && <path fill="white" d="M200 0H0v200h200V0z" />}
-        {props.shapeFill && (
+        {props.fill && (
           <path
-            fill={props.shapeFill}
+            fill={props.fill}
             d="M200 0H0v200h200V0z"
             fillOpacity={props.opacity || 1}
           />
@@ -108,7 +106,11 @@ export const ShapeMask = (props: MaskProps) => {
         )}
         <defs>
           <mask id={`cs_${props.shapeId}_mask`}>
-            <path fill="#fff" d={props.shape} />
+            {typeof props.shape == "string" ? (
+              <path fill="#fff" d={props.shape} />
+            ) : (
+              props.shape
+            )}
           </mask>
           {gradients!.map((gradient, _i) => {
             const gradientStops = gradient.stops || [];
@@ -141,7 +143,12 @@ export const ShapeMask = (props: MaskProps) => {
               x2?: string | number;
               y1?: string | number;
               y2?: string | number;
-            } = { x1: gradient.x1, x2: gradient.x2, y1: gradient.y2 };
+            } = {
+              x1: gradient.x1,
+              x2: gradient.x2,
+              y1: gradient.y1,
+              y2: gradient.y2,
+            };
             const { x1, x2, y1, y2 } = dirCoords;
             if (!(x1 && x2 && y1 && y2)) {
               const angle = gradient.angle || 0;
@@ -184,16 +191,6 @@ export const ShapeMask = (props: MaskProps) => {
           )}
         </defs>
       </g>
-      {props.outline && (
-        <path
-          fill={"transparent"}
-          stroke={props.outline}
-          strokeWidth={props.outlineWidth}
-          strokeLinejoin={props.outlineLineJoin || "round"}
-          d={props.shape}
-          fillOpacity={props.opacity}
-        />
-      )}
     </g>
   );
 };

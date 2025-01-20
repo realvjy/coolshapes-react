@@ -14,7 +14,7 @@ const data: ComponentDataType = {
     </>
   ),
   opacity: 0.331,
-  shapeFill: "#FFC700",
+  fill: "#FFC700",
   gradient: [],
 };
 const Component = createShapeComponent("moon-1", data);

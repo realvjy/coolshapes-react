@@ -14,7 +14,7 @@ const data: ComponentDataType = {
     </>
   ),
   opacity: 0.44,
-  shapeFill: "#FFF500",
+  fill: "#FFF500",
   gradient: [],
 };
 const Component = createShapeComponent("star-3", data);

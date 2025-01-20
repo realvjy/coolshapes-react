@@ -5,7 +5,7 @@ const data: ComponentDataType = {
   shape:
     "M150 0v50H50V0h100zM50 150V50H0v100h50zM150 150V50h50v100h-50zM150 150H50v50h100v-50z",
   blur: undefined,
-  gradientShapes: undefined,
+  gradientShapes: null,
 
   gradient: [
     {

@@ -22,7 +22,7 @@ const data: ComponentDataType = {
     </>
   ),
   opacity: 0.19,
-  shapeFill: "#FF6C02",
+  fill: "#FF6C02",
   gradient: [
     {
       x1: "196.967",

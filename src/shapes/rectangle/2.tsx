@@ -3,7 +3,7 @@ import { createShapeComponent } from "../../lib/utils/shape";
 import { ComponentDataType } from "../../lib/types";
 
 const data: ComponentDataType = {
-  shape: "null",
+  shape: <rect width="200" height="200" fill="#fff" rx="32" />,
   blur: 40,
   gradientShapes: (
     <>
@@ -17,8 +17,8 @@ const data: ComponentDataType = {
         transform="rotate(-26.262 125.54 65.794)"></ellipse>
     </>
   ),
-  opacity: 0,
-  shapeFill: "#0E6FFF",
+
+  fill: "#0E6FFF",
   gradient: [],
 };
 const Component = createShapeComponent("rectangle-2", data);

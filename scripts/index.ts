@@ -22,18 +22,20 @@ async function createShapeFile(shapeKey, shapeData) {
     fs.mkdirSync(categoryDir, { recursive: true });
   }
   const filePath = path.join(categoryDir, `${index}.tsx`);
+  const isJsxPath = shapeData.shape && shapeData.shape.includes("<");
+
   const componentDataString = `
   {
-    shape: "${shapeData.shape}",
+    shape: ${isJsxPath ? shapeData.shape : `"${shapeData.shape}"`},
     blur: ${shapeData.blur},
-    gradientShapes: ${shapeData.gradientShapes},
-    ${shapeData.shapeFill ? `opacity: ${shapeData.opacity},` : ``}
-    ${shapeData.shapeFill ? `shapeFill: "${shapeData.shapeFill}",` : ``}
-    gradient: ${JSON.stringify(shapeData.gradient)}
+    gradientShapes: ${shapeData.gradientShapes || null},
+    ${shapeData.opacity ? `opacity: ${shapeData.opacity},` : ``}
+    ${shapeData.fill ? `fill: "${shapeData.fill}",` : ``}
+    gradient: ${JSON.stringify(shapeData.gradient) || "[]"}
   }
   `;
   // Create file content
-  const fileContent = `${shapeData.gradientShapes ? `import * as React from "react"` : ""};
+  const fileContent = `${shapeData.gradientShapes || isJsxPath ? `import * as React from "react"` : ""};
   import { createShapeComponent } from "../../lib/utils/shape";
   import { ComponentDataType } from "../../lib/types";
 

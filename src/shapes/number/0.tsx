@@ -3,8 +3,13 @@ import { createShapeComponent } from "../../lib/utils/shape";
 import { ComponentDataType } from "../../lib/types";
 
 const data: ComponentDataType = {
-  shape:
-    "M100 110c5.523 0 10-4.477 10-10s-4.477-10-10-10-10 4.477-10 10 4.477 10 10 10zm0 90c55.228 0 100-44.772 100-100S155.228 0 100 0 0 44.772 0 100s44.772 100 100 100z",
+  shape: (
+    <path
+      fill="#fff"
+      fillRule="evenodd"
+      d="M100 110c5.523 0 10-4.477 10-10s-4.477-10-10-10-10 4.477-10 10 4.477 10 10 10zm0 90c55.228 0 100-44.772 100-100S155.228 0 100 0 0 44.772 0 100s44.772 100 100 100z"
+      clipRule="evenodd"></path>
+  ),
   blur: 35,
   gradientShapes: (
     <>

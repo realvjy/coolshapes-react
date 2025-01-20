@@ -17,7 +17,7 @@ const data: ComponentDataType = {
     </>
   ),
   opacity: 0.2,
-  shapeFill: "#F2371F",
+  fill: "#F2371F",
   gradient: [],
 };
 const Component = createShapeComponent("triangle-3", data);

@@ -20,8 +20,8 @@ const data: ComponentDataType = {
         ry="34.5"></ellipse>
     </>
   ),
-  opacity: 0,
-  shapeFill: "#0E6FFF",
+
+  fill: "#0E6FFF",
   gradient: [],
 };
 const Component = createShapeComponent("number-5", data);

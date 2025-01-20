@@ -4,7 +4,7 @@ import { ComponentDataType } from "../../lib/types";
 const data: ComponentDataType = {
   shape: "M100.397 0l87 50v100l-87 50-87-50V50l87-50z",
   blur: undefined,
-  gradientShapes: undefined,
+  gradientShapes: null,
 
   gradient: [
     {

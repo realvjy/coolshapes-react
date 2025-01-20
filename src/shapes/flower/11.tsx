@@ -13,7 +13,7 @@ const data: ComponentDataType = {
     </>
   ),
   opacity: 0.181,
-  shapeFill: "#F2371F",
+  fill: "#F2371F",
   gradient: [],
 };
 const Component = createShapeComponent("flower-11", data);

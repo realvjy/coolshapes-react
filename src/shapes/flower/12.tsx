@@ -13,8 +13,8 @@ const data: ComponentDataType = {
       <ellipse cx="72.5" cy="30.5" fill="#FF00D6" rx="52.5" ry="49.5"></ellipse>
     </>
   ),
-  opacity: 0,
-  shapeFill: "#FFE99F",
+
+  fill: "#FFE99F",
   gradient: [],
 };
 const Component = createShapeComponent("flower-12", data);

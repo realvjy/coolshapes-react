@@ -15,7 +15,7 @@ const data: ComponentDataType = {
     </>
   ),
   opacity: 0.371,
-  shapeFill: "#F2371F",
+  fill: "#F2371F",
   gradient: [],
 };
 const Component = createShapeComponent("wheel-4", data);

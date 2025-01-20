@@ -10,8 +10,8 @@ const data: ComponentDataType = {
       <path fill="#8F5BFF" d="M222 89H0v111h222V89z"></path>
     </>
   ),
-  opacity: 0,
-  shapeFill: "#0E6FFF",
+
+  fill: "#0E6FFF",
   gradient: [],
 };
 const Component = createShapeComponent("star-6", data);

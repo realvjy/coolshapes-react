@@ -10,8 +10,8 @@ const data: ComponentDataType = {
       <path fill="#00F0FF" d="M151 82H49v110h102V82z"></path>
     </>
   ),
-  opacity: 0,
-  shapeFill: "#fff",
+
+  fill: "#fff",
   gradient: [
     {
       cx: "0",

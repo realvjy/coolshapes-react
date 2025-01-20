@@ -18,8 +18,8 @@ const data: ComponentDataType = {
         transform="rotate(-33.875 108.777 175.536)"></ellipse>
     </>
   ),
-  opacity: 0,
-  shapeFill: "#06F",
+
+  fill: "#06F",
   gradient: [],
 };
 const Component = createShapeComponent("triangle-12", data);

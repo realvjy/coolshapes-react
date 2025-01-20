@@ -16,8 +16,8 @@ const data: ComponentDataType = {
         ry="63.605"></ellipse>
     </>
   ),
-  opacity: 0,
-  shapeFill: "#0E6FFF",
+
+  fill: "#0E6FFF",
   gradient: [],
 };
 const Component = createShapeComponent("triangle-6", data);

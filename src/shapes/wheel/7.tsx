@@ -18,8 +18,8 @@ const data: ComponentDataType = {
         transform="rotate(-33.875 107.987 146.246)"></ellipse>
     </>
   ),
-  opacity: 0,
-  shapeFill: "#06F",
+
+  fill: "#06F",
   gradient: [],
 };
 const Component = createShapeComponent("wheel-7", data);

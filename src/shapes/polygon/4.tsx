@@ -17,8 +17,8 @@ const data: ComponentDataType = {
         transform="rotate(-33.875 162.682 .587)"></ellipse>
     </>
   ),
-  opacity: 0,
-  shapeFill: "#07FFE1",
+
+  fill: "#07FFE1",
   gradient: [
     {
       x1: "38",

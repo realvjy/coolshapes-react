@@ -20,17 +20,11 @@ const ShapeBase = forwardRef<SVGSVGElement, ShapeProps>((props, ref) => {
     shapeId,
     shape,
     className,
-    shapeFill,
+    fill,
     gradient,
     gradientShapes,
-    bg,
-    background,
-    backgroundOpacity,
     opacity,
     blur,
-    outline,
-    outlineLineJoin,
-    outlineWidth,
     transparent,
     ...rest
   } = props;
@@ -51,26 +45,15 @@ const ShapeBase = forwardRef<SVGSVGElement, ShapeProps>((props, ref) => {
       height={size || defaultHeight}
       {...rest}
       className={`${defaultClassName} ${shapeId} ${className || ""}`}>
-      {bg ||
-        (background && (
-          <path
-            fill={bg || background}
-            fillOpacity={backgroundOpacity || 1}
-            d="M200 0H0v200h200V0z"
-          />
-        ))}
       <ShapeMask
         shape={shape}
         noise={noise}
         blur={blur}
-        shapeFill={shapeFill}
+        fill={fill}
         shapeId={shapeId}
         opacity={opacity}
         gradient={gradient}
         gradientShapes={gradientShapes}
-        outline={outline}
-        outlineLineJoin={outlineLineJoin}
-        outlineWidth={outlineWidth}
         transparent={transparent}
       />
       {noise && (

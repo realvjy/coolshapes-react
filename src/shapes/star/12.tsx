@@ -17,8 +17,8 @@ const data: ComponentDataType = {
         ry="33.5"></ellipse>
     </>
   ),
-  opacity: 0,
-  shapeFill: "#FFE388",
+
+  fill: "#FFE388",
   gradient: [],
 };
 const Component = createShapeComponent("star-12", data);

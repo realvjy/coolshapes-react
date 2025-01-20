@@ -5,22 +5,32 @@ import { ComponentDataType, CoolshapeComponentProps } from "./lib/types";
 import { getRandomShape } from "./lib/utils/shape";
 
 const Coolshape = forwardRef<SVGSVGElement, CoolshapeComponentProps>(
-  ({ random, index, type, unstyled, ...rest }, ref) => {
-    const toDefault = unstyled || (!type && !index && !random);
+  ({ random, index, type, name, unstyled, ...rest }, ref) => {
+    const toDefault = unstyled || (!random && !(name || (type && index)));
     const [shapeId, setShapeId] = useState(
-      toDefault ? "star-1" : `${type}-${index}`
+      toDefault
+        ? "star-1"
+        : name && !(type && index)
+          ? name
+          : `${type}-${index}`
     );
     useEffect(() => {
-      if (random || (!index && type)) {
+      if (random) {
         const randomShape = getRandomShape({
-          type,
+          type: type,
         });
+        console.log(randomShape);
         setShapeId(randomShape.shapeId);
       }
     }, []);
 
     const ElementData: ComponentDataType = shapesData[shapeId];
     const InitialProps = toDefault ? { shape: ElementData.shape } : ElementData;
+    if (rest.fill) {
+      rest.gradient = [];
+      rest.gradientShapes = [];
+      rest.blur = 0;
+    }
 
     if (InitialProps) {
       return (

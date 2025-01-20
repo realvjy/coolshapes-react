@@ -3,8 +3,14 @@ import { createShapeComponent } from "../../lib/utils/shape";
 import { ComponentDataType } from "../../lib/types";
 
 const data: ComponentDataType = {
-  shape:
-    "M100 200c55.228 0 100-44.772 100-100S155.228 0 100 0 0 44.772 0 100s44.772 100 100 100zm55-151a4 4 0 00-4-4H49a4 4 0 00-4 4v102a4 4 0 004 4h102a4 4 0 004-4V49z",
+  shape: (
+    <path
+      fill="#fff"
+      fillRule="evenodd"
+      d="M100 200c55.228 0 100-44.772 100-100S155.228 0 100 0 0 44.772 0 100s44.772 100 100 100zm55-151a4 4 0 00-4-4H49a4 4 0 00-4 4v102a4 4 0 004 4h102a4 4 0 004-4V49z"
+      clipRule="evenodd"
+    />
+  ),
   blur: 40,
   gradientShapes: (
     <>
@@ -24,8 +30,8 @@ const data: ComponentDataType = {
         transform="rotate(-26.262 58.482 26.587)"></ellipse>
     </>
   ),
-  opacity: 0,
-  shapeFill: "url(#paint0_linear_748_4733)",
+
+  fill: "url(#paint0_linear_748_4733)",
   gradient: [
     {
       x1: "158.5",

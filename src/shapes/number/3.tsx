@@ -18,8 +18,8 @@ const data: ComponentDataType = {
       <ellipse cx="92" cy="214.5" fill="#06F" rx="86" ry="42.5"></ellipse>
     </>
   ),
-  opacity: 0,
-  shapeFill: "#07FFE1",
+
+  fill: "#07FFE1",
   gradient: [
     {
       x1: "38",

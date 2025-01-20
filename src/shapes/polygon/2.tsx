@@ -16,7 +16,7 @@ const data: ComponentDataType = {
     </>
   ),
   opacity: 0.2,
-  shapeFill: "#F2371F",
+  fill: "#F2371F",
   gradient: [],
 };
 const Component = createShapeComponent("polygon-2", data);

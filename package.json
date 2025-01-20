@@ -27,11 +27,14 @@
   "scripts": {
     "build": "npm run clean && rollup --config && npm run build:types",
     "build:types": "tsc --emitDeclarationOnly --declaration --outDir ./dist/types",
-    "build:script": "node scripts/index.ts",
+    "build:script": "tsx scripts/index.ts",
     "test": "vitest --config ./vitest.config.mjs run ",
     "clean": "rm -rf dist",
     "prettier": "prettier . --write",
-    "lint": "npx eslint src scripts"
+    "lint": "npx eslint src scripts",
+    "release": "npm publish",
+    "release:alpha": "npm publish --tag alpha",
+    "release:beta": "npm publish --tag beta"
   },
   "author": {
     "name": "realvjy",

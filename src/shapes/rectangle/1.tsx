@@ -3,7 +3,7 @@ import { createShapeComponent } from "../../lib/utils/shape";
 import { ComponentDataType } from "../../lib/types";
 
 const data: ComponentDataType = {
-  shape: "null",
+  shape: "M200 0H0v200h200V0z",
   blur: 30,
   gradientShapes: (
     <>
@@ -20,7 +20,7 @@ const data: ComponentDataType = {
     </>
   ),
   opacity: 0.2,
-  shapeFill: "#FFF9C5",
+  fill: "#FFF9C5",
   gradient: [],
 };
 const Component = createShapeComponent("rectangle-1", data);

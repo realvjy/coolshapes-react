@@ -2,6 +2,7 @@ import {
   CategoryComponentProps,
   ComponentDataType,
   ShapeMetadataProps,
+  ShapePathType,
   ShapeProps,
   ShapesType,
 } from "../types";
@@ -11,7 +12,7 @@ import { shapesCount, shapesType } from "../common";
 
 export const createShapeComponent = (
   shapeId: string,
-  shapeData: ShapeMetadataProps & { shape: string }
+  shapeData: ShapeMetadataProps & { shape: ShapePathType }
 ): ForwardRefExoticComponent<Partial<ShapeProps>> => {
   const Component = forwardRef<SVGSVGElement, Partial<ShapeProps>>(
     (props, ref) => {
@@ -53,13 +54,6 @@ export function getRandomShape({
   type?: ShapesType;
   onlyId?: boolean;
 } = {}) {
-  if (!onlyId) {
-    console.error(
-      "The `getRandomShape` function now only returns shape data, not a component. Please use `shapeId` returned by function to render shape"
-    );
-    return;
-  }
-
   const shapeKeys = shapesType;
   const shapeType: ShapesType =
     type ||

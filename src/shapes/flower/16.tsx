@@ -13,8 +13,8 @@ const data: ComponentDataType = {
       <path fill="#06F" d="M116 145H46v79h70v-79z"></path>
     </>
   ),
-  opacity: 0,
-  shapeFill: "#EE46D3",
+
+  fill: "#EE46D3",
   gradient: [],
 };
 const Component = createShapeComponent("flower-16", data);
