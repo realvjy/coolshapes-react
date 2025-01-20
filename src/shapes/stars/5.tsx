@@ -1,4 +1,3 @@
-import * as React from "react";
 import { createShapeComponent } from "../../lib/utils/shape";
 
 import { ComponentDataType } from "../../lib/types";

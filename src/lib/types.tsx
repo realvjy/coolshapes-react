@@ -5,6 +5,7 @@ import {
   SVGProps,
 } from "react";
 import { shapesType } from "./common";
+import { shapeData } from "../index";
 
 export type gradientShapeType = ReactElement<
   SVGPathElement | SVGCircleElement | SVGRectElement
@@ -44,7 +45,14 @@ export interface ShapeMetadataProps {
   backgroundOpacity?: number | string;
   noise?: boolean | number;
   size?: string | number;
-  gradient?: gradientType[];
+  gradient?:
+    | gradientType[]
+    | false
+    | (gradientType & { shapes?: gradientType | gradientShapeType[] })
+    | {
+        gradient?: gradientType[];
+        shapes?: gradientShapeType | gradientShapeType[];
+      };
   gradientShapes?: gradientShapeType | gradientShapeType[];
   shapeFill?: string;
   opacity?: number | string;
@@ -82,6 +90,7 @@ export type CoolshapeComponentProps = Partial<
     ShapeTypeProps & {
       random: boolean;
       unstyled: boolean;
+      name: keyof typeof shapeData;
     }
 >;
 

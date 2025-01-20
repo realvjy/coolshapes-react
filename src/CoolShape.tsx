@@ -21,6 +21,7 @@ const Coolshape = forwardRef<SVGSVGElement, CoolshapeComponentProps>(
 
     const ElementData: ComponentDataType = shapesData[shapeId];
     const InitialProps = toDefault ? { shape: ElementData.shape } : ElementData;
+
     if (InitialProps) {
       return (
         <ShapeBase ref={ref} {...InitialProps} shapeId={shapeId} {...rest} />

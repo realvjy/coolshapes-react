@@ -1,8 +1,8 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
-import shapeData from "./shapeData.mjs";
+import shapeData from "./shapeData.js";
 import * as prettier from "prettier";
-
+import { shapesType } from "../src/lib/common";
 const cwd = import.meta.dirname;
 const outputDir = path.join(cwd, "../src/shapes");
 const prettierConfig = await prettier.resolveConfig(cwd);
@@ -36,9 +36,9 @@ async function createShapeFile(shapeKey, shapeData) {
   const fileContent = `${shapeData.gradientShapes ? `import * as React from "react"` : ""};
   import { createShapeComponent } from "../../lib/utils/shape";
   import { ComponentDataType } from "../../lib/types";
-  
+
   const data: ComponentDataType = ${componentDataString};
-  
+
   const Component = createShapeComponent("${shapeKey}", data);
   export { data, Component as default};
   `;
@@ -47,53 +47,50 @@ async function createShapeFile(shapeKey, shapeData) {
 }
 
 //
-let finishedShapes = {};
 await Promise.all(
   Object.entries(shapeData).map(async ([shapeKey, shapeData]) => {
-    const category = shapeKey.split("-")[0];
-    const categoryIndex = finishedShapes[category];
-    if (!categoryIndex) {
-      finishedShapes[category] = 0;
-    }
     await createShapeFile(shapeKey, shapeData);
-    finishedShapes[category]++;
   })
 );
 
 await Promise.all(
-  Object.entries(finishedShapes).map(async ([category, maxFiles]) => {
-    const indexPath = path.join(outputDir, `${category}/index.tsx`);
-    const isNumberCategory = category.startsWith("number");
+  shapesType.map(async (type) => {
+    const shapes = Object.entries(shapeData).filter(([name]) => {
+      return name.split("-")[0] === type;
+    });
+    console.log(shapes);
+    const categoryIndexFilePath = path.join(outputDir, `${type}/index.tsx`);
+    let categoryName = type.charAt(0).toUpperCase() + type.slice(1);
     let imports = "";
-    let CategoryName = category.charAt(0).toUpperCase() + category.slice(1);
-    if (CategoryName === "Number") {
-      CategoryName = "NumberShape";
+    let shapeDataArrayEntries = "";
+    if (categoryName === "Number") {
+      categoryName = "NumberShape";
     }
 
-    let shapeDataArrayEntries = "";
-    [...Array(maxFiles)].forEach((_, i) => {
-      const fileNumber = isNumberCategory ? i : i + 1;
-      const nameCapital = `${CategoryName}${fileNumber}`;
-      imports += `import * as ${nameCapital} from "./${fileNumber}"; \n`;
-      shapeDataArrayEntries += `  "${category}-${fileNumber}": ${nameCapital}.data,\n`;
+    shapes.forEach(([name]) => {
+      const shapeName = name.split("-")[1];
+      const componentName = `${categoryName}${shapeName}`;
+      imports += `import * as ${componentName} from "./${shapeName}"; \n`;
+      shapeDataArrayEntries += `  "${name}": ${componentName}.data,\n`;
     });
+
     const content = `
     ${imports}
     import { getComponentWithShapeType } from "../../lib/utils/shape";
-    export const ${category}ShapeData = {
+    export const ${type}ShapeData = {
     ${shapeDataArrayEntries}
     };
-    const ${CategoryName} = getComponentWithShapeType(
-      "${category}",
-      Object.values(${category}ShapeData)
+    const ${categoryName} = getComponentWithShapeType(
+      "${type}",
+      Object.values(${type}ShapeData)
     );
     export {
-      ${CategoryName} as default,
-      ${CategoryName},
+      ${categoryName} as default,
+      ${categoryName},
     };
   `;
     const formatedContent = await format(content);
-    fs.writeFileSync(indexPath, formatedContent, "utf8");
+    fs.writeFileSync(categoryIndexFilePath, formatedContent, "utf8");
   })
 );
 
@@ -110,8 +107,8 @@ Object.keys(shapeData).forEach((key) => {
   dynamicImportsPropsString += `"${key}": () => import('./shapes/${name}/${index}'), \n`;
 });
 
-Object.keys(finishedShapes).forEach((key) => {
-  imports += `export * from './${key}'; \n`;
+shapesType.forEach((type) => {
+  imports += `export * from './${type}'; \n`;
 });
 const formatedImports = await format(imports);
 

@@ -12,9 +12,9 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "rootDir": "./src",
+    "rootDirs": ["./src", "./scripts"],
     "allowSyntheticDefaultImports": true,
-    "types": ["vite/client", "@testing-library/jest-dom"]
+    "types": ["vite/client", "@testing-library/jest-dom", "node"]
   },
   "exclude": ["node_modules", "dist", "tests"]
 }

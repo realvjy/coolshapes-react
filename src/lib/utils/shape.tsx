@@ -53,6 +53,13 @@ export function getRandomShape({
   type?: ShapesType;
   onlyId?: boolean;
 } = {}) {
+  if (!onlyId) {
+    console.error(
+      "The `getRandomShape` function now only returns shape data, not a component. Please use `shapeId` returned by function to render shape"
+    );
+    return;
+  }
+
   const shapeKeys = shapesType;
   const shapeType: ShapesType =
     type ||

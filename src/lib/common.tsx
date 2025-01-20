@@ -1,5 +1,5 @@
 import React from "react";
-import { MaskProps } from "./types";
+import { gradientShapeType, gradientType, MaskProps } from "./types";
 import { directionToBoxCoords } from "./utils";
 
 export const Noise = ({
@@ -33,7 +33,41 @@ export const Noise = ({
 );
 
 export const ShapeMask = (props: MaskProps) => {
-  const gradients = props.gradient?.length ? props.gradient : [];
+  let gradients: gradientType[] = [];
+  const gradientShapes: gradientShapeType[] = [];
+
+  if (props.gradient && typeof props.gradient === "object") {
+    if ("type" in props.gradient) {
+      const { shapes, ...gradient } = props.gradient as gradientType & {
+        shapes?: gradientShapeType | gradientShapeType[];
+      };
+      gradients.push(gradient);
+
+      if (shapes) {
+        if (Array.isArray(shapes)) {
+          gradientShapes.push(...shapes);
+        } else {
+          gradientShapes.push(shapes);
+        }
+      }
+    } else if (
+      "gradient" in props.gradient &&
+      Array.isArray(props.gradient.gradient)
+    ) {
+      gradients = props.gradient.gradient as gradientType[];
+    } else if (Array.isArray(props.gradient)) {
+      gradients = props.gradient as gradientType[];
+    }
+    if ("shapes" in props.gradient && props.gradient.shapes) {
+      const shapes = props.gradient.shapes;
+      if (Array.isArray(shapes)) {
+        gradientShapes.push(...shapes);
+      } else {
+        gradientShapes.push(shapes as gradientShapeType);
+      }
+    }
+  }
+
   return (
     <g>
       <g mask={`url(#cs_${props.shapeId}_mask)`}>
@@ -54,11 +88,9 @@ export const ShapeMask = (props: MaskProps) => {
           />
         ))}
         {props.blur && Number(props.blur) > 0 ? (
-          <g filter={`url(#cs_${props.shapeId}_blur)`}>
-            {props.gradientShapes}
-          </g>
+          <g filter={`url(#cs_${props.shapeId}_blur)`}>{gradientShapes}</g>
         ) : (
-          <>{props.gradientShapes}</>
+          <>{gradientShapes}</>
         )}
         {props.noise && (
           <g>
