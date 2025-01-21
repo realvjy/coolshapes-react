@@ -5,7 +5,7 @@ import {
   SVGProps,
 } from "react";
 import { shapesType } from "./common";
-import { shapeData } from "../index";
+import { shapesData } from "../index";
 
 export type gradientShapeType = ReactElement<
   SVGPathElement | SVGCircleElement | SVGRectElement
@@ -89,8 +89,7 @@ export type CoolshapeComponentProps = Partial<
     IndexProps &
     ShapeTypeProps & {
       random: boolean;
-      unstyled: boolean;
-      name: keyof typeof shapeData;
+      name: keyof typeof shapesData | string;
     }
 >;
 
