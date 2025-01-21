@@ -1,23 +1,38 @@
 import {
   CategoryComponentProps,
   ComponentDataType,
-  ShapeMetadataProps,
-  ShapePathType,
+  ShapeDataProps,
+  MaskShape,
   ShapeProps,
   ShapesType,
 } from "../types";
 import React, { forwardRef, ForwardRefExoticComponent } from "react";
 import ShapeBase from "../shapeBase";
-import { shapesCount, shapesType } from "../common";
+import { shapesCount, shapeTypes } from "../common";
 
 export const createShapeComponent = (
   shapeId: string,
-  shapeData: ShapeMetadataProps & { shape: ShapePathType }
+  shapeData: ShapeDataProps & { shape: MaskShape }
 ): ForwardRefExoticComponent<Partial<ShapeProps>> => {
+
   const Component = forwardRef<SVGSVGElement, Partial<ShapeProps>>(
     (props, ref) => {
+      // eslint-disable-next-line prefer-const
+      let shapeProps = props;
+
+      if (shapeProps.fill){
+        shapeProps.gradient = props.gradient || [];
+        shapeProps.blur = props.blur || 0;
+        shapeProps.gradientShapes = props.gradientShapes || null;
+        shapeProps.opacity = props.opacity || 1;
+      }
       return (
-        <ShapeBase {...shapeData} shapeId={shapeId} {...props} ref={ref} />
+        <ShapeBase
+          {...shapeData}
+          shapeId={shapeId}
+          {...shapeProps}
+          ref={ref}
+        />
       );
     }
   );
@@ -54,12 +69,15 @@ export function getRandomShape({
   type?: ShapesType;
   onlyId?: boolean;
 } = {}) {
-  const shapeKeys = shapesType;
+  if (!onlyId){
+    throw Error("coolshapes-react: `getRandomShape` now only returns shape data, see changelogs for more details.")
+  }
+  const shapeKeys = shapeTypes;
   const shapeType: ShapesType =
     type ||
     (shapeKeys[Math.floor(Math.random() * shapeKeys.length)] as ShapesType);
 
-  const shapeTypeMaxCount = shapesCount["star"];
+  const shapeTypeMaxCount = shapesCount[shapeType];
   const randomIndex = Math.floor(Math.random() * shapeTypeMaxCount);
 
   return {

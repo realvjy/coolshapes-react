@@ -4,59 +4,69 @@ import {
   RefAttributes,
   SVGProps,
 } from "react";
-import { shapesType } from "./common";
+import { shapeTypes } from "./common";
 import { shapesData } from "../index";
 
-export type gradientShapeType = ReactElement<
-  SVGPathElement | SVGCircleElement | SVGRectElement
+export type ShapeElementType = ReactElement<
+  | SVGPathElement
+  | SVGCircleElement
+  | SVGRectElement
+  | SVGEllipseElement
+  | SVGPolylineElement
+  | SVGPolygonElement
 >;
 
-export type ShapePathType = string | gradientShapeType | gradientShapeType[];
-export interface MaskProps extends ShapeMetadataProps {
-  shape: ShapePathType;
+export type MaskShape = string | ShapeElementType | ShapeElementType[];
+
+export interface MaskProps extends ShapeDataProps {
+  shape: MaskShape;
   shapeId: string;
 }
 
-type gradientStop = {
+type GradientStop = {
   offset?: number | string;
   color: string;
   opacity?: number | string;
 };
-
-export type gradientType = {
-  type?: "linear" | "radial" | string;
-  stops?: gradientStop[];
-  opacity?: number | string;
-  angle?: number | string;
-  id?: number | string;
+type LinearGradientProps = {
+  type: "radial";
+  cx?: number | string;
+  cy?: number | string;
+  r?: number | string;
+  fx?: number | string;
+  fy?: number | string;
+  fr?: number | string;
+};
+type RadialGradientProps = {
+  type: "linear";
   x1?: number | string;
   x2?: number | string;
   y1?: number | string;
   y2?: number | string;
-  cx?: number | string;
-  cy?: number | string;
-  r?: number | string;
+};
+export type GradientProp = {
+  id?: string;
+  stops?: GradientStop[];
+  opacity?: number | string;
+  angle?: number | string;
+  gradientUnits?: "userSpaceOnUse" | "objectBoundingBox";
   gradientTransform?: string;
-};
+  spreadMethod?: "pad" | "reflect" | "repeat";
+} & (LinearGradientProps | RadialGradientProps);
 
-export type ShapeOutline = {
-  color: string;
-  width?: string;
-  lineJoin?: "inherit" | "round" | "miter" | "bevel";
-};
-export interface ShapeMetadataProps {
-  shape?: ShapePathType;
+export interface ShapeDataProps {
+  shape?: MaskShape;
   noise?: boolean | number;
   size?: string | number;
   gradient?:
-    | gradientType[]
+    | GradientProp[]
     | false
-    | (gradientType & { shapes?: gradientType | gradientShapeType[] })
+    | (GradientProp & { shapes?: GradientProp | ShapeElementType[] })
     | {
-        gradient?: gradientType[];
-        shapes?: gradientShapeType | gradientShapeType[];
+        gradient?: GradientProp[];
+        shapes?: ShapeElementType | ShapeElementType[];
       };
-  gradientShapes?: gradientShapeType | gradientShapeType[] | null;
+  gradientShapes?: ShapeElementType | ShapeElementType[] | null;
   fill?: string;
   opacity?: number | string;
   blur?: number | string;
@@ -65,17 +75,17 @@ export interface ShapeMetadataProps {
 
 export type SvgProps = RefAttributes<SVGSVGElement> &
   Partial<SVGProps<SVGSVGElement>>;
-export type ShapeType = ForwardRefExoticComponent<ShapeProps>;
+export type Shape = ForwardRefExoticComponent<ShapeProps>;
 export type ShapeProps = SvgProps & MaskProps;
 
 type IndexProps = { index: number | string };
 
-export type ShapesType = (typeof shapesType)[number];
+export type ShapesType = (typeof shapeTypes)[number];
 export type ComponentDataType = {
-  shape: ShapePathType;
+  shape: MaskShape;
   blur?: number | string;
-  gradientShapes?: gradientShapeType | gradientShapeType[] | null;
-  gradient: gradientType[];
+  gradientShapes?: ShapeElementType | ShapeElementType[] | null;
+  gradient: GradientProp[];
   transparent?: boolean;
   opacity?: number | string;
   fill?: string;

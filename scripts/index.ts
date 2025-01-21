@@ -2,7 +2,7 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 import shapeData from "./shapeData.js";
 import * as prettier from "prettier";
-import { shapesType } from "../src/lib/common";
+import { shapeTypes } from "../src/lib/common";
 const cwd = import.meta.dirname;
 const outputDir = path.join(cwd, "../src/shapes");
 const prettierConfig = await prettier.resolveConfig(cwd);
@@ -56,7 +56,7 @@ await Promise.all(
 );
 
 await Promise.all(
-  shapesType.map(async (type) => {
+  shapeTypes.map(async (type) => {
     const shapes = Object.entries(shapeData).filter(([name]) => {
       return name.split("-")[0] === type;
     });
@@ -109,7 +109,7 @@ Object.keys(shapeData).forEach((key) => {
   dynamicImportsPropsString += `"${key}": () => import('./shapes/${name}/${index}'), \n`;
 });
 
-shapesType.forEach((type) => {
+shapeTypes.forEach((type) => {
   imports += `export * from './${type}'; \n`;
 });
 const formatedImports = await format(imports);

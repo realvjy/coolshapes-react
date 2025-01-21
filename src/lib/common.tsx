@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  gradientShapeType,
-  gradientType,
-  MaskProps,
-  ShapeOutline,
-} from "./types";
+import { GradientProp, MaskProps, ShapeElementType } from "./types";
 import { directionToBoxCoords } from "./utils";
 
 export const Noise = ({
@@ -38,14 +33,14 @@ export const Noise = ({
 );
 
 export const ShapeMask = (props: MaskProps) => {
-  let gradients: gradientType[] = [];
-  let gradientShapes: gradientShapeType | gradientShapeType[] =
+  let gradients: GradientProp[] = [];
+  let gradientShapes: ShapeElementType | ShapeElementType[] =
     props.gradientShapes || [];
 
   if (props.gradient && typeof props.gradient === "object") {
     if ("type" in props.gradient) {
-      const { shapes, ...gradient } = props.gradient as gradientType & {
-        shapes?: gradientShapeType | gradientShapeType[];
+      const { shapes, ...gradient } = props.gradient as GradientProp & {
+        shapes?: ShapeElementType | ShapeElementType[];
       };
       gradients.push(gradient);
       if (shapes) {
@@ -55,16 +50,17 @@ export const ShapeMask = (props: MaskProps) => {
       "gradient" in props.gradient &&
       Array.isArray(props.gradient.gradient)
     ) {
-      gradients = props.gradient.gradient as gradientType[];
+      gradients = props.gradient.gradient as GradientProp[];
     } else if (Array.isArray(props.gradient)) {
-      gradients = props.gradient as gradientType[];
+      gradients = props.gradient as GradientProp[];
     }
     if ("shapes" in props.gradient && props.gradient.shapes) {
       gradientShapes = props.gradient.shapes as
-        | gradientShapeType
-        | gradientShapeType[];
+        | ShapeElementType
+        | ShapeElementType[];
     }
   }
+
 
   return (
     <g>
@@ -97,7 +93,7 @@ export const ShapeMask = (props: MaskProps) => {
               stroke="transparent"
               d="M200 0H0v200h200V0z"
               filter={`url(#cs_${props.shapeId}_noise)`}
-              mask={`url(#cs_${props.shapeId})_mask`}
+              mask={`url(#cs_${props.shapeId}_mask)`}
               style={{
                 mixBlendMode: "overlay",
               }}
@@ -112,9 +108,11 @@ export const ShapeMask = (props: MaskProps) => {
               props.shape
             )}
           </mask>
-          {gradients!.map((gradient, _i) => {
-            const gradientStops = gradient.stops || [];
-            const stops = gradientStops.map((_stop, _i) => {
+          {gradients.map((gradient, _i) => {
+            const { id, stops, ...gradientProps } = gradient;
+            const gradientId = `cs_${props.shapeId}_gradient_${id || _i}`;
+
+            const gradientStops = stops?.map((_stop, _i) => {
               return (
                 <stop
                   key={_i}
@@ -124,17 +122,15 @@ export const ShapeMask = (props: MaskProps) => {
                 />
               );
             });
+
             if (gradient.type === "radial") {
               return (
                 <radialGradient
                   key={_i}
-                  id={`cs_${props.shapeId}_gradient_${gradient.id || _i}`}
-                  cx={gradient.cx || 0}
-                  cy={gradient.cy || 0}
-                  r={gradient.r || 1}
-                  gradientTransform={gradient.gradientTransform}
-                  gradientUnits="userSpaceOnUse">
-                  {stops}
+                  id={gradientId}
+                  {...gradientProps}
+                  opacity={1}>
+                  {gradientStops}
                 </radialGradient>
               );
             }
@@ -149,22 +145,21 @@ export const ShapeMask = (props: MaskProps) => {
               y1: gradient.y1,
               y2: gradient.y2,
             };
-            const { x1, x2, y1, y2 } = dirCoords;
-            if (!(x1 && x2 && y1 && y2)) {
+
+            if (
+              !(dirCoords.x1 && dirCoords.x2 && dirCoords.y1 && dirCoords.y2)
+            ) {
               const angle = gradient.angle || 0;
               dirCoords = directionToBoxCoords(Number(angle));
             }
 
             return (
               <linearGradient
-                id={`cs_${props.shapeId}_gradient_${gradient.id || _i}`}
+                id={gradientId}
                 key={_i}
-                x1={dirCoords.x1}
-                x2={dirCoords.x2}
-                y1={dirCoords.y1}
-                y2={dirCoords.y2}
-                gradientUnits="userSpaceOnUse">
-                {stops}
+                {...gradientProps}
+                {...dirCoords}>
+                {gradientStops}
               </linearGradient>
             );
           })}
@@ -195,7 +190,7 @@ export const ShapeMask = (props: MaskProps) => {
   );
 };
 
-export const shapesType = [
+export const shapeTypes = [
   "star",
   "triangle",
   "moon",
@@ -210,4 +205,13 @@ export const shapesType = [
 
 export const shapesCount = {
   star: 13,
+  ellipse: 12,
+  flower: 16,
+  wheel: 7,
+  triangle: 14,
+  rectangle: 9,
+  polygon: 8,
+  number: 10,
+  moon: 15,
+  misc: 11,
 };

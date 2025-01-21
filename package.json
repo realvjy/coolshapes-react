@@ -13,10 +13,9 @@
     "graphics",
     "placeholder"
   ],
-  "type": "module",
-  "main": "dist/cjs/index.js",
+  "main": "dist/esm/index.js",
   "main:umd": "dist/umd/coolshapes.js",
-  "module": "dist/esm/index.js",
+  "module": "dist/cjs/index.js",
   "unpkg": "dist/umd/coolshapes.js",
   "typings": "dist/types/index.d.ts",
   "files": [
