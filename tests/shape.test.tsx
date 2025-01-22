@@ -2,41 +2,18 @@
 import "@testing-library/jest-dom/vitest";
 import { describe, expect, it } from "vitest";
 import { render } from "@testing-library/react";
-import React from "react";
 import { ShapeBase } from "../src/lib";
 import data from "../src/shapes/data";
 import { defaultProps } from "../src/lib/shapeBase";
-import { createShapeComponent } from "../src/lib/utils/shape";
+import { createShapeComponent, getRandomShape } from "../src/lib/utils/shape";
 
-import {
-  Coolshape,
-  Ellipse,
-  Flower,
-  Misc,
-  Moon,
-  NumberShape,
-  Polygon,
-  Rectangle,
-  Star,
-  Triangle,
-  Wheel,
-} from "../src";
+import { GradientProp, MaskShape } from "../src/lib/types";
+import { directionToBoxCoords } from "../src/lib/utils";
+import { renderToStaticMarkup } from "react-dom/server";
+import { Coolshape, shapesData } from "../src";
 import { shapeTypes } from "../src/lib/common";
 
 const VIEWBOX_PATH = `M200 0H0v200h200V0z`;
-
-const components = {
-  star: Star,
-  ellipse: Ellipse,
-  flower: Flower,
-  misc: Misc,
-  moon: Moon,
-  number: NumberShape,
-  polygon: Polygon,
-  rectangle: Rectangle,
-  triangle: Triangle,
-  wheel: Wheel,
-};
 
 const componentHasNoise = (Element: HTMLElement, id: string, noise: number) => {
   return (
@@ -47,6 +24,19 @@ const componentHasNoise = (Element: HTMLElement, id: string, noise: number) => {
       `path[d="${VIEWBOX_PATH}"][filter="url(#cs_${id}_noise)"]`
     )
   );
+};
+
+const componentHasValidShapeMask = (
+  Element: HTMLElement,
+  id: string,
+  MaskData: MaskShape
+) => {
+  if (typeof MaskData == "string") {
+    expect(Element!.querySelector(`path[d="${MaskData}`)).toBeTruthy();
+  } else {
+    const htmlString = renderToStaticMarkup(MaskData);
+    expect(Element).toContainHTML(htmlString);
+  }
 };
 
 describe("Using base component", () => {
@@ -67,23 +57,20 @@ describe("Using base component", () => {
     const Component = getByTestId("base-component");
     expect(Component).toBeVisible();
     expect(Component).toHaveClass(defaultClassname, "test-1");
+    // check if svg element has all the default props
     Object.entries(restDefaultProps).forEach(([attr, value]) => {
       expect(Component).toHaveAttribute(attr, value);
     });
-    // default noise prop
+
+    // check if component has default noise
     expect(componentHasNoise(Component, "test-1", defaultNoise)).toBeTruthy();
+    // check if component has default shape mask and it renders
     expect(
       Component.querySelectorAll(
         `mask#cs_test-1_mask, g[mask="url(#cs_test-1_mask)"]`
       ).length
     ).toBe(2);
   });
-  it("Component doesn't render the noise if prop set to false", () => {
-    const { getByTestId } = render(<ShapeBase {...testProps} noise={false} />);
-    const Component = getByTestId("base-component");
-    expect(componentHasNoise(Component, "test-1", defaultNoise)).toBeFalsy();
-  });
-
   it("Component accepts and render shape color", () => {
     const { getByTestId } = render(<ShapeBase {...testProps} fill={"red"} />);
     const Component = getByTestId("base-component");
@@ -102,7 +89,7 @@ describe("Using base component", () => {
     const maskElement = Component.querySelector(
       `g[mask="url(#cs_test-1_mask)"]`
     );
-    expect(maskElement).toBeDefined();
+    expect(maskElement).toBeTruthy();
     expect(
       maskElement!.querySelector(`path[fill="white"][d="${VIEWBOX_PATH}"]`)
     ).toBeFalsy();
@@ -111,103 +98,159 @@ describe("Using base component", () => {
       "0.3"
     );
   });
-  // it("Component accepts different kind of gradient and gradientShapes, and renders with blur property", () => {
-  //   const gradient: GradientProp[] = [
-  //     {
-  //       angle: 60,
-  //       type: "linear",
-  //       id: "1",
-  //       stops: [
-  //         {
-  //           color: "red",
-  //           offset: 0,
-  //         },
-  //         {
-  //           color: "yellow",
-  //           offset: "1",
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       type: "radial",
-  //       id: "1",
-  //       cx: 0,
-  //       cy: 1,
-  //       r: 1,
-  //       stops: [
-  //         {
-  //           color: "blue",
-  //           offset: 0,
-  //         },
-  //         {
-  //           color: "blue",
-  //           offset: 0.3,
-  //         },
-  //         {
-  //           color: "orange",
-  //           offset: "1",
-  //         },
-  //       ],
-  //     },
-  //   ];
-  //
-  //   const toCords = directionToBoxCoords(linearGradient.angle as number);
-  //   const shape = <circle cx="50" cy="50" r="50" />;
-  //   // linear
-  //   const { getByTestId } = render(
-  //     <ShapeBase
-  //       {...testProps}
-  //       gradient={[linearGradient]}
-  //       gradientShapes={shape}
-  //       blur={10}
-  //     />
-  //   );
-  //   const Component = getByTestId("base-component");
-  //   const linearElement = Component.querySelector(
-  //     `linearGradient#cs_test-1_gradient_1[x1="${toCords.x1}"][x2="${toCords.x2}"][y1="${toCords.y1}"][y2="${toCords.y2}"]`
-  //   );
-  //   expect(linearElement).toBeDefined();
-  //   linearGradient.stops.forEach((stop) => {
-  //     expect(
-  //       linearElement!.querySelector(
-  //         `stop[stop-color="${stop.color}"][offset="${stop.offset}"]`
-  //       )
-  //     ).toBeTruthy();
-  //   });
-  //   expect(
-  //     Component.querySelector(
-  //       `path[fill="url(#cs_test-1_gradient_1)"][d="${VIEWBOX_PATH}"]`
-  //     )
-  //   ).toBeTruthy();
-  //   expect(
-  //     Component.querySelector(
-  //       `filter#cs_test-1_blur feGaussianBlur[stdDeviation="${10}"]`
-  //     )
-  //   ).toBeTruthy();
-  //   expect(
-  //     Component.querySelector(`g[filter="url(#cs_test-1_blur)"]`)
-  //   ).toBeTruthy();
-  // });
-  // it("Component accepts outline props and renders it", () => {
-  //   const { getByTestId } = render(
-  //     <ShapeBase
-  //       {...testProps}
-  //       outline={"black"}
-  //       outlineWidth={"2px"}
-  //       outlineLineJoin={"bevel"}
-  //       opacity={0.5}
-  //     />
-  //   );
-  //   const Component = getByTestId("base-component");
-  //   expect(
-  //     Component.querySelector(
-  //       `path[stroke="black"][stroke-width="2px"][stroke-linejoin="bevel"][fill-opacity="0.5"]`
-  //     )
-  //   ).toBeTruthy();
-  // });
+
+  it("Component accepts gradient props, and it renders with blur property", () => {
+    // TODO: test for all different way gradients can be passed
+    const gradient: GradientProp[] = [
+      {
+        angle: 60,
+        type: "linear",
+        id: "1",
+        stops: [
+          {
+            color: "red",
+            offset: 0,
+          },
+          {
+            color: "yellow",
+            offset: "1",
+          },
+        ],
+      },
+      {
+        type: "radial",
+        id: "2",
+        cx: 0,
+        cy: 1,
+        r: 1,
+        stops: [
+          {
+            color: "blue",
+            offset: 0,
+          },
+          {
+            color: "blue",
+            offset: 0.3,
+          },
+          {
+            color: "orange",
+            offset: "1",
+            opacity: 0,
+          },
+        ],
+      },
+    ];
+    const gradientShapes = (
+      <>
+        <path fill="red" d="M212.25-15H100v139.75h112.25V-15z"></path>
+        <path fill="red" d="M133.875-7H15v128.25h118.875V-7z"></path>
+        <path fill="red" d="M223 68H81v146h142V68z"></path>
+      </>
+    );
+    // gradient.map((gradient, _i)=> {
+    const { getByTestId } = render(
+      <ShapeBase
+        {...testProps}
+        fill={"red"}
+        blur={40}
+        transparent={true}
+        opacity={0.3}
+        gradient={{ gradient, shapes: gradientShapes }}
+      />
+    );
+    const Component = getByTestId("base-component");
+    gradient.map(({ stops, opacity, id, ...gradient }, _i) => {
+      const GradientElement = Component.querySelector(
+        `#cs_test-1_gradient_${id}`
+      );
+      expect(GradientElement).toBeTruthy();
+      stops?.map((stopData) => {
+        const stopElement = GradientElement?.querySelector(
+          `stop[offset="${stopData.offset}"][stop-color="${stopData.color}"]`
+        );
+        expect(stopElement).toBeTruthy();
+        if (stopData.opacity) {
+          expect(stopElement).toHaveAttribute("stop-opacity", String(opacity));
+        }
+        const GradientUseElement = Component.querySelector(
+          `path[fill="url(#cs_test-1_gradient_${id || _i})"][d="${VIEWBOX_PATH}"]`
+        );
+        expect(GradientUseElement).toBeTruthy();
+        if (gradient.type == "linear") {
+          const dirCoords = directionToBoxCoords(Number(gradient.angle!));
+          Object.entries(dirCoords).map(([key, value]) => {
+            expect(GradientElement).toHaveAttribute(key, String(value));
+          });
+        }
+      });
+    });
+    const BlurElement = Component.querySelector(
+      `filter#cs_test-1_blur feGaussianBlur[stdDeviation="${40}"]`
+    );
+    expect(BlurElement).toBeTruthy();
+    const BlurUseElement = Component.querySelector(
+      `g[filter="url(#cs_test-1_blur)"]`
+    );
+    expect(BlurUseElement).toBeTruthy();
+    expect(BlurUseElement?.querySelector('path[fill="red"]')).toBeTruthy();
+  });
+  it("Component doesn't render the noise if prop set to false", () => {
+    const { getByTestId } = render(<ShapeBase {...testProps} noise={false} />);
+    const Component = getByTestId("base-component");
+    expect(componentHasNoise(Component, "test-1", defaultNoise)).toBeFalsy();
+  });
 });
 
-describe.skip("Using every shape data from the defined shape data list", () => {
+describe("Using Coolshape component with custom props", () => {
+  const props = {
+    className: "custom",
+    size: 20,
+    "data-testid": "coolshape",
+  };
+  it("It renders component with given shape type and shape index", () => {
+    const randomShape = getRandomShape();
+    const { getByTestId } = render(
+      <Coolshape {...props} name={randomShape.shapeId} />
+    );
+    const ShapeComponent = getByTestId("coolshape");
+    expect(ShapeComponent).toBeVisible();
+    componentHasValidShapeMask(
+      ShapeComponent,
+      randomShape.shapeId,
+      shapesData[randomShape.shapeId].shape
+    );
+  });
+
+  it("It renders random valid shape when random prop is true or only given shape type", () => {
+    const { getByTestId } = render(
+      <>
+        <Coolshape {...props} random={true} />
+        <Coolshape
+          {...props}
+          type={"triangle"}
+          random={true}
+          {...{ "data-testid": "shape-type" }}
+        />
+      </>
+    );
+    const ShapeComponent = getByTestId("coolshape");
+    const ShapeTypeComponent = getByTestId("shape-type");
+
+    expect(ShapeComponent).toBeVisible();
+    expect(ShapeTypeComponent).toBeVisible();
+    const RandomShapeId = ShapeComponent.classList[1];
+    componentHasValidShapeMask(
+      ShapeComponent,
+      RandomShapeId,
+      shapesData[RandomShapeId].shape
+    );
+    const [shapeType, shapeIndex] = ShapeTypeComponent.classList[1].split("-");
+    expect(shapeTypes).toContain(shapeType);
+    expect(data[`${shapeType}-${shapeIndex}`]).toBeDefined();
+  });
+});
+
+describe("Using every shape data from the defined shape data list", () => {
   Object.entries(data).forEach(([shapeKey, shapeData]) => {
     const props = {
       className: "shape",
@@ -221,15 +264,22 @@ describe.skip("Using every shape data from the defined shape data list", () => {
 
       const shapeElement = getByTestId(shapeKey);
       // component is accepting custom size and in valid ratio
-      expect(shapeElement).toBeDefined();
+      expect(shapeElement).toBeVisible();
       expect(shapeElement.classList).toContain(shapeKey);
-      expect(shapeElement.querySelector(`#cs_${shapeKey}_noise`)).toBeTruthy();
       // element path mask is correct
-      expect(
-        shapeElement.querySelector(
-          `mask#cs_${shapeKey}_mask path[d="${shapeData.shape}"]`
-        )
-      ).toBeTruthy();
+      const MaskElement = shapeElement.querySelector(
+        `mask#cs_${shapeKey}_mask`
+      );
+      expect(MaskElement).toBeTruthy();
+      if (typeof shapeData.shape == "string") {
+        expect(
+          MaskElement!.querySelector(`path[d="${shapeData.shape}`)
+        ).toBeTruthy();
+      } else {
+        const htmlString = renderToStaticMarkup(shapeData.shape);
+        expect(MaskElement).toContainHTML(htmlString);
+      }
+
       // element has blur
       if (shapeData.blur) {
         const blurFilter = shapeElement.querySelector(
@@ -239,9 +289,9 @@ describe.skip("Using every shape data from the defined shape data list", () => {
       }
       // element accepting shape fill color
       const fillElement = shapeElement.querySelector(
-        `path[fill="${shapeData.shapeFill}"]`
+        `path[fill="${shapeData.fill}"]`
       );
-      if (shapeData.shapeFill) {
+      if (shapeData.fill) {
         expect(fillElement).toBeTruthy();
         // element accepting shape opacity
         if (shapeData.opacity) {
@@ -267,61 +317,29 @@ describe.skip("Using every shape data from the defined shape data list", () => {
   });
 });
 
-//
-describe("Using Coolshape component with custom props", () => {
+describe("Using Component returned by `createShapeComponent` function", () => {
   const props = {
-    className: "custom",
-    size: 20,
+    className: "shape",
     "data-testid": "coolshape",
   };
-  it("It renders component with given shape type and shape index", () => {
-    const { getByTestId } = render(
-      <Coolshape {...props} type={"star"} index={"1"} />
-    );
-    const ShapeComponent = getByTestId("coolshape");
-    expect(ShapeComponent).toBeDefined();
-    expect(ShapeComponent.classList[1]).toBe("star-1");
+  const { shapeId } = getRandomShape({ type: "star" });
+  const randomShapeData = shapesData[shapeId];
+  const ShapeComponent = createShapeComponent(shapeId, randomShapeData);
+
+  it("It renders a valid shape Component", () => {
+    const { getByTestId } = render(<ShapeComponent {...props} />);
+    const Component = getByTestId("coolshape");
+    expect(Component).toBeVisible();
+    componentHasValidShapeMask(Component, shapeId, randomShapeData.shape);
   });
 
-  it.skip("It renders random shape when random prop is true or only given shape type", () => {
-    const { getByTestId } = render(
-      <>
-        <Coolshape {...props} random={true} />
-        <Coolshape
-          {...props}
-          type={"triangle"}
-          random={true}
-          {...{ "data-testid": "shape-type" }}
-        />
-      </>
-    );
-    const ShapeComponent = getByTestId("coolshape");
-    const ShapeTypeComponent = getByTestId("shape-type");
-
-    expect(ShapeComponent).toBeDefined();
-    expect(ShapeTypeComponent).toBeDefined();
-    expect(data[ShapeComponent.classList[1]]).toBeDefined();
-    const [shapeType, shapeIndex] = ShapeTypeComponent.classList[1].split("-");
-    expect(shapeTypes).toContain(shapeType);
-    expect(data[`${shapeType}-${shapeIndex}`]).toBeDefined();
+  it("It renders a blank component with only color when passed a fill prop", () => {
+    const { getByTestId } = render(<ShapeComponent {...props} fill={"blue"} />);
+    const Component = getByTestId("coolshape");
+    expect(Component).toBeVisible();
+    componentHasValidShapeMask(Component, shapeId, randomShapeData.shape);
+    expect(
+      Component.querySelectorAll(`linearGradient, radialGradient`).length
+    ).toBeFalsy();
   });
-});
-
-describe.skip("Using Category components", () => {
-  it.each(Object.entries(components))(
-    "it renders shape category",
-    (type, Component) => {
-      const props = {
-        "data-testid": type,
-      };
-      const { getByTestId } = render(<Component {...props} index={1} />);
-      const ShapeComponent = getByTestId(type);
-      expect(ShapeComponent).toBeDefined();
-      expect(
-        ShapeComponent.querySelector(
-          `mask#cs_${type}-1 path[d="${data[`${type}-${1}`]}"]`
-        )
-      ).toBeDefined();
-    }
-  );
 });

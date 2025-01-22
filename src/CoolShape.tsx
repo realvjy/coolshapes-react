@@ -5,7 +5,7 @@ import { createShapeComponent, getRandomShape } from "./lib/utils/shape";
 
 const Coolshape = forwardRef<SVGSVGElement, CoolshapeComponentProps>(
   ({ random, index, type, name, ...rest }, ref) => {
-    const toDefault = (!random && !(name || (type && index)));
+    const toDefault = !random && !(name || (type && index));
     const [shapeId, setShapeId] = useState(
       toDefault
         ? "star-1"
@@ -27,9 +27,7 @@ const Coolshape = forwardRef<SVGSVGElement, CoolshapeComponentProps>(
     const Component = createShapeComponent(shapeId, ElementData);
 
     if (Component) {
-      return (
-        <Component ref={ref} shapeId={shapeId} {...rest} />
-      );
+      return <Component ref={ref} shapeId={shapeId} {...rest} />;
     } else {
       return null;
     }

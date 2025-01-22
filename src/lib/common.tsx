@@ -36,7 +36,6 @@ export const ShapeMask = (props: MaskProps) => {
   let gradients: GradientProp[] = [];
   let gradientShapes: ShapeElementType | ShapeElementType[] =
     props.gradientShapes || [];
-
   if (props.gradient && typeof props.gradient === "object") {
     if ("type" in props.gradient) {
       const { shapes, ...gradient } = props.gradient as GradientProp & {
@@ -61,7 +60,6 @@ export const ShapeMask = (props: MaskProps) => {
     }
   }
 
-
   return (
     <g>
       <g mask={`url(#cs_${props.shapeId}_mask)`}>
@@ -81,7 +79,7 @@ export const ShapeMask = (props: MaskProps) => {
             d="M200 0H0v200h200V0z"
           />
         ))}
-        {props.blur && Number(props.blur) > 0 ? (
+        {props.blur ? (
           <g filter={`url(#cs_${props.shapeId}_blur)`}>{gradientShapes}</g>
         ) : (
           <>{gradientShapes}</>
@@ -109,7 +107,8 @@ export const ShapeMask = (props: MaskProps) => {
             )}
           </mask>
           {gradients.map((gradient, _i) => {
-            const { id, stops, ...gradientProps } = gradient;
+            const { id, stops, ...gradientProps } = { ...gradient };
+            const defaultProps = { gradientUnits: "userSpaceOnUse" };
             const gradientId = `cs_${props.shapeId}_gradient_${id || _i}`;
 
             const gradientStops = stops?.map((_stop, _i) => {
@@ -122,46 +121,48 @@ export const ShapeMask = (props: MaskProps) => {
                 />
               );
             });
-
             if (gradient.type === "radial") {
               return (
                 <radialGradient
                   key={_i}
                   id={gradientId}
+                  {...defaultProps}
                   {...gradientProps}
                   opacity={1}>
                   {gradientStops}
                 </radialGradient>
               );
-            }
-            let dirCoords: {
-              x1?: string | number;
-              x2?: string | number;
-              y1?: string | number;
-              y2?: string | number;
-            } = {
-              x1: gradient.x1,
-              x2: gradient.x2,
-              y1: gradient.y1,
-              y2: gradient.y2,
-            };
+            } else {
+              let dirCoords: {
+                x1?: string | number;
+                x2?: string | number;
+                y1?: string | number;
+                y2?: string | number;
+              } = {
+                x1: gradient.x1,
+                x2: gradient.x2,
+                y1: gradient.y1,
+                y2: gradient.y2,
+              };
 
-            if (
-              !(dirCoords.x1 && dirCoords.x2 && dirCoords.y1 && dirCoords.y2)
-            ) {
-              const angle = gradient.angle || 0;
-              dirCoords = directionToBoxCoords(Number(angle));
-            }
+              if (
+                !(dirCoords.x1 && dirCoords.x2 && dirCoords.y1 && dirCoords.y2)
+              ) {
+                const angle = gradient.angle || 0;
+                dirCoords = directionToBoxCoords(Number(angle));
+              }
 
-            return (
-              <linearGradient
-                id={gradientId}
-                key={_i}
-                {...gradientProps}
-                {...dirCoords}>
-                {gradientStops}
-              </linearGradient>
-            );
+              return (
+                <linearGradient
+                  id={gradientId}
+                  key={_i}
+                  {...defaultProps}
+                  {...gradientProps}
+                  {...dirCoords}>
+                  {gradientStops}
+                </linearGradient>
+              );
+            }
           })}
           {props.blur && (
             <filter

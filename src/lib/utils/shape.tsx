@@ -14,25 +14,18 @@ export const createShapeComponent = (
   shapeId: string,
   shapeData: ShapeDataProps & { shape: MaskShape }
 ): ForwardRefExoticComponent<Partial<ShapeProps>> => {
-
   const Component = forwardRef<SVGSVGElement, Partial<ShapeProps>>(
     (props, ref) => {
-      // eslint-disable-next-line prefer-const
-      let shapeProps = props;
+      const shapeProps = { ...props };
 
-      if (shapeProps.fill){
+      if (shapeProps.fill) {
         shapeProps.gradient = props.gradient || [];
         shapeProps.blur = props.blur || 0;
         shapeProps.gradientShapes = props.gradientShapes || null;
         shapeProps.opacity = props.opacity || 1;
       }
       return (
-        <ShapeBase
-          {...shapeData}
-          shapeId={shapeId}
-          {...shapeProps}
-          ref={ref}
-        />
+        <ShapeBase {...shapeData} shapeId={shapeId} {...shapeProps} ref={ref} />
       );
     }
   );
@@ -69,8 +62,10 @@ export function getRandomShape({
   type?: ShapesType;
   onlyId?: boolean;
 } = {}) {
-  if (!onlyId){
-    throw Error("coolshapes-react: `getRandomShape` now only returns shape data, see changelogs for more details.")
+  if (onlyId == false) {
+    throw Error(
+      "coolshapes-react: `getRandomShape` now only returns shape data, see changelogs for more details."
+    );
   }
   const shapeKeys = shapeTypes;
   const shapeType: ShapesType =
