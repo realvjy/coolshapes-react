@@ -36,6 +36,7 @@ export default {
         y1: "38",
         y2: "150.5",
         type: "linear",
+        opacity: "0.55",
         stops: [
           {
             color: "#FF1F00",
@@ -157,6 +158,7 @@ export default {
         y1: "38",
         y2: "150.5",
         type: "linear",
+        opacity: "0.55",
         stops: [
           {
             color: "#FF1F00",
@@ -272,6 +274,7 @@ export default {
         y1: "0",
         y2: "200",
         type: "linear",
+        opacity: "0.55",
         stops: [
           {
             color: "#FF1F00",
@@ -422,6 +425,7 @@ export default {
         y1: "0",
         y2: "200",
         type: "linear",
+        opacity: "0.55",
         stops: [
           {
             color: "#FF1F00",
@@ -520,6 +524,7 @@ export default {
         y1: "0",
         y2: "200",
         type: "linear",
+        opacity: "0.55",
         stops: [
           {
             color: "#FF1F00",
@@ -560,6 +565,7 @@ export default {
         y1: "38",
         y2: "150.5",
         type: "linear",
+        opacity: 0.55,
         stops: [
           {
             color: "#FF1F00",
@@ -761,6 +767,7 @@ export default {
         y1: "0",
         y2: "200",
         type: "linear",
+        opacity: "0.55",
         stops: [
           {
             color: "#FF1F00",
@@ -796,6 +803,7 @@ export default {
         y1: "0",
         y2: "200",
         type: "linear",
+        opacity: "0.55",
         stops: [
           {
             color: "#FF1F00",
@@ -843,6 +851,7 @@ export default {
         y1: "0",
         y2: "200",
         type: "linear",
+        opacity: "0.55",
         stops: [
           {
             color: "#FF1F00",
@@ -968,6 +977,7 @@ export default {
         y1: "38",
         y2: "150.5",
         type: "linear",
+        opacity: "0.55",
         stops: [
           {
             color: "#FF1F00",
@@ -1130,6 +1140,7 @@ export default {
         y1: "0",
         y2: "200",
         type: "linear",
+        opacity: "0.55",
         stops: [
           {
             color: "#FF1F00",
@@ -1167,6 +1178,7 @@ export default {
         y1: "0",
         y2: "200",
         type: "linear",
+        opacity: "0.75",
         stops: [
           {
             color: "#FF1F00",
@@ -1834,6 +1846,7 @@ export default {
         y1: "0",
         y2: "200",
         type: "linear",
+        opacity: "0.55",
         stops: [
           {
             color: "#FF1F00",
@@ -1869,6 +1882,7 @@ export default {
         y1: "0",
         y2: "200",
         type: "linear",
+        opacity: "0.55",
         stops: [
           {
             color: "#FF1F00",
@@ -2121,6 +2135,7 @@ export default {
         y1: "0",
         y2: "200",
         type: "linear",
+        opacity: "0.55",
         stops: [
           {
             color: "#FF1F00",
@@ -2194,6 +2209,7 @@ export default {
         y1: "38",
         y2: "150.5",
         type: "linear",
+        opacity: "0.55",
         stops: [
           {
             color: "#FF1F00",
@@ -2594,6 +2610,7 @@ export default {
         y1: "0",
         y2: "200",
         type: "linear",
+        opacity: "0.55",
         stops: [
           {
             color: "#FF1F00",
@@ -2861,6 +2878,7 @@ export default {
         r: "1",
         gradientTransform: "rotate(116.694 71.023 87.946) scale(199.234)",
         type: "radial",
+        opacity: "0.55",
         stops: [
           {
             color: "#FFF500",
@@ -2944,6 +2962,7 @@ export default {
         y1: "0",
         y2: "200",
         type: "linear",
+        opacity: "0.55",
         stops: [
           {
             color: "#FF1F00",
@@ -3166,6 +3185,7 @@ export default {
         y1: "38",
         y2: "150.5",
         type: "linear",
+        opacity: "0.55",
         stops: [
           {
             color: "#FF1F00",

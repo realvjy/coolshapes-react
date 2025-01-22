@@ -1,8 +1,9 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
-import shapeData from "./shapeData.js";
+import shapeData from "./shapeData";
 import * as prettier from "prettier";
 import { shapeTypes } from "../src/lib/common";
+
 const cwd = import.meta.dirname;
 const outputDir = path.join(cwd, "../src/shapes");
 const prettierConfig = await prettier.resolveConfig(cwd);
@@ -23,7 +24,6 @@ async function createShapeFile(shapeKey, shapeData) {
   }
   const filePath = path.join(categoryDir, `${index}.tsx`);
   const isJsxPath = shapeData.shape && shapeData.shape.includes("<");
-
   const componentDataString = `
   {
     shape: ${isJsxPath ? shapeData.shape : `"${shapeData.shape}"`},
@@ -31,7 +31,7 @@ async function createShapeFile(shapeKey, shapeData) {
     gradientShapes: ${shapeData.gradientShapes || null},
     ${shapeData.opacity ? `opacity: ${shapeData.opacity},` : ``}
     ${shapeData.fill ? `fill: "${shapeData.fill}",` : ``}
-    gradient: ${JSON.stringify(shapeData.gradient) || "[]"}
+    gradient: ${JSON.stringify(shapeData.gradient) || []}
   }
   `;
   // Create file content
@@ -60,7 +60,6 @@ await Promise.all(
     const shapes = Object.entries(shapeData).filter(([name]) => {
       return name.split("-")[0] === type;
     });
-    console.log(shapes);
     const categoryIndexFilePath = path.join(outputDir, `${type}/index.tsx`);
     let categoryName = type.charAt(0).toUpperCase() + type.slice(1);
     let imports = "";

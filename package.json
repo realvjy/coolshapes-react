@@ -23,6 +23,7 @@
     "LICENSE",
     "README.md"
   ],
+  "type": "module",
   "scripts": {
     "build": "npm run clean && rollup --config && npm run build:types",
     "build:types": "tsc --emitDeclarationOnly --declaration --outDir ./dist/types",

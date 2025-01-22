@@ -26,6 +26,7 @@ const data: ComponentDataType = {
       r: "1",
       gradientTransform: "rotate(116.694 71.023 87.946) scale(199.234)",
       type: "radial",
+      opacity: "0.55",
       stops: [
         { color: "#FFF500", offset: 0 },
         { color: "#FF00D6", offset: "1", opacity: "0" },

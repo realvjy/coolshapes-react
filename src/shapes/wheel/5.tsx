@@ -14,6 +14,7 @@ const data: ComponentDataType = {
       y1: "0",
       y2: "200",
       type: "linear",
+      opacity: "0.75",
       stops: [
         { color: "#FF1F00", offset: 0 },
         { color: "#FFD600", offset: "1" },
