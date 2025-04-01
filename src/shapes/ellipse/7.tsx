@@ -1,5 +1,5 @@
 import * as React from "react";
-import { createShapeComponent } from "../../lib/utils/shape";
+import { createShapeComponent } from "../../lib/shape";
 import { ComponentDataType } from "../../lib/types";
 
 const data: ComponentDataType = {
@@ -13,17 +13,9 @@ const data: ComponentDataType = {
         d="M100 200c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48z"></path>{" "}
     </>
   ),
-  blur: 40,
-  gradientShapes: (
-    <>
-      <path fill="#18A0FB" d="M212.25-15H100v139.75h112.25V-15z"></path>
-      <path fill="#907CFF" d="M133.875-7H15v128.25h118.875V-7z"></path>
-      <path fill="#EE46D3" d="M223 68H81v146h142V68z"></path>
-    </>
-  ),
-  opacity: 0.6,
+  fillOpacity: 0.6,
   fill: "#907CFF",
-  gradient: [],
+  gradient: "gradient-36",
 };
 const Component = createShapeComponent("ellipse-7", data);
 export { data, Component as default };

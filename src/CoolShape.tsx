@@ -1,7 +1,7 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import shapesData from "./shapes/data";
 import { ComponentDataType, CoolshapeComponentProps } from "./lib/types";
-import { createShapeComponent, getRandomShape } from "./lib/utils/shape";
+import { createShapeComponent, getRandomShape } from "./lib/shape";
 
 const Coolshape = forwardRef<SVGSVGElement, CoolshapeComponentProps>(
   ({ random, index, type, name, ...rest }, ref) => {

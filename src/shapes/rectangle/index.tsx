@@ -8,7 +8,7 @@ import * as Rectangle7 from "./7";
 import * as Rectangle8 from "./8";
 import * as Rectangle9 from "./9";
 
-import { getComponentWithShapeType } from "../../lib/utils/shape";
+import { getComponentWithShapeType } from "../../lib/shape";
 export const rectangleShapeData = {
   "rectangle-1": Rectangle1.data,
   "rectangle-2": Rectangle2.data,

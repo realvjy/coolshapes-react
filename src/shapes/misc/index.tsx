@@ -10,7 +10,7 @@ import * as Misc9 from "./9";
 import * as Misc10 from "./10";
 import * as Misc11 from "./11";
 
-import { getComponentWithShapeType } from "../../lib/utils/shape";
+import { getComponentWithShapeType } from "../../lib/shape";
 export const miscShapeData = {
   "misc-1": Misc1.data,
   "misc-2": Misc2.data,

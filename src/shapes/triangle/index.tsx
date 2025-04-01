@@ -13,7 +13,7 @@ import * as Triangle12 from "./12";
 import * as Triangle13 from "./13";
 import * as Triangle14 from "./14";
 
-import { getComponentWithShapeType } from "../../lib/utils/shape";
+import { getComponentWithShapeType } from "../../lib/shape";
 export const triangleShapeData = {
   "triangle-1": Triangle1.data,
   "triangle-2": Triangle2.data,

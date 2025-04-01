@@ -1,5 +1,5 @@
 import * as React from "react";
-import { createShapeComponent } from "../../lib/utils/shape";
+import { createShapeComponent } from "../../lib/shape";
 import { ComponentDataType } from "../../lib/types";
 
 const data: ComponentDataType = {
@@ -16,17 +16,9 @@ const data: ComponentDataType = {
       />{" "}
     </>
   ),
-  blur: 31.25,
-  gradientShapes: (
-    <>
-      <path fill="#FF3216" d="M152 84H13v105h139V84z"></path>
-      <path fill="#FF58E4" d="M163-10H42v89h121v-89z"></path>
-      <path fill="#FFE500" d="M204 77H100v129h104V77z"></path>
-    </>
-  ),
-  opacity: 0.19,
+  fillOpacity: 0.19,
   fill: "#FF6C02",
-  gradient: [],
+  gradient: "gradient-23",
 };
 const Component = createShapeComponent("flower-10", data);
 export { data, Component as default };

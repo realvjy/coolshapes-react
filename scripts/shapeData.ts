@@ -71,7 +71,7 @@ export default {
         <ellipse cx="100" cy="130" fill="#FFD749" rx="82" ry="43"></ellipse>
         <ellipse cx="41" cy="167" fill="#F2371F" rx="82" ry="43"></ellipse>
       </>`,
-    opacity: 0,
+
     fill: "#0E6FFF",
     gradient: [],
   },
@@ -128,7 +128,7 @@ export default {
     gradientShapes: `<>
         <path fill="#8F5BFF" d="M222 89H0v111h222V89z"></path>
       </>`,
-    opacity: 0,
+
     fill: "#0E6FFF",
     gradient: [],
   },
@@ -140,7 +140,7 @@ export default {
         <path fill="#F2371F" d="M121 15H15v92h106V15z"></path>
         <path fill="#00F0FF" d="M173 90H58v86h115V90z"></path>
       </>`,
-    opacity: 0,
+
     fill: "#EE46D3",
     gradient: [],
   },
@@ -301,7 +301,7 @@ export default {
           rx="35.5"
           ry="33.5"></ellipse>
       </>`,
-    opacity: 0,
+
     fill: "#FFE388",
     gradient: [],
   },
@@ -449,7 +449,7 @@ export default {
         <path fill="#F2371F" d="M171.375 82H71v125.5h100.375V82z"></path>
         <path fill="#FFC700" d="M200 78H81v90h119V78z"></path>
       </>`,
-    opacity: 0,
+
     fill: "#EE46D3",
     gradient: [],
   },
@@ -480,7 +480,7 @@ export default {
           transform="rotate(-33.875 141.365 59.898)"></ellipse>
         <path fill="#FF58E4" d="M179 36H79v76h100V36z"></path>
       </>`,
-    opacity: 0,
+
     fill: "#07FFE1",
     gradient: [
       {
@@ -546,7 +546,7 @@ export default {
         <path fill="#8F5BFF" d="M222 126H0v108h222V126z"></path>
         <ellipse cx="100" cy="9.5" fill="#00F0FF" rx="100" ry="34.5"></ellipse>
       </>`,
-    opacity: 0,
+
     fill: "#0E6FFF",
     gradient: [],
   },
@@ -624,7 +624,7 @@ export default {
           rx="52.5"
           ry="49.5"></ellipse>
       </>`,
-    opacity: 0,
+
     fill: "#FFE99F",
     gradient: [],
   },
@@ -702,7 +702,7 @@ export default {
         <path fill="#1BC47D" d="M213 100H82v93h131v-93z"></path>
         <path fill="#06F" d="M116 145H46v79h70v-79z"></path>
       </>`,
-    opacity: 0,
+
     fill: "#EE46D3",
     gradient: [],
   },
@@ -825,7 +825,7 @@ export default {
         <path fill="#8F5BFF" d="M211 127H-11v116h222V127z"></path>
         <ellipse cx="88" cy="23.5" fill="#00F0FF" rx="112" ry="45.5"></ellipse>
       </>`,
-    opacity: 0,
+
     fill: "#0E6FFF",
     gradient: [],
   },
@@ -868,7 +868,7 @@ export default {
   "ellipse-6": {
     shape:
       "M200 25c0 13.807-11.193 25-25 25s-25-11.193-25-25 11.193-25 25-25 25 11.193 25 25zM200 175c0 13.807-11.193 25-25 25s-25-11.193-25-25 11.193-25 25-25 25 11.193 25 25zM175 125c13.807 0 25-11.193 25-25s-11.193-25-25-25-25 11.193-25 25 11.193 25 25 25zM125 175c0 13.807-11.193 25-25 25s-25-11.193-25-25 11.193-25 25-25 25 11.193 25 25zM100 50c13.807 0 25-11.193 25-25S113.807 0 100 0 75 11.193 75 25s11.193 25 25 25zM50 175c0 13.807-11.193 25-25 25S0 188.807 0 175s11.193-25 25-25 25 11.193 25 25zM100 125c13.807 0 25-11.193 25-25s-11.193-25-25-25-25 11.193-25 25 11.193 25 25 25zM50 25c0 13.807-11.193 25-25 25S0 38.807 0 25 11.193 0 25 0s25 11.193 25 25zM25 125c13.807 0 25-11.193 25-25S38.807 75 25 75 0 86.193 0 100s11.193 25 25 25z",
-    opacity: 0,
+
     fill: "#FFFDEA",
     gradient: [
       {
@@ -1031,7 +1031,7 @@ export default {
           transform="rotate(-26.262 58.482 26.587)"></ellipse>
       </>`,
     transparent: true,
-    opacity: 0,
+
     fill: "url(#paint0_linear_748_4733)",
     gradient: [
       {
@@ -1131,7 +1131,7 @@ export default {
       "M110 0H90l6.39 91.284-60.03-69.066L22.218 36.36l69.066 60.03L0 90v20l91.284-6.39-69.066 60.03 14.142 14.142 60.03-69.066L90 200h20l-6.39-91.284 60.03 69.066 14.142-14.142-69.066-60.03L200 110V90l-91.284 6.39 69.066-60.03-14.142-14.142-60.03 69.066L110 0z",
     blur: 30,
     transparent: true,
-    opacity: 0,
+
     fill: "gray",
     gradient: [
       {
@@ -1253,7 +1253,7 @@ export default {
           ry="47.123"
           transform="rotate(-33.875 107.987 146.246)"></ellipse>
       </>`,
-    opacity: 0,
+
     fill: "#06F",
     gradient: [],
   },
@@ -1284,7 +1284,7 @@ export default {
           ry="76.871"
           transform="rotate(-15 53.016 .222)"></ellipse>
       </>`,
-    opacity: 0,
+
     fill: "#0E6FFF",
     gradient: [],
   },
@@ -1669,7 +1669,7 @@ export default {
     />
       </>
       `,
-    opacity: 0,
+
     fill: "#FFFDEA",
     gradient: [
       {
@@ -2005,7 +2005,7 @@ export default {
         <path fill="#FFE500" d="M193 97H23v103h170V97z"></path>
         <path fill="#FF37BB" d="M116 54H-41v92h157V54z"></path>
       </>`,
-    opacity: 0,
+
     fill: "#07FFE1",
     gradient: [],
   },
@@ -2091,7 +2091,7 @@ export default {
           ry="57"
           transform="rotate(-33.875 162.682 .587)"></ellipse>
       </>`,
-    opacity: 0,
+
     fill: "#07FFE1",
     gradient: [
       {
@@ -2161,7 +2161,7 @@ export default {
           rx="111.935"
           ry="63.605"></ellipse>
       </>`,
-    opacity: 0,
+
     fill: "#0E6FFF",
     gradient: [],
   },
@@ -2378,7 +2378,7 @@ export default {
           ry="58.126"
           transform="rotate(-33.875 108.777 175.536)"></ellipse>
       </>`,
-    opacity: 0,
+
     fill: "#06F",
     gradient: [],
   },
@@ -2390,7 +2390,7 @@ export default {
         <path fill="#FFE500" d="M169 58H0v150h169V58z"></path>
         <path fill="#FF37BB" d="M200 56H0v88h200V56z"></path>
       </>`,
-    opacity: 0,
+
     fill: "#07FFE1",
     gradient: [],
   },
@@ -2520,7 +2520,7 @@ export default {
           ry="57"
           transform="rotate(-33.875 162.682 .587)"></ellipse>
       </>`,
-    opacity: 0,
+
     fill: "#07FFE1",
     gradient: [
       {
@@ -2632,7 +2632,7 @@ export default {
         <path fill="#8F5BFF" d="M209 126H-9v108h218V126z"></path>
         <ellipse cx="87" cy="57.5" fill="#00F0FF" rx="59" ry="34.5"></ellipse>
       </>`,
-    opacity: 0,
+
     fill: "#0E6FFF",
     gradient: [],
   },
@@ -2694,7 +2694,7 @@ export default {
           ry="61.511"
           transform="rotate(-26.262 125.54 65.794)"></ellipse>
       </>`,
-    opacity: 0,
+
     fill: "#0E6FFF",
     gradient: [],
   },
@@ -2710,7 +2710,7 @@ export default {
         <path fill="#FFC700" d="M164.25 43.125H20.625v112H164.25v-112z"></path>
         <path fill="#00C5DF" d="M200 85H61v105h139V85z"></path>
       </>`,
-    opacity: 0,
+
     fill: "#FFF2AF",
     gradient: [],
   },
@@ -2745,7 +2745,7 @@ export default {
     gradientShapes: `<>
         <path fill="#00F0FF" d="M151 82H49v110h102V82z"></path>
       </>`,
-    opacity: 0,
+
     fill: "#fff",
     gradient: [
       {
@@ -2869,7 +2869,7 @@ export default {
     gradientShapes: `<>
         <path fill="#00F0FF" d="M183 82H50v110h133V82z"></path>
       </>`,
-    opacity: 0,
+
     fill: "#fff",
     gradient: [
       {
@@ -3049,7 +3049,7 @@ export default {
           transform="rotate(-33.875 145.429 29.977)"></ellipse>
         <ellipse cx="92" cy="214.5" fill="#06F" rx="86" ry="42.5"></ellipse>
       </>`,
-    opacity: 0,
+
     fill: "#07FFE1",
     gradient: [
       {
@@ -3109,7 +3109,7 @@ export default {
           rx="50.5"
           ry="34.5"></ellipse>
       </>`,
-    opacity: 0,
+
     fill: "#0E6FFF",
     gradient: [],
   },

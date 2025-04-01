@@ -1,5 +1,5 @@
 import * as React from "react";
-import { createShapeComponent } from "../../lib/utils/shape";
+import { createShapeComponent } from "../../lib/shape";
 import { ComponentDataType } from "../../lib/types";
 
 const data: ComponentDataType = {
@@ -14,17 +14,9 @@ const data: ComponentDataType = {
       />
     </>
   ),
-  blur: 40,
-  gradientShapes: (
-    <>
-      <ellipse cx="100" cy="10.5" fill="#FF00D6" rx="88" ry="49.5"></ellipse>
-      <ellipse cx="57.5" cy="160" fill="#07FFE1" rx="64.5" ry="45"></ellipse>
-      <path fill="#06F" d="M211 131H93v120h118V131z"></path>
-    </>
-  ),
-  opacity: 0.44,
+  fillOpacity: 0.44,
   fill: "#FFF500",
-  gradient: [],
+  gradient: "gradient-13",
 };
 const Component = createShapeComponent("star-13", data);
 export { data, Component as default };

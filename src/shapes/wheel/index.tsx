@@ -6,7 +6,7 @@ import * as Wheel5 from "./5";
 import * as Wheel6 from "./6";
 import * as Wheel7 from "./7";
 
-import { getComponentWithShapeType } from "../../lib/utils/shape";
+import { getComponentWithShapeType } from "../../lib/shape";
 export const wheelShapeData = {
   "wheel-1": Wheel1.data,
   "wheel-2": Wheel2.data,

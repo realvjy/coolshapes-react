@@ -9,7 +9,7 @@ import * as NumberShape7 from "./7";
 import * as NumberShape8 from "./8";
 import * as NumberShape9 from "./9";
 
-import { getComponentWithShapeType } from "../../lib/utils/shape";
+import { getComponentWithShapeType } from "../../lib/shape";
 export const numberShapeData = {
   "number-0": NumberShape0.data,
   "number-1": NumberShape1.data,

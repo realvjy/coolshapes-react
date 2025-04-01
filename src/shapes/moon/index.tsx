@@ -14,7 +14,7 @@ import * as Moon13 from "./13";
 import * as Moon14 from "./14";
 import * as Moon15 from "./15";
 
-import { getComponentWithShapeType } from "../../lib/utils/shape";
+import { getComponentWithShapeType } from "../../lib/shape";
 export const moonShapeData = {
   "moon-1": Moon1.data,
   "moon-2": Moon2.data,

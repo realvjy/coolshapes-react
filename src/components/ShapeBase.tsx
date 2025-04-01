@@ -1,8 +1,10 @@
-import React, { forwardRef } from "react";
-import { Noise, ShapeMask } from "./common";
-import { ShapeProps } from "./types";
-
 // shape base props
+import React, { forwardRef } from "react";
+import { ShapeProps } from "../lib";
+import { ShapeMask } from "./ShapeMask";
+import { Noise } from "./ShapeNoise";
+import Outline from "./ShapeOutline";
+
 export const defaultProps = {
   xmlns: "http://www.w3.org/2000/svg",
   fill: "none",
@@ -24,8 +26,14 @@ const ShapeBase = forwardRef<SVGSVGElement, ShapeProps>((props, ref) => {
     gradient,
     gradientShapes,
     opacity,
+    fillOpacity,
     blur,
     transparent,
+    outline,
+    outlineCap,
+    outlineJoin,
+    outlineColor,
+    strokeOpacity,
     ...rest
   } = props;
 
@@ -43,6 +51,11 @@ const ShapeBase = forwardRef<SVGSVGElement, ShapeProps>((props, ref) => {
       {...restDefaultProps}
       width={size || defaultWidth}
       height={size || defaultHeight}
+      style={{
+        overflow: outline ? "visible" : "initial",
+      }}
+      fillOpacity={strokeOpacity ? opacity : undefined}
+      opacity={strokeOpacity ? undefined : opacity}
       {...rest}
       className={`${defaultClassName} ${shapeId} ${className || ""}`}>
       <ShapeMask
@@ -51,7 +64,7 @@ const ShapeBase = forwardRef<SVGSVGElement, ShapeProps>((props, ref) => {
         blur={blur}
         fill={fill}
         shapeId={shapeId}
-        opacity={opacity}
+        fillOpacity={fillOpacity}
         gradient={gradient}
         gradientShapes={gradientShapes}
         transparent={transparent}
@@ -60,6 +73,16 @@ const ShapeBase = forwardRef<SVGSVGElement, ShapeProps>((props, ref) => {
         <Noise
           shapeId={shapeId}
           noiseScale={typeof noise === "number" ? defaultNoise : undefined}
+        />
+      )}
+      {props.outline && (
+        <Outline
+          shape={shape}
+          outline={outline as number}
+          outlineColor={outlineColor}
+          outlineJoin={outlineJoin}
+          outlineCap={outlineCap}
+          opacity={strokeOpacity}
         />
       )}
     </svg>

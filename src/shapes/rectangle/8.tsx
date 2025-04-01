@@ -1,5 +1,5 @@
 import * as React from "react";
-import { createShapeComponent } from "../../lib/utils/shape";
+import { createShapeComponent } from "../../lib/shape";
 import { ComponentDataType } from "../../lib/types";
 
 const data: ComponentDataType = {
@@ -11,40 +11,9 @@ const data: ComponentDataType = {
       clipRule="evenodd"
     />
   ),
-  blur: 40,
-  gradientShapes: (
-    <>
-      <path fill="#00F0FF" d="M183 82H50v110h133V82z"></path>
-    </>
-  ),
 
   fill: "#fff",
-  gradient: [
-    {
-      cx: "0",
-      cy: "0",
-      r: "1",
-      gradientTransform: "rotate(116.694 71.023 87.946) scale(199.234)",
-      type: "radial",
-      opacity: "0.55",
-      stops: [
-        { color: "#FFF500", offset: 0 },
-        { color: "#FF00D6", offset: "1", opacity: "0" },
-      ],
-    },
-    {
-      cx: "0",
-      cy: "0",
-      r: "1",
-      gradientTransform: "rotate(48.452 -12.085 35.502) scale(223.143)",
-      type: "radial",
-      stops: [
-        { color: "#FF00D6", offset: 0 },
-        { color: "#FF7171", offset: "0.461", opacity: "0.84" },
-        { color: "#FFF500", offset: "1", opacity: "0" },
-      ],
-    },
-  ],
+  gradient: "gradient-104",
 };
 const Component = createShapeComponent("rectangle-8", data);
 export { data, Component as default };

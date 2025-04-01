@@ -12,7 +12,7 @@ import * as Star11 from "./11";
 import * as Star12 from "./12";
 import * as Star13 from "./13";
 
-import { getComponentWithShapeType } from "../../lib/utils/shape";
+import { getComponentWithShapeType } from "../../lib/shape";
 export const starShapeData = {
   "star-1": Star1.data,
   "star-2": Star2.data,

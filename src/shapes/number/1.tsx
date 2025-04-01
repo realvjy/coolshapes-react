@@ -1,20 +1,11 @@
-import * as React from "react";
-import { createShapeComponent } from "../../lib/utils/shape";
+import { createShapeComponent } from "../../lib/shape";
 import { ComponentDataType } from "../../lib/types";
 
 const data: ComponentDataType = {
   shape: "M10 90h90v110h90V0h-90L10 90z",
-  blur: 40,
-  gradientShapes: (
-    <>
-      <ellipse cx="106" cy="22.5" fill="#FF00D6" rx="88" ry="49.5"></ellipse>
-      <ellipse cx="64.5" cy="155" fill="#07FFE1" rx="64.5" ry="45"></ellipse>
-      <path fill="#06F" d="M218 126H100v120h118V126z"></path>
-    </>
-  ),
-  opacity: 0.44,
+  fillOpacity: 0.44,
   fill: "#FFF500",
-  gradient: [],
+  gradient: "gradient-107",
 };
 const Component = createShapeComponent("number-1", data);
 export { data, Component as default };

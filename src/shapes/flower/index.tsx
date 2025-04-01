@@ -15,7 +15,7 @@ import * as Flower14 from "./14";
 import * as Flower15 from "./15";
 import * as Flower16 from "./16";
 
-import { getComponentWithShapeType } from "../../lib/utils/shape";
+import { getComponentWithShapeType } from "../../lib/shape";
 export const flowerShapeData = {
   "flower-1": Flower1.data,
   "flower-2": Flower2.data,

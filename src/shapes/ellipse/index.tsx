@@ -11,7 +11,7 @@ import * as Ellipse10 from "./10";
 import * as Ellipse11 from "./11";
 import * as Ellipse12 from "./12";
 
-import { getComponentWithShapeType } from "../../lib/utils/shape";
+import { getComponentWithShapeType } from "../../lib/shape";
 export const ellipseShapeData = {
   "ellipse-1": Ellipse1.data,
   "ellipse-2": Ellipse2.data,

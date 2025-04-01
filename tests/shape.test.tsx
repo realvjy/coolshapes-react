@@ -2,16 +2,15 @@
 import "@testing-library/jest-dom/vitest";
 import { describe, expect, it } from "vitest";
 import { render } from "@testing-library/react";
-import { ShapeBase } from "../src/lib";
 import data from "../src/shapes/data";
-import { defaultProps } from "../src/lib/shapeBase";
-import { createShapeComponent, getRandomShape } from "../src/lib/utils/shape";
+import { createShapeComponent, getRandomShape } from "../src/lib/shape";
 
 import { GradientProp, MaskShape } from "../src/lib/types";
-import { directionToBoxCoords } from "../src/lib/utils";
 import { renderToStaticMarkup } from "react-dom/server";
 import { Coolshape, shapesData } from "../src";
 import { shapeTypes } from "../src/lib/common";
+import ShapeBase, { defaultProps } from "../src/components/ShapeBase";
+import { directionToBoxCoords } from "../src/lib";
 
 const VIEWBOX_PATH = `M200 0H0v200h200V0z`;
 
