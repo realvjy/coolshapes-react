@@ -1,6 +1,7 @@
 import * as React from "react";
 import { createShapeComponent } from "../../lib/shape";
 import { ComponentDataType } from "../../lib/types";
+import Gradient100 from "../../gradients/gradient-100";
 
 const data: ComponentDataType = {
   shape: (
@@ -13,7 +14,7 @@ const data: ComponentDataType = {
   ),
   fillOpacity: 0.23,
   fill: "#FFF500",
-  gradient: "gradient-100",
+  gradient: Gradient100,
 };
 const Component = createShapeComponent("rectangle-4", data);
 export { data, Component as default };

@@ -5,17 +5,17 @@ import {
   SVGProps,
 } from "react";
 import { shapeTypes } from "./common";
-import { shapesData } from "../index";
-import { gradients } from "../gradientPresets";
+import shapesData from "../shapes/data";
+import { gradients } from "../gradients";
 
-export type Gradients = keyof typeof gradients;
+export type GradientPresets = keyof typeof gradients;
 export type GradientStop = {
   offset?: number | string;
   color: string;
   opacity?: number | string;
 };
 
-export type RadialGradientProps = {
+export type RadialGradient = {
   type: "radial";
   cx?: number | string;
   cy?: number | string;
@@ -25,7 +25,7 @@ export type RadialGradientProps = {
   fr?: number | string;
 };
 
-export type LinearGradientProps = {
+export type LinearGradient = {
   type: "linear";
   x1?: number | string;
   x2?: number | string;
@@ -33,7 +33,7 @@ export type LinearGradientProps = {
   y2?: number | string;
 };
 
-export type GradientProp = Partial<{
+export type Gradient = Partial<{
   id: string;
   stops: GradientStop[] | string[];
   opacity: number | string;
@@ -42,15 +42,16 @@ export type GradientProp = Partial<{
   gradientTransform: string;
   spreadMethod: "pad" | "reflect" | "repeat";
 }> &
-  (
-    | RadialGradientProps
-    | LinearGradientProps
-    | Omit<LinearGradientProps, "type">
-  );
+  (RadialGradient | LinearGradient | Omit<LinearGradient, "type">);
 
 export type OutlineJoin = "bevel" | "miter" | "round";
 export type OutlineCap = "butt" | "round" | "square";
-export type ShapeElementType = ReactElement<
+
+/**
+ * Supported SVG shape elements that can be used as a shape mask or can be passed
+ * a gradient shape element.
+ */
+export type ShapeElementTypes = ReactElement<
   | SVGPathElement
   | SVGCircleElement
   | SVGRectElement
@@ -59,38 +60,46 @@ export type ShapeElementType = ReactElement<
   | SVGPolygonElement
 >;
 
-type GradientShapeProps = ShapeElementType | ShapeElementType[];
+type ShapeElement = ShapeElementTypes | ShapeElementTypes[];
 
-export type MaskShape = string | ShapeElementType | ShapeElementType[];
+export type MaskShape = string | ShapeElement;
 
 export interface MaskProps extends ShapeDataProps {
   shape: MaskShape;
   shapeId: string;
 }
 
-export interface ShapeDataProps {
+export interface OutlineProps {
+  outline: number | string;
+  outlineColor: string;
+  outlineCap: OutlineCap;
+  outlineJoin: OutlineJoin;
+}
+
+export type GradientProp =
+  | Gradient[]
+  | false
+  | (Gradient & { shapes?: ShapeElement })
+  | {
+      gradient?: Gradient[];
+      shapes?: ShapeElement;
+      blur?: number | string;
+    };
+
+export interface ShapeDataProps
+  extends Partial<OutlineProps>,
+    Partial<{
+      gradient: GradientProp;
+      gradientShapes: ShapeElement | null;
+    }> {
   shape?: MaskShape;
   noise?: boolean | number;
   size?: string | number;
-  gradient?:
-    | Gradients
-    | GradientProp[]
-    | false
-    | (GradientProp & { shapes?: GradientShapeProps })
-    | {
-        gradient?: GradientProp[];
-        shapes?: GradientShapeProps;
-      };
-  gradientShapes?: GradientShapeProps | null;
   fill?: string;
   opacity?: number | string;
   fillOpacity?: number | string;
   blur?: number | string;
   transparent?: boolean;
-  outline?: number;
-  outlineColor?: string;
-  outlineCap?: OutlineCap;
-  outlineJoin?: OutlineJoin;
 }
 
 export type SvgProps = RefAttributes<SVGSVGElement> &
@@ -105,8 +114,8 @@ export type ShapesType = (typeof shapeTypes)[number];
 export type ComponentDataType = {
   shape: MaskShape;
   blur?: number | string;
-  gradientShapes?: ShapeElementType | ShapeElementType[] | null;
-  gradient: GradientProp[] | keyof typeof gradients;
+  gradientShapes?: ShapeElementTypes | ShapeElementTypes[] | null;
+  gradient: GradientProp;
   transparent?: boolean;
   fillOpacity?: number | string;
   fill?: string;
@@ -115,12 +124,14 @@ export type ShapeTypeProps = {
   type: ShapesType;
 };
 
+// Modified props for coolshape component
 export type CoolshapeComponentProps = Partial<
   ShapeProps &
     IndexProps &
     ShapeTypeProps & {
       random: boolean;
       name: keyof typeof shapesData | string;
+      gradient?: GradientProp | GradientPresets;
     }
 >;
 

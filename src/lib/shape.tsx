@@ -26,6 +26,7 @@ export const createShapeComponent = (
           props.fillOpacity != undefined ? props.fillOpacity : 1;
         shapeProps.transparent = props.transparent || true;
       }
+      console.log(shapeData, shapeProps);
       return (
         <ShapeBase {...shapeData} shapeId={shapeId} {...shapeProps} ref={ref} />
       );

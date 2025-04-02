@@ -1,2 +1,2 @@
 export type { ShapeProps } from "./types";
-export { directionToBoxCoords } from "./math";
+export { angleToBoxCoords } from "./math";

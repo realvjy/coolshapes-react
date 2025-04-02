@@ -11,7 +11,7 @@ export default function Outline(props: {
 }) {
   const params = {
     fill: "none",
-    stroke: props.outlineColor || "#fff",
+    stroke: props.outlineColor || "#000",
     strokeWidth: props.outline,
     strokeLinejoin: props.outlineJoin || "bevel",
     strokeLinecap: props.outlineCap || "round",

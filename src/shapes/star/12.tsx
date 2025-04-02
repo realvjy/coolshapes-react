@@ -1,12 +1,13 @@
 import { createShapeComponent } from "../../lib/shape";
 import { ComponentDataType } from "../../lib/types";
+import Gradient12 from "../../gradients/gradient-12";
 
 const data: ComponentDataType = {
   shape:
     "M100 200l-14.412-72.059L45 155l27.059-40.588L0 100l72.059-14.412L44.999 45l40.59 27.059L100 0l14.412 72.058L155 45l-27.059 40.588L200 100l-72.059 14.412L155 155l-40.588-27.059L100 200z",
 
   fill: "#FFE388",
-  gradient: "gradient-12",
+  gradient: Gradient12,
 };
 const Component = createShapeComponent("star-12", data);
 export { data, Component as default };

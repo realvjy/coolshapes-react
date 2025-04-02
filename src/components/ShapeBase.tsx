@@ -44,7 +44,7 @@ const ShapeBase = forwardRef<SVGSVGElement, ShapeProps>((props, ref) => {
     noise: defaultNoise,
     ...restDefaultProps
   } = defaultProps;
-
+  console.log(fill, fillOpacity);
   return (
     <svg
       ref={ref}

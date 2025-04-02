@@ -1,21 +1,19 @@
-import { GradientProp, MaskProps, ShapeElementType } from "../lib/types";
-import { gradients } from "../gradientPresets";
+import { Gradient, MaskProps, ShapeElementTypes } from "../lib/types";
 import React, { Fragment } from "react";
-import { directionToBoxCoords } from "../lib";
+import { angleToBoxCoords } from "../lib";
 import { resolveGradientStops } from "../lib/utils/shape";
-import Outline from "./ShapeOutline";
 
 export const ShapeMask = (props: MaskProps) => {
-  let gradientProps: GradientProp[] = [];
+  let gradientProps: Gradient[] = [];
   let gradientBlur = props.blur;
-  let gradientShapes: ShapeElementType | ShapeElementType[] =
+  let gradientShapes: ShapeElementTypes | ShapeElementTypes[] =
     props.gradientShapes || [];
 
   // resolve gradient prop
   if (props.gradient && typeof props.gradient === "object") {
     if ("type" in props.gradient) {
-      const { shapes, ...gradient } = props.gradient as GradientProp & {
-        shapes?: ShapeElementType | ShapeElementType[];
+      const { shapes, ...gradient } = props.gradient as Gradient & {
+        shapes?: ShapeElementTypes | ShapeElementTypes[];
       };
       gradientProps.push(gradient);
       if (shapes) {
@@ -25,23 +23,18 @@ export const ShapeMask = (props: MaskProps) => {
       "gradient" in props.gradient &&
       Array.isArray(props.gradient.gradient)
     ) {
-      gradientProps = props.gradient.gradient as GradientProp[];
+      gradientProps = props.gradient.gradient as Gradient[];
     } else if (Array.isArray(props.gradient)) {
-      gradientProps = props.gradient as GradientProp[];
+      gradientProps = props.gradient as Gradient[];
     }
     if ("shapes" in props.gradient && props.gradient.shapes) {
       gradientShapes = props.gradient.shapes as
-        | ShapeElementType
-        | ShapeElementType[];
+        | ShapeElementTypes
+        | ShapeElementTypes[];
     }
-  } else if (
-    typeof props.gradient == "string" &&
-    Object.keys(gradients).includes(props.gradient)
-  ) {
-    const g = gradients[props.gradient];
-    gradientProps = (g as any).gradient;
-    gradientShapes = g.shapes || gradientShapes;
-    gradientBlur = gradientBlur || g.blur;
+    if ("blur" in props.gradient && props.gradient.blur) {
+      gradientBlur = props.gradient.blur;
+    }
   }
 
   const e = React.Children.toArray(props.shape).flatMap(
@@ -56,6 +49,7 @@ export const ShapeMask = (props: MaskProps) => {
       });
     }
   );
+
   return (
     <g>
       <g mask={`url(#cs_${props.shapeId}_mask)`}>
@@ -150,7 +144,7 @@ export const ShapeMask = (props: MaskProps) => {
                 !(dirCoords.x1 && dirCoords.x2 && dirCoords.y1 && dirCoords.y2)
               ) {
                 const angle = gradient.angle || 0;
-                dirCoords = directionToBoxCoords(Number(angle));
+                dirCoords = angleToBoxCoords(Number(angle));
               }
 
               return (

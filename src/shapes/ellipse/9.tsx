@@ -1,6 +1,7 @@
 import * as React from "react";
 import { createShapeComponent } from "../../lib/shape";
 import { ComponentDataType } from "../../lib/types";
+import Gradient38 from "../../gradients/gradient-38";
 
 const data: ComponentDataType = {
   shape: (
@@ -10,7 +11,7 @@ const data: ComponentDataType = {
   ),
   fillOpacity: 0.33,
   fill: "#FAFF02",
-  gradient: "gradient-38",
+  gradient: Gradient38,
 };
 const Component = createShapeComponent("ellipse-9", data);
 export { data, Component as default };

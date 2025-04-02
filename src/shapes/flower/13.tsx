@@ -1,12 +1,13 @@
 import { createShapeComponent } from "../../lib/shape";
 import { ComponentDataType } from "../../lib/types";
+import Gradient26 from "../../gradients/gradient-26";
 
 const data: ComponentDataType = {
   shape:
     "M100 0C83.984 0 71 12.984 71 29v.988l-.698-.699c-11.326-11.325-29.687-11.325-41.013 0-11.325 11.325-11.325 29.687 0 41.013l.699.698H29C12.984 71 0 83.984 0 100s12.984 29 29 29h.988l-.699.698c-11.325 11.326-11.325 29.687 0 41.013 11.325 11.325 29.687 11.325 41.013 0l.698-.699V171c0 16.016 12.984 29 29 29s29-12.984 29-29v-.988l.699.699c11.325 11.325 29.686 11.325 41.012 0 11.325-11.326 11.325-29.687 0-41.012l-.699-.699H171c16.016 0 29-12.984 29-29s-12.984-29-29-29h-.988l.699-.698c11.325-11.326 11.325-29.688 0-41.013-11.326-11.325-29.687-11.325-41.012 0l-.699.699V29c0-16.016-12.984-29-29-29z",
   fillOpacity: 0.19,
   fill: "#FF6C02",
-  gradient: "gradient-26",
+  gradient: Gradient26,
 };
 const Component = createShapeComponent("flower-13", data);
 export { data, Component as default };
