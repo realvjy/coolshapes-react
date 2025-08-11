@@ -4,7 +4,7 @@ import typescript from "@rollup/plugin-typescript";
 import commonjs from "@rollup/plugin-commonjs";
 const inputFile = "src/index.tsx";
 import { visualizer } from "rollup-plugin-visualizer";
-import pkg from "./package.json" assert { type: "json" };
+import pkg from "./package.json" with { type: "json" };
 // rollup.config.mjs
 export default [
   {

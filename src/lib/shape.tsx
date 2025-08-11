@@ -17,7 +17,7 @@ export const createShapeComponent = (
   const Component = forwardRef<SVGSVGElement, Partial<ShapeProps>>(
     (props, ref) => {
       const shapeProps = { ...props };
-
+      // remove all default props if users passes color.
       if (shapeProps.fill) {
         shapeProps.gradient = props.gradient || [];
         shapeProps.blur = props.blur || 0;
@@ -26,7 +26,6 @@ export const createShapeComponent = (
           props.fillOpacity != undefined ? props.fillOpacity : 1;
         shapeProps.transparent = props.transparent || true;
       }
-      console.log(shapeData, shapeProps);
       return (
         <ShapeBase {...shapeData} shapeId={shapeId} {...shapeProps} ref={ref} />
       );
