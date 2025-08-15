@@ -15,7 +15,7 @@ jobs:
       - name: Builds and test
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 22.x
           cache: "npm"
       - run: npm ci
       - run: npm run build

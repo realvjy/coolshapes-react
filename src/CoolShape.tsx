@@ -3,13 +3,12 @@ import shapesData from "./shapes/data";
 import {
   ComponentDataType,
   CoolshapeComponentProps,
-  GradientProp,
 } from "./lib/types";
 import { createShapeComponent, getRandomShape } from "./lib/shape";
 import { gradients } from "./gradients";
 
 const Coolshape = forwardRef<SVGSVGElement, CoolshapeComponentProps>(
-  ({ random, index, type, name, gradient, ...rest }, ref) => {
+  ({ random, index, type, name, ...rest }, ref) => {
     const toDefault = !random && !(name || (type && index));
     const [shapeId, setShapeId] = useState(
       toDefault
@@ -29,14 +28,12 @@ const Coolshape = forwardRef<SVGSVGElement, CoolshapeComponentProps>(
     }, []);
 
     const ElementData: ComponentDataType = shapesData[shapeId];
-    let gradientProp: GradientProp = ElementData.gradient;
+    const gradientProp = rest.gradient as any;
     if (
-      typeof gradient == "string" &&
-      Object.keys(gradients).includes(gradient)
+      typeof gradientProp == "string" &&
+      Object.keys(gradients).includes(gradientProp)
     ) {
-      gradientProp = gradients[gradient];
-    } else {
-      gradientProp = gradient as GradientProp;
+      rest.gradient = gradients[gradientProp];
     }
     const Component = createShapeComponent(shapeId, {
       ...ElementData,
@@ -48,7 +45,6 @@ const Coolshape = forwardRef<SVGSVGElement, CoolshapeComponentProps>(
           ref={ref}
           shapeId={shapeId}
           {...rest}
-          gradient={gradientProp}
         />
       );
     } else {

@@ -9,9 +9,10 @@ export const ShapeMask = (props: MaskProps) => {
   let gradientShapes: ShapeElementTypes | ShapeElementTypes[] =
     props.gradientShapes || [];
 
-  // resolve gradient prop
+  // resolve gradient prop for
   if (props.gradient && typeof props.gradient === "object") {
-    if ("type" in props.gradient) {
+    // When in format of {type, stops}
+    if ("type" in props.gradient || "stops" in props.gradient) {
       const { shapes, ...gradient } = props.gradient as Gradient & {
         shapes?: ShapeElementTypes | ShapeElementTypes[];
       };
@@ -23,20 +24,23 @@ export const ShapeMask = (props: MaskProps) => {
       "gradient" in props.gradient &&
       Array.isArray(props.gradient.gradient)
     ) {
+      // For when it's in format of {gradient:gradient[]}
       gradientProps = props.gradient.gradient as Gradient[];
     } else if (Array.isArray(props.gradient)) {
+      // For when it's in format of {...gradient[]}
       gradientProps = props.gradient as Gradient[];
     }
+    // if shapes props in gradient object
     if ("shapes" in props.gradient && props.gradient.shapes) {
       gradientShapes = props.gradient.shapes as
         | ShapeElementTypes
         | ShapeElementTypes[];
     }
+    // when blur props in gradient object
     if ("blur" in props.gradient && props.gradient.blur) {
       gradientBlur = props.gradient.blur;
     }
   }
-
   const e = React.Children.toArray(props.shape).flatMap(
     (shapeElement: any, index) => {
       let toClone = [shapeElement];
