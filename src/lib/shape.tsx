@@ -75,7 +75,7 @@ export function getRandomShape({
     (shapeKeys[Math.floor(Math.random() * shapeKeys.length)] as ShapesType);
 
   const shapeTypeMaxCount = shapesCount[shapeType];
-  const randomIndex = Math.floor(Math.random() * shapeTypeMaxCount);
+  const randomIndex = Math.floor(Math.random() * shapeTypeMaxCount) + 1;
 
   return {
     shape: shapeType,

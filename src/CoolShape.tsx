@@ -10,22 +10,18 @@ import { gradients } from "./gradients";
 const Coolshape = forwardRef<SVGSVGElement, CoolshapeComponentProps>(
   ({ random, index, type, name, ...rest }, ref) => {
     const toDefault = !random && !(name || (type && index));
-    const [shapeId, setShapeId] = useState(
-      toDefault
-        ? "star-1"
-        : name && !(type && index)
-          ? name
-          : `${type}-${index}`
-    );
+    let shapeId = toDefault
+      ? "star-1"
+      : name && !(type && index)
+        ? name
+        : `${type}-${index}`;
 
-    useEffect(() => {
-      if (random) {
-        const randomShape = getRandomShape({
-          type: type,
-        });
-        setShapeId(randomShape.shapeId);
-      }
-    }, []);
+    if (random) {
+      const randomShape = getRandomShape({
+        type: type,
+      });
+      shapeId = randomShape.shapeId;
+    }
 
     const ElementData: ComponentDataType = shapesData[shapeId];
     const gradientProp = rest.gradient as any;
