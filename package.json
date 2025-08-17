@@ -13,11 +13,11 @@
     "graphics",
     "placeholder"
   ],
-  "main": "dist/esm/index.js",
-  "main:umd": "dist/umd/coolshapes.js",
-  "module": "dist/cjs/index.js",
-  "unpkg": "dist/umd/coolshapes.js",
-  "typings": "dist/types/index.d.ts",
+  "main": "./dist/esm/index.js",
+  "main:umd": "./dist/umd/coolshapes.js",
+  "module": "./dist/cjs/index.js",
+  "unpkg": "./dist/umd/coolshapes.js",
+  "typings": "./dist/types/index.d.ts",
   "files": [
     "./dist",
     "LICENSE",
@@ -74,17 +74,12 @@
       "require": "./dist/cjs/index.js",
       "node": "./dist/cjs/index.js"
     },
-    "./shapes": {
-      "import": "./dist/esm/shapes/index.js",
-      "types": "./dist/types/shapes/index.d.ts",
-      "require": "./dist/cjs/shapes/index.js",
-      "node": "./dist/cjs/shapes/index.js"
-    },
-    "./shapes/*": {
-      "import": "./dist/esm/shapes/*.js",
-      "types": "./dist/types/shapes/*.d.ts",
-      "require": "./dist/cjs/shapes/*.js",
-      "node": "./dist/cjs/shapes/*.js"
+    "./*": {
+      "types": "./dist/types/*.d.ts",
+      "import": "./dist/esm/*.js",
+      "browser": "./dist/umd/*.js",
+      "require": "./dist/cjs/*.js",
+      "node": "./dist/cjs/*.js"
     }
   },
   "devDependencies": {
