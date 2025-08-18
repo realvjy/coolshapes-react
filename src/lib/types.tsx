@@ -51,6 +51,7 @@ export type OutlineCap = "butt" | "round" | "square";
  * Supported SVG shape elements that can be used as a shape mask or can be passed
  * a gradient shape element.
  */
+
 export type ShapeElementTypes = ReactElement<
   | SVGPathElement
   | SVGCircleElement
@@ -58,6 +59,7 @@ export type ShapeElementTypes = ReactElement<
   | SVGEllipseElement
   | SVGPolylineElement
   | SVGPolygonElement
+  | SVGSVGElement
 >;
 
 type ShapeElement = ShapeElementTypes | ShapeElementTypes[];

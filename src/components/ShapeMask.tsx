@@ -1,5 +1,5 @@
 import { Gradient, MaskProps, ShapeElementTypes } from "../lib/types";
-import React, { Fragment } from "react";
+import React, { cloneElement, Fragment, ReactSVGElement } from "react";
 import { angleToBoxCoords } from "../lib";
 import { resolveGradientStops } from "../lib/utils/shape";
 
@@ -8,6 +8,20 @@ export const ShapeMask = (props: MaskProps) => {
   let gradientBlur = props.blur;
   let gradientShapes: ShapeElementTypes | ShapeElementTypes[] =
     props.gradientShapes || [];
+  let shapeProp = props.shape;
+  let shapeElement: ShapeElementTypes;
+
+  // Resolve mask gradient
+  if (typeof shapeProp === 'string'){
+    shapeElement = <path fill="#fff" d={shapeProp as string} />;
+  }else if ((shapeProp as any).type === 'svg'){
+    // Adjust given svg element for shape mask
+    const clonedElement = cloneElement(shapeProp as any, {width:"100%", height:"100%"});
+    shapeElement = clonedElement as any;
+  }else{
+    shapeElement = shapeProp as any;
+  }
+
 
   // resolve gradient prop for
   if (props.gradient && typeof props.gradient === "object") {
@@ -93,12 +107,8 @@ export const ShapeMask = (props: MaskProps) => {
           </g>
         )}
         <defs>
-          <mask id={`cs_${props.shapeId}_mask`}>
-            {typeof props.shape == "string" ? (
-              <path fill="#fff" d={props.shape} />
-            ) : (
-              props.shape
-            )}
+          <mask id={`cs_${props.shapeId}_mask`} maskUnits="userSpaceOnUse">
+            {shapeElement}
           </mask>
           {gradientProps.map((gradient, _i) => {
             const { id, stops, ...gradientProps } = { ...gradient };
