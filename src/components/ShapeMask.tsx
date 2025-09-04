@@ -1,5 +1,5 @@
 import { Gradient, MaskProps, ShapeElementTypes } from "../lib/types";
-import React, { cloneElement, Fragment, ReactSVGElement } from "react";
+import React, { cloneElement, Fragment } from "react";
 import { angleToBoxCoords } from "../lib";
 import { resolveGradientStops } from "../lib/utils/shape";
 
@@ -8,7 +8,7 @@ export const ShapeMask = (props: MaskProps) => {
   let gradientBlur = props.blur;
   let gradientShapes: ShapeElementTypes | ShapeElementTypes[] =
     props.gradientShapes || [];
-  let shapeProp = props.shape;
+  const shapeProp = props.shape;
   let shapeElement: ShapeElementTypes;
 
   // Resolve mask gradient

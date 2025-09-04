@@ -76,6 +76,7 @@ export interface OutlineProps {
   outlineColor: string;
   outlineCap: OutlineCap;
   outlineJoin: OutlineJoin;
+  outlineOpacity: number | string
 }
 
 export type GradientProp =

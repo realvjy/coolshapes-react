@@ -46,9 +46,9 @@ describe("Using create component function", () => {
       outlineColor: "red",
       outlineCap: "butt" as OutlineCap,
       outlineJoin: "mitter" as OutlineJoin,
-      strokeOpacity: 10,
+      outlineOpacity: 10,
     };
-    const query = `[fill="none"][stroke="red"][stroke-width="2"][stroke-linecap="butt"][stroke-opacity="10"][stroke-linejoin="mitter"]`;
+    const query = `[fill="none"][stroke="red"][stroke-width="4"][stroke-linecap="butt"][stroke-opacity="10"][stroke-linejoin="mitter"]`;
     const { getByTestId } = render(<Component data-testid={"shape"} {...outlineProps} />);
     const element = getByTestId("shape");
     // The shape component overflow sets to visible that make sure the outline doesn't clip

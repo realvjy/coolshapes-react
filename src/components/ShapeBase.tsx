@@ -33,7 +33,7 @@ const ShapeBase = forwardRef<SVGSVGElement, ShapeProps>((props, ref) => {
     outlineCap,
     outlineJoin,
     outlineColor,
-    strokeOpacity,
+    outlineOpacity,
     ...rest
   } = props;
 
@@ -53,10 +53,20 @@ const ShapeBase = forwardRef<SVGSVGElement, ShapeProps>((props, ref) => {
       style={{
         overflow: outline ? "visible" : "initial",
       }}
-      fillOpacity={strokeOpacity ? opacity : undefined}
-      opacity={strokeOpacity ? undefined : opacity}
+      fillOpacity={outlineOpacity ? opacity : undefined}
+      opacity={outlineOpacity ? undefined : opacity}
       {...rest}
       className={`${defaultClassName} ${shapeId} ${className || ""}`}>
+      {props.outline && (
+        <Outline
+          shape={shape}
+          outline={outline as number}
+          outlineFill={outlineColor}
+          outlineJoin={outlineJoin}
+          outlineCap={outlineCap}
+          opacity={outlineOpacity}
+        />
+      )}
       <ShapeMask
         shape={shape}
         noise={noise}
@@ -72,16 +82,6 @@ const ShapeBase = forwardRef<SVGSVGElement, ShapeProps>((props, ref) => {
         <Noise
           shapeId={shapeId}
           noiseScale={typeof noise === "number" ? defaultNoise : undefined}
-        />
-      )}
-      {props.outline && (
-        <Outline
-          shape={shape}
-          outline={outline as number}
-          outlineColor={outlineColor}
-          outlineJoin={outlineJoin}
-          outlineCap={outlineCap}
-          opacity={strokeOpacity}
         />
       )}
     </svg>

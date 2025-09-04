@@ -5,14 +5,14 @@ export default function Outline(props: {
   opacity?: number | string;
   shape: MaskShape;
   outline: number | string;
-  outlineColor?: string;
+  outlineFill?: string;
   outlineJoin?: OutlineJoin;
   outlineCap?: OutlineCap;
 }) {
   const params = {
     fill: "none",
-    stroke: props.outlineColor || "#000",
-    strokeWidth: props.outline,
+    stroke: props.outlineFill || "#000",
+    strokeWidth: Number(props.outline) * 2,
     strokeLinejoin: props.outlineJoin || "bevel",
     strokeLinecap: props.outlineCap || "round",
     strokeOpacity: props.opacity || 1,
