@@ -7,6 +7,8 @@
   <a href="https://www.npmjs.com/package/coolshapes-react"><img src="https://img.shields.io/npm/v/coolshapes-react" alt="npm package"></a>
 </p>
 
+> ⚠️ **Note:** This documentation is for the upcoming **V2 Beta**. If you are looking for the documentation for the current stable release (v1.0.1), please [click here](https://github.com/realvjy/coolshapes-react/tree/v1.0.1#readme).
+
 A simple, fun project for the sake of creating some cool-looking abstract shapes with little grainy gradients crafted by [@realvjy](https://x.com/realvjy). Coolshapes is a completely open-source set of 100+ abstract shapes crafted for any design and development projects. Free for both commercial and personal use. Licensed under MIT.
 
 ### Table of Contents
