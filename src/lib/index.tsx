@@ -1,2 +1,2 @@
-export { default as NoiseMask } from "./noiseMask";
-export { default as ShapeBase, ShapeType, ShapeProps } from "./iconBase";
+export type { ShapeProps } from "./types";
+export { angleToBoxCoords } from "./math";
