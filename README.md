@@ -56,7 +56,7 @@ Just import the Global component `Coolshape` and it will work.
 import { Coolshape } from "coolshapes-react";
 
 const App = () => {
-  return <Coolshape type="star" index={0} size={48} noise={true} />;
+  return <Coolshape type="star" index={1} size={48} noise={true} />;
 };
 
 export default App;
@@ -70,7 +70,7 @@ You can import the component for specific category - `Star`,`Ellipse`... etc - a
 import { Star } from "coolshapes-react";
 
 const App = () => {
-  return <Star index={0} size={48} />;
+  return <Star index={1} size={48} />;
 };
 
 export default App;
@@ -118,43 +118,35 @@ getRandomShape({ onlyId: true, type: "star" }); // returns shape identifier that
 
 #### Other Methods
 
-All the components are mapped from object that we have given you access to
+You can access available shape types and counts using `shapeTypes` and `shapesCount`.
 
 ```js
-const shapes = {
-  star: [Star1, Star2, ...],
-  ellipse: [Ellipse1, Ellipse2, ...],
-  ...
-}
+import { shapeTypes, shapesCount } from "coolshapes-react";
+// shapeTypes: ['star', 'ellipse', ...]
+// shapesCount: { star: 13, ellipse: 12, ... }
 ```
 
-#### Renders the shapes from all categories
+#### Render all shapes from all categories
 
 ```jsx
-import { shapes } from "coolshapes-react";
+import { Coolshape, shapeTypes, shapesCount } from "coolshapes-react";
 
 const ShapeGrid = () => {
   return (
     <>
-      {Object.keys(shapes).map((shapeType, _) => {
-        return shapes[shapeType].map((Shape, index) => {
-          return <Shape size={48} />;
-        });
+      {shapeTypes.map((type) => {
+        const count = shapesCount[type];
+        // Numbers start at 0, all other shapes start at 1
+        const startIndex = type === 'number' ? 0 : 1;
+        const endIndex = type === 'number' ? 9 : count;
+        
+        return Array.from({ length: endIndex - startIndex + 1 }, (_, i) => startIndex + i).map((index) => (
+          <Coolshape key={`${type}-${index}`} type={type} index={index} size={48} />
+        ));
       })}
     </>
   );
 };
-```
-
-###### syntax
-
-```js
-shapesData[type][index];
-```
-
-```js
-const starComponents = shapesData["star"];
-const StarComponent1 = starComponents[0];
 ```
 
 ### Props
@@ -164,12 +156,20 @@ const StarComponent1 = starComponents[0];
 | `size`                | _Number_  | 200     | The dimension of shape                                                                                                                                   |
 | [`type`](#categories) | _String_  | random  | The category of shapes, if left empty it will randomly select a category.                                                                                |
 | `noise`               | _Boolean_ | true    | Whether to add noise to the shape or not.                                                                                                                |
-| `index`               | _Number_  | random  | The index of shape within the shape [category](#categories), it would randomly select a shape from the category if type prop given. index starts from 0. |
+| `index`               | _Number_  | random  | The index of shape within the shape [category](#categories), it would randomly select a shape from the category if type prop given. index starts from 1. |
 | `random`              | _Boolean_ | false   | If set true it will select a random component                                                                                                            |
+| `fill`                | _String_  | none    | Overrides the default mesh gradient with a flat hex/rgba color (e.g., `"#000000"`). Pass `"transparent"` to remove color.                               |
+| `gradient`            | _String_  | default | Applies a preset gradient (e.g., `"gradient-1"`). Set to `false` or leave empty when using `fill`.                                                        |
+| `outline`             | _Number_  | 0       | Adds a stroke outline of the specified width.                                                                                                            |
+| `outlineColor`        | _String_  | #fff    | The color of the outline stroke.                                                                                                                         |
+| `outlineJoin`         | _String_  | bevel   | SVG stroke-linejoin for the outline (`round`, `miter`, `bevel`).                                                                                         |
+| `outlineCap`          | _String_  | round   | SVG stroke-linecap for the outline (`round`, `butt`, `square`).                                                                                          |
+| `blur`                | _Number_  | 0       | Applies a Gaussian blur filter of the specified pixel radius.                                                                                            |
+| `transparent`         | _Boolean_ | false   | Removes the underlying white background layer, making the shape completely transparent behind the fill.                                                  |
 
 #### notes
 
-> Index starts from number 0, so if you want to retrieve the first shape of any category, you would use the index number 0.
+> Index starts from number `1` for all shapes, EXCEPT for the `number` category which strictly maps to actual digits (`0-9`).
 
 > The shapes are SVG components behind the hood, so it's also supports all the props that can be passed in a svg element.
 
