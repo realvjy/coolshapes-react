@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.0.0-beta.1
+
+- **V2 Beta Release!**
+- Removed deprecated `shapes` export in favor of `shapeTypes` and `shapesCount`.
+- Strict 1-based indexing for all shapes (except numbers which are 0-based).
+- Added `fill` prop for flat colors (overrides default mesh gradient).
+- Added `gradient` prop for easy access to 115 gradient presets.
+- Added outline support: `outline` (width), `outlineColor`, `outlineJoin`, and `outlineCap`.
+- Added `blur` filter prop.
+- Added `transparent` background toggle.
+
 ## 1.0.1
 
 - Update Cover
